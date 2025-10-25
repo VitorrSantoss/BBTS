@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dados de Colaborador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="TelaCadastro.css">
+</head>
+
+<body class="bg-[#f5f5f5]">
+  <div class="w-full h-6 bg-[#fcfc30]"></div>
+  <main class="flex flex-col lg:flex-row" style="min-height: calc(100vh - 1.5rem);">
+    <!-- Coluna do Formulário (Esquerda) -->
+    <div class="w-full lg:w-3/4 p-8 md:p-12 lg:p-16">
+      <header class="flex items-center mb-10">
+        <div class="bg-[#3333bd] p-3 rounded-lg flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fcfc30" viewBox="0 0 256 256"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,16V88H48V48ZM48,208V104H208V208Z"></path></svg>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold text-[#3333bd] ml-4">Dados de Colaborador</h1>
+      </header>
+
+      <form class="space-y-8">
+        <!-- Seção Dados Pessoais -->
+        <section>
+          <h2 class="text-3xl font-bold text-[#3333bd] mb-4">Dados Pessoais</h2>
+          <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+            <input type="text" placeholder="Nome completo" class="form-input md:col-span-2">
+            <input type="text" placeholder="CPF (Ex: 000.000.000-00)" class="form-input md:col-span-2">
+            <input type="text" placeholder="Área de atuação (Ex: Desenvolvedor Pleno)" class="form-input md:col-span-2">
+            <input type="text" placeholder="Endereço (Ex: Rua do Sol, 81 / Recife-PE)" class="form-input md:col-span-3">
+            <input type="tel" placeholder="Telefone (Ex: (DDD) 99999-9999)" class="form-input md:col-span-3">
+          </div>
+        </section>
+
+        <!-- Seção Habilidades & Idiomas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <section>
+            <h2 class="text-3xl font-bold text-[#3333bd] mb-4">Habilidades</h2>
+            <div class="flex items-center gap-4">
+              <input type="text" placeholder="Ex: Java, Figma, Excel, MySQL" class="form-input flex-grow">
+              <select class="form-input custom-select w-48">
+                <option selected>Iniciante</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+              </select>
+            </div>
+            <a href="#" class="text-[#3333bd] font-semibold mt-3 inline-block">+ Adicionar habilidade</a>
+          </section>
+          <section>
+            <h2 class="text-3xl font-bold text-[#3333bd] mb-4">Idiomas</h2>
+            <div class="flex items-center gap-4">
+              <input type="text" placeholder="Ex: Inglês" class="form-input flex-grow">
+              <select class="form-input custom-select w-48">
+                <option selected>Iniciante</option>
+                <option>Básico</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+                <option>Fluente</option>
+              </select>
+            </div>
+            <a href="#" class="text-[#3333bd] font-semibold mt-3 inline-block">+ Adicionar idioma</a>
+          </section>
+        </div>
+
+        <!-- Seção Experiência Profissional -->
+        <section>
+          <h2 class="text-3xl font-bold text-[#3333bd] mb-4">Experiência Profissional</h2>
+          <div class="space-y-4">
+            <input type="text" placeholder="Empresa" class="form-input md:w-1/2">
+            <div class="flex flex-col md:flex-row gap-4 md:w-1/2">
+              <input type="text" placeholder="Início (Ex: 02.2024)" class="form-input w-full">
+              <input type="text" placeholder="Fim (Ex: 04.2025)" class="form-input w-full">
+            </div>
+            <input type="text" placeholder="Cargo (Ex: Estágio de T.I)" class="form-input md:w-1/2">
+          </div>
+          <a href="#" class="text-[#3333bd] font-semibold mt-3 inline-block">+ Adicionar experiência</a>
+        </section>
+
+        <!-- Seção Certificações e Cursos -->
+        <section>
+          <h2 class="text-3xl font-bold text-[#3333bd] mb-4">Certificações e Cursos</h2>
+          <textarea placeholder="Liste suas competências e/ou cursos realizados" rows="5" class="form-textarea md:w-2/3"></textarea>
+        </section>
+
+        <button type="submit" class="bg-[#fcfc30] text-[#3333bd] font-bold text-xl py-3 px-12 rounded-full shadow-md hover:bg-yellow-300 transition-colors">SALVAR</button>
+      </form>
+    </div>
+
+    <!-- Coluna da Foto (Direita) -->
+    <div class="w-full lg:w-1/4 bg-[#3333bd] flex flex-col items-center justify-between min-h-[500px] p-8 lg:py-24">
+      <div class="flex flex-col items-center text-center">
+        <div class="bg-white rounded-full w-40 h-40 flex items-center justify-center border-2 border-[#3333bd] shadow-lg overflow-hidden">
+           <img src="/assets/Persona.png" alt="Foto de perfil" class="w-full h-full object-cover">
+        </div>
+        <p class="text-white text-2xl font-bold mt-6">Olá, Carla Souza<br>Bem-Vinda!</p>
+      </div>
+      <button type="button" class="bg-[#fcfc30] text-[#3333bd] font-bold text-xl py-3 px-12 rounded-full shadow-md hover:bg-yellow-300 transition-colors">VOLTAR</button>
+    </div>
+  </main>
+</body>
+
+</html>
+
