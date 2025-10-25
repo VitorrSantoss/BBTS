@@ -1,0 +1,591 @@
+/* ------------------------
+   Estilos gerais e reset
+   ------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #F5F5F5;
+  color: #333;
+  /* Cor de texto padrão ligeiramente mais escura */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  /* Espaçamento de linha aumentado para legibilidade */
+}
+
+/* Cores base do protótipo */
+:root {
+  --blue: #3333BD;
+  --yellow: #FCFC30;
+  --lavender: #F0F0F8;
+  /* Fundo da área de competências (cor do protótipo) */
+  --text-muted: #6b6b8a;
+  /* Texto secundário (cinza-azulado) */
+  --bar-bg: #DAD8F8;
+  /* Fundo da barra de progresso */
+  --tag-bg: rgba(252, 252, 48, 0.35);
+  /* Fundo da tag (amarelo claro) */
+  --tag-border: #FCFC30;
+  /* Borda da tag (amarelo vivo) */
+}
+
+/* ------------------------
+   HEADER
+   ------------------------ */
+.site-header {
+  background: var(--blue);
+  color: #fff;
+  padding: 20px 0;
+  /* Aumentado padding para 20px */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo (MODIFICADO) */
+.logo {
+  /* Mantemos flex para alinhamento vertical */
+  display: flex;
+  align-items: center;
+}
+
+/* Nova regra para a imagem do logo com as dimensões solicitadas */
+.logo img {
+  width: 555px;
+  height: 48px;
+  object-fit: contain;
+  /* 'contain' evita que a imagem do logo distorça */
+}
+
+/* Nav */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  /* Aumentado gap para 30px */
+}
+
+.main-nav a.nav-link,
+.nav-services .services-btn {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  /* Aumentado para 700 (protótipo) */
+  font-size: 20px;
+  /* Aumentado para 20px (protótipo) */
+  display: flex;
+  /* Alinha ícone e texto */
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-services .services-btn {
+  background: transparent;
+  border: none;
+  cursor: default;
+  font-family: "Montserrat", sans-serif;
+  /* Garante a mesma fonte */
+}
+
+/* Seta do dropdown */
+.nav-arrow {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+/* Avatar no header (tamanho do protótipo) */
+.nav-avatar {
+  width: 57px;
+  height: 57px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--yellow);
+  /* Borda amarela, como no protótipo */
+}
+
+/* ------------------------
+   PAGE CONTENT WRAP
+   ------------------------ */
+.page {
+  max-width: 1200px;
+  margin: 30px auto;
+  /* Aumentado margem para 30px */
+  padding: 0 28px 60px;
+}
+
+/* PERFIL CARD (ajustado ao protótipo) */
+.perfil-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  /* Aumentado gap para 25px */
+  border: 1.5px solid var(--blue);
+  padding: 20px;
+  /* Aumentado padding para 20px */
+  width: fit-content;
+  border-radius: 8px;
+  /* Aumentado border-radius */
+  background: #fff;
+  margin-bottom: 30px;
+}
+
+.perfil-photo {
+  width: 105px;
+  /* Tamanho exato do protótipo */
+  height: 105px;
+  object-fit: cover;
+  border-radius: 8px;
+  /* Aumentado border-radius */
+}
+
+.perfil-info .nome {
+  color: var(--blue);
+  font-size: 26px;
+  /* Aumentado para 26px (protótipo) */
+  font-weight: 700;
+  margin-bottom: 12px;
+  /* Aumentado margin-bottom */
+}
+
+.perfil-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 14px;
+  /* Aumentado para 14px */
+  color: var(--blue);
+  background: var(--tag-bg);
+  /* Fundo amarelo claro (protótipo) */
+  border: 1px solid var(--tag-border);
+  /* Borda amarela (protótipo) */
+  padding: 6px 12px;
+  /* Aumentado padding */
+  border-radius: 6px;
+  font-weight: 400;
+  /* Peso 400 (protótipo) */
+  font-style: italic;
+  /* Adicionado itálico (protótipo) */
+}
+
+/* Destaque do primeiro tag (Equipe 02) */
+.tag.team {
+  background: var(--blue);
+  color: var(--yellow);
+  border-color: var(--yellow);
+  font-weight: 400;
+  /* Peso 400 */
+  font-style: italic;
+  /* Adicionado itálico */
+}
+
+/* ------------------------
+   TWO COLUMNS (conteúdo principal)
+   ------------------------*/
+.two-columns {
+  display: flex;
+  gap: 60px;
+  /* Aumentado gap para 60px (protótipo) */
+  margin-top: 8px;
+  align-items: flex-start;
+}
+
+.col {
+  flex: 1;
+  min-width: 260px;
+}
+
+.card {
+  background: transparent;
+  margin-bottom: 30px;
+  /* Aumentado margin-bottom */
+}
+
+.card h2 {
+  color: var(--blue);
+  font-size: 26px;
+  /* Aumentado para 26px (protótipo) */
+  font-weight: 700;
+  margin-bottom: 15px;
+  /* Aumentado margin-bottom */
+}
+
+.card p {
+  color: #333;
+  font-size: 16px;
+  /* Aumentado para 16px (protótipo) */
+  margin-bottom: 5px;
+  /* Diminuído margin-bottom */
+}
+
+.edu {
+  margin-bottom: 20px;
+  /* Adicionado espaço entre blocos de formação */
+}
+
+.period {
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 18px;
+  /* Aumentado para 18px (protótipo) */
+}
+
+.period em {
+  font-weight: 300;
+  /* Diminuído peso para 300 */
+  font-style: italic;
+  color: var(--text-muted);
+  margin-left: 8px;
+  font-size: 16px;
+  /* Ajustado para 16px */
+}
+
+.info-line {
+  font-size: 16px;
+  /* Tamanho base 16px */
+  color: var(--text-muted);
+  /* Cor padrão é muted */
+}
+
+.info-line strong {
+  color: var(--blue);
+  /* Label é azul */
+  font-weight: 700;
+}
+
+.info-line span {
+  color: var(--text-muted);
+  /* Valor é muted */
+  font-weight: 300;
+  /* Diminuído peso para 300 */
+}
+
+/* Lista para Habilidades e Idiomas */
+.info-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-list li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.info-list strong {
+  color: var(--blue);
+  font-weight: 700;
+  min-width: 140px;
+  /* Alinha os valores */
+  display: inline-block;
+}
+
+.info-list span {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+
+/* ------------------------
+   COMPETÊNCIAS AREA (MODIFICADO)
+   ------------------------ */
+
+/* .competencias-area é agora o container full-width (largura total)
+  que aplica o fundo e o espaçamento vertical.
+*/
+.competencias-area {
+  margin-top: 0;
+  /* Removido, pois saiu do .page */
+  width: 100%;
+  background: var(--lavender);
+  /* Cor do protótipo */
+  padding: 30px 28px;
+  /* Espaçamento vertical + padding lateral (igual ao .page) */
+  /* Adiciona a linha divisória vertical do protótipo */
+  border-bottom: 4px solid #E0DFF9;
+}
+
+/* .competencias-wrap é agora o container *interno* que centraliza o conteúdo
+*/
+.competencias-wrap {
+  /* Removeido o fundo e padding (passou para .competencias-area) */
+  /* border-radius: 8px;  (removido) */
+  /* padding: 30px 40px; (removido) */
+  /* border-bottom: ... (removido) */
+
+  /* Centraliza o conteúdo, como o .page */
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* Mantém o layout flex para as colunas */
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Coluna da esquerda com barras */
+.competencias-left {
+  flex: 1.5;
+  /* Mais espaço para as barras */
+}
+
+.competencias-wrap h2 {
+  color: var(--blue);
+  font-size: 26px;
+  /* Aumentado para 26px (protótipo) */
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Novo layout em Grid, 100% fiel ao protótipo */
+.competencia-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Espaço entre as barras */
+}
+
+.competencia {
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr;
+  /* Label | Barra | Nível */
+  align-items: center;
+  gap: 15px;
+}
+
+.competencia .label {
+  color: var(--text-muted);
+  /* Cor do protótipo */
+  font-weight: 400;
+  font-size: 16px;
+  text-align: right;
+}
+
+.competencia .label i {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Barra de progresso */
+.bar {
+  height: 10px;
+  background: var(--bar-bg);
+  /* Fundo da barra (protótipo) */
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  /* Ocupa todo o espaço da grid */
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 8px;
+  width: 0;
+  /* Setado via style="" inline */
+  transition: width .8s ease;
+}
+
+.competencia .level {
+  color: var(--text-muted);
+  /* Cor do protótipo */
+  font-weight: 300;
+  font-style: italic;
+  font-size: 16px;
+  text-align: right;
+}
+
+/* Coluna da direita — Círculo com % */
+.competencias-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 40px;
+  /* Espaço para a linha */
+  border-left: 1px solid #C9C8F0;
+  /* Linha divisória do protótipo */
+}
+
+.donut-chart {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 20px auto;
+  position: relative;
+  background: conic-gradient(var(--blue) 0% calc(1% * var(--percentage)),
+      var(--bar-bg) calc(1% * var(--percentage)) 100%);
+
+  /* Centraliza o texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cria o "buraco" no meio do gráfico */
+.donut-chart::before {
+  content: "";
+  width: 75%;
+  /* 75% = borda mais espessa (protótipo) */
+  height: 75%;
+  background-color: var(--lavender);
+  /* Cor de fundo da seção */
+  border-radius: 50%;
+
+  /* Posiciona o buraco no centro */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chart-text {
+  font-size: 40px;
+  color: var(--blue);
+  font-weight: 800;
+  /* Fonte 800 (ExtraBold) */
+  z-index: 10;
+  /* Garante que o texto fique acima do "buraco" */
+}
+
+
+@media (max-width: 980px) {
+  .header-inner {
+    padding: 0 18px;
+  }
+
+  .page {
+    padding: 0 18px 40px;
+    margin-top: 20px;
+  }
+
+  .two-columns {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* O .competencias-area agora tem o padding lateral responsivo */
+  .competencias-area {
+    padding: 22px 18px;
+  }
+
+  .competencias-wrap {
+    flex-direction: column;
+    padding: 0;
+    /* Removido padding, pois já está no .competencias-area */
+    gap: 20px;
+    /* Ajustado gap responsivo */
+  }
+
+  .competencias-right {
+    width: 100%;
+    margin-top: 18px;
+    border-left: none;
+    /* Remove linha vertical */
+    padding-left: 0;
+    padding-top: 20px;
+    border-top: 1px solid #C9C8F0;
+    /* Adiciona linha horizontal */
+  }
+
+  .perfil-card {
+    width: 100%;
+  }
+
+  /* Ajuste responsivo para o logo grande */
+  .logo img {
+    width: 300px;
+    /* Diminui o logo em telas menores */
+    height: auto;
+    /* Mantém a proporção */
+  }
+}
+
+@media (max-width: 520px) {
+  .logo {
+    font-size: 18px;
+  }
+
+  .main-nav {
+    gap: 15px;
+  }
+
+  .nav-link,
+  .services-btn {
+    font-size: 16px;
+  }
+
+  .nav-avatar {
+    display: none;
+  }
+
+  .donut-chart {
+    width: 140px;
+    height: 140px;
+  }
+
+  .chart-text {
+    font-size: 28px;
+  }
+
+  .perfil-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card h2,
+  .perfil-info .nome,
+  .competencias-wrap h2 {
+    font-size: 22px;
+  }
+
+  /* Grid responsivo para as barras */
+  .competencia {
+    grid-template-columns: 1fr auto;
+    /* Col 1: Label, Col 2: Nível */
+    grid-template-rows: auto auto;
+    /* Linha 1: Label/Nível, Linha 2: Barra */
+    gap: 8px 15px;
+  }
+
+  .competencia .label {
+    text-align: left;
+  }
+
+  .competencia .bar {
+    grid-row: 2;
+    /* Barra vai para a segunda linha */
+    grid-column: 1 / -1;
+    /* Barra ocupa as duas colunas */
+  }
+
+  .competencia .level {
+    text-align: right;
+  }
+
+  /* Ajuste responsivo para o logo grande */
+  .logo img {
+    width: 250px;
+    /* Diminui ainda mais o logo */
+  }
+}
