@@ -1,0 +1,405 @@
+/* --- CONFIGURAÇÕES GLOBAIS --- */
+:root {
+    --blue: #3333BD;
+    --yellow: #FCFC30;
+    --bg-gray: #F5F5F5;
+    --border-color: #3333BD;
+    --text-color: #333;
+    --text-light: #555;
+    --card-bg: white; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --- 1. CABEÇALHO --- */
+.site-header {
+    background-color: var(--blue);
+    color: white;
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1512px;
+    padding: 0 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.logo-text {
+    font-size: 24px;
+}
+
+.logo-divider {
+    width: 1px;
+    height: 40px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.logo-page-title {
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--yellow);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.nav-services {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-services svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.nav-profile-icon {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    border: 2px solid var(--yellow);
+    object-fit: cover;
+}
+
+/* --- 2. CONTEÚDO DA PÁGINA --- */
+.page-wrapper {
+    max-width: 1512px;
+    padding: 30px 40px;
+    margin: 0 auto;
+}
+
+.greeting {
+    color: var(--blue);
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Layout de 2 Colunas */
+.main-layout {
+    display: grid;
+    /* Coluna principal é 2.5x maior que a sidebar */
+    grid-template-columns: 2.5fr 1fr;
+    gap: 30px;
+    align-items: flex-start; /* Alinha os cards no topo */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- 3. ESTILOS DE COMPONENTES (Cards, Grids) --- */
+.card {
+    /* O card da imagem é transparente com borda */
+    background-color: transparent; 
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.card-title {
+    text-align: center;
+    color: var(--blue);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.grid-container {
+    display: grid;
+    /* 4 colunas com tamanho igual */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Card "Suas Equipes" */
+.team-block {
+    border: 1.2px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden; /* Garante que a imagem respeite a borda */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.team-block img {
+    width: 100%;
+    height: 171px; /* Altura fixa como na imagem */
+    object-fit: cover;
+    background-color: rgba(51, 51, 189, 0.15); /* Fundo azulado */
+}
+
+.team-label {
+    background-color: var(--yellow);
+    color: var(--blue);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Card "Conversas Recentes" */
+.chat-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.chat-block img {
+    width: 158px;
+    height: 158px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    object-fit: cover;
+}
+
+.chat-label {
+    background-color: var(--yellow);
+    color: var(--blue);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 18px;
+}
+
+/* --- 4. SIDEBAR (Direita) --- */
+.sidebar-card {
+    /* Fundo branco para os cards da sidebar */
+    background-color: var(--card-bg);
+}
+
+.new-team-block {
+    width: 194px; /* Largura fixa como na imagem */
+    margin: 0 auto; /* Centraliza o bloco */
+}
+
+/* Placeholder para o ícone de imagem */
+.image-placeholder {
+    width: 100%;
+    height: 171px;
+    background-color: rgba(51, 51, 189, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+.image-placeholder svg {
+    width: 80px;
+    height: 80px;
+    fill: #AAA;
+}
+
+/* Card "Membros" */
+.members-title {
+    color: var(--blue);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.members-subtitle {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.email-form {
+    margin-bottom: 20px;
+}
+
+.email-input-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: rgba(48, 76, 109, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    display: flex;
+}
+
+.email-input-wrapper input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: #333;
+}
+.email-input-wrapper input::placeholder {
+    color: #666;
+}
+.email-input-wrapper input:focus {
+    outline: none;
+}
+
+.submit-email-btn {
+    width: 35px;
+    height: 24px;
+    background: var(--blue);
+    border: none;
+    border-radius: 12px;
+    color: var(--yellow);
+    cursor: pointer;
+    
+    /* Alinha o botão dentro do input */
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit-email-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--yellow);
+}
+
+.add-member-btn {
+    width: 54px;
+    height: 54px;
+    background: var(--blue);
+    border: none;
+    border-radius: 50%;
+    color: var(--yellow);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0; /* Centraliza */
+}
+.add-member-btn svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--yellow);
+}
+
+/* Classe de Acessibilidade: Esconde visualmente mas mantém para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+/* --- 5. RESPONSIVIDADE --- */
+@media (max-width: 1200px) {
+    /* Em telas menores, as colunas do grid principal e dos chats quebram */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+}
+
+@media (max-width: 900px) {
+    /* Em telas de tablet, a sidebar passa para baixo */
+    .main-layout {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+
+    .header-container, .page-wrapper {
+        padding: 0 20px;
+    }
+
+    .greeting {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Em telas de celular, tudo fica com 1 coluna */
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Esconde o logo de texto no header para caber */
+    .logo-text, .logo-divider {
+        display: none;
+    }
+
+    .header-container {
+        padding: 0 15px;
+    }
+    
+    .page-wrapper {
+        padding: 20px 15px;
+    }
+
+    .main-nav {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .nav-profile-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .card-title, .members-title {
+        font-size: 22px;
+    }
+}
+
