@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Colaborador - BBTS</title>
+    <!-- Vincula o arquivo CSS -->
+    <link rel="stylesheet" href="TelaColaboradorGestor.css" />
+  </head>
+  <body>
+    <!-- 1. CABEÇALHO (Barra Azul) -->
+    <header class="site-header">
+      <div class="header-container">
+        <!-- Logo (usando o ícone + texto da foto) -->
+        <div class.="logo-container">
+          <img
+            src="/assets/Logo_BBTS-removebg-preview.png" width="555" height="48"
+            alt="Logo BB"
+            class="logo-icon"
+          />
+        </div>
+
+        <!-- Navegação -->
+        <nav class="main-nav">
+          <a href="#">Início</a>
+          <a href="#" class="nav-services">
+            Serviços
+            <!-- Ícone de seta para baixo -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <!-- Ícone de Perfil -->
+          <img
+            src="https://placehold.co/57x60/FFFFFF/3333BD?text=P"
+            alt="Foto do Usuário"
+            class="nav-profile-icon"
+          />
+        </nav>
+      </div>
+    </header>
+
+    <!-- 2. CONTEÚDO DA PÁGINA (Wrapper) -->
+    <div class="page-wrapper">
+      <!-- Layout de 2 Colunas -->
+      <div class="main-layout">
+        <!-- Coluna da Esquerda -->
+        <main class="column-left">
+          <!-- Card "Perfil" -->
+          <section class="card profile-card">
+            <img
+              class="profile-icon"
+              src="https://placehold.co/105x101/EEEEEE/3333BD?text=Icon"
+              alt="Foto de Pedro Henrique"
+            />
+            <div class="profile-info">
+              <h1>Pedro Henrique</h1>
+              <div class="tags-container">
+                <span class="tag team">Equipe 02</span>
+                <span class="tag">Análise de Sistemas</span>
+                <span class="tag">Suporte de T.I</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Card "Competências" (AGORA INCLUI O NÍVEL TOTAL) -->
+          <section class="card competencies-card">
+            <!-- Container interno para o layout dividido -->
+            <div class="competencies-inner">
+              <!-- Lado Esquerdo: Barras -->
+              <div class="competencies-list-wrapper">
+                <h2>Níveis de Competências</h2>
+                <ul class="competency-list">
+                  <!-- Item 1 -->
+                  <li class="competency-item">
+                    <span class="competency-label"
+                      >Gestão de Projetos <i>(PRMG)</i></span
+                    >
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 100%"></div>
+                      <!-- 7/7 -->
+                    </div>
+                    <span class="competency-level">Nível 7/7</span>
+                  </li>
+                  <!-- Item 2 -->
+                  <li class="competency-item">
+                    <span class="competency-label"
+                      >Programação/Desenvolvimento de Software
+                      <i>(ITSP)</i></span
+                    >
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 83.3%"></div>
+                      <!-- 5/6 -->
+                    </div>
+                    <span class="competency-level">Nível 5/6</span>
+                  </li>
+                  <!-- Item 3 -->
+                  <li class="competency-item">
+                    <span class="competency-label"
+                      >Testes Funcionais <i>(TEST)</i></span
+                    >
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 100%"></div>
+                      <!-- 6/6 -->
+                    </div>
+                    <span class="competency-level">Nível 6/6</span>
+                  </li>
+                  <!-- Item 4 -->
+                  <li class="competency-item">
+                    <span class="competency-label"
+                      >Configuração de Software <i>(PORT)</i></span
+                    >
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 66.6%"></div>
+                      <!-- 4/6 -->
+                    </div>
+                    <span class="competency-level">Nível 4/6</span>
+                  </li>
+                  <!-- Item 5 -->
+                  <li class="competency-item">
+                    <span class="competency-label"
+                      >Pesquisa de Usuário <i>(URCH)</i></span
+                    >
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 66.6%"></div>
+                      <!-- 4/6 -->
+                    </div>
+                    <span class="competency-level">Nível 4/6</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Lado Direito: Gráfico -->
+              <div class="total-level-wrapper">
+                <h2>Nível Total</h2>
+                <div class="donut-chart" style="--percentage: 80">
+                  <span class="chart-text">80%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Card "Adicionar Competência" -->
+          <section class="card add-competency-card">
+            <h2>ADICIONAR NOVA COMPETÊNCIA</h2>
+            <form class="add-competency-form">
+              <div class="form-group">
+                <input type="text" id="comp-name" placeholder="Nome" />
+              </div>
+              <div class="form-group">
+                <input type="text" id="comp-category" placeholder="Categoria" />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="comp-subcategory"
+                  placeholder="Subcategoria"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="comp-min-level"
+                    placeholder="Nível mínimo"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="comp-max-level"
+                    placeholder="Nível máximo"
+                  />
+                </div>
+              </div>
+
+              <h3>COLABORADORES</h3>
+              <p class="form-description">
+                Envie um convite para o endereço de E-mail do colaborador
+                desejado.
+              </p>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="colab-email"
+                  placeholder="E-mail do colaborador"
+                />
+              </div>
+
+              <a href="#" class="add-colab-link">+ Adicionar colaborador</a>
+
+              <button
+                type="submit"
+                class="submit-button"
+                aria-label="Adicionar competência"
+              >
+                <!-- Ícone de + -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                </svg>
+              </button>
+            </form>
+          </section>
+        </main>
+
+        <!-- Coluna da Direita -->
+        <aside class="column-right">
+          <!-- Card "Botão Ver Perfil" -->
+          <section class="card button-card">
+            <a href="#" class="profile-button">Ver perfil completo</a>
+          </section>
+
+          <!-- Card "Feedback" -->
+          <section class="card feedback-card">
+            <h2>Feedback</h2>
+            <form class="feedback-form">
+              <div class="form-group">
+                <label for="fb-email-from" class="sr-only">Seu e-mail</label>
+                <input
+                  type="email"
+                  id="fb-email-from"
+                  placeholder="Seu e-mail"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fb-email-to" class="sr-only"
+                  >E-mail do colaborador</label
+                >
+                <input
+                  type="email"
+                  id="fb-email-to"
+                  placeholder="E-mail do colaborador"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fb-message">Assunto:</label>
+                <textarea
+                  id="fb-message"
+                  rows="8"
+                  placeholder="Digite sua mensagem..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="submit-button send-feedback-btn"
+                aria-label="Enviar feedback"
+              >
+                <!-- Ícone de seta -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                  />
+                </svg>
+              </button>
+            </form>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
