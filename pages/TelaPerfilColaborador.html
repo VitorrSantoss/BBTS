@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BB Tecnologia e Serviços — Perfil</title>
+
+    <!-- Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vincula o CSS refinado -->
+    <link rel="stylesheet" href="TelaPerfilColaborador.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <!-- O seu HTML com a tag <img> para o logo -->
+          <img
+            src="/assets/Logo_BBTS-removebg-preview.png"
+            alt="Logo BB Tecnologia e Serviços"
+          />
+        </div>
+
+        <nav class="main-nav" aria-label="menu principal">
+          <a class="nav-link" href="#">Início</a>
+
+          <div class="nav-services">
+            <!-- Botão atualizado com ícone SVG para ser fiel ao protótipo -->
+            <button
+              class="services-btn"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Serviços
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="nav-arrow"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Placeholder com o tamanho e cor EXATOS do protótipo (57x57) -->
+          <img
+            src="/assets/Persona.png"
+            alt="Foto do usuário"
+            class="nav-avatar"
+          />
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN (Conteúdo principal com largura limitada) -->
+    <!-- A tag <main> agora FECHA antes da seção de competências -->
+    <main class="page">
+      <div class="content-wrap">
+        <!-- PERFIL CARD -->
+        <div class="perfil-card">
+          <!-- Placeholder com o tamanho EXATO do protótipo (105x105) -->
+          <img
+            class="perfil-photo"
+            src="/assets/Persona.png"
+            alt="Foto Pedro Henrique"
+          />
+          <div class="perfil-info">
+            <h1 class="nome">Carla Souza</h1>
+            <div class="perfil-tags">
+              <span class="tag team">Equipe 02</span>
+              <span class="tag">Análise de Sistemas</span>
+              <span class="tag">Suporte de T.I</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TWO-COLUMN CONTENT -->
+        <section class="two-columns">
+          <div class="col left-col">
+            <article class="card">
+              <h2>Formação Acadêmica</h2>
+              <div class="edu">
+                <p class="period">
+                  <strong>2025 - 2027</strong> <em>Cursando</em>
+                </p>
+                <p class="info-line">
+                  <strong>Instituição:</strong> <span>Faculdade Senac PE</span>
+                </p>
+                <p class="info-line">
+                  <strong>Curso:</strong>
+                  <span
+                    >Tecnólogo em Análise e Desenvolvimento de Sistemas</span
+                  >
+                </p>
+              </div>
+              <div class="edu">
+                <p class="period">
+                  <strong>2022 - 2023</strong> <em>Concluído</em>
+                </p>
+                <p class="info-line">
+                  <strong>Instituição:</strong> <span>IFPE</span>
+                </p>
+                <p class="info-line">
+                  <strong>Curso:</strong>
+                  <span>Técnico em Tecnologia da Informação</span>
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <h2>Experiência Profissional</h2>
+              <div class="edu">
+                <!-- HTML corrigido (estava quebrado no seu original) -->
+                <p class="period"><strong>08.2023 - 06.2024</strong></p>
+                <p class="info-line">
+                  <strong>Empresa:</strong> <span>Rede Globo (Recife)</span>
+                </p>
+                <p class="info-line">
+                  <strong>Cargo:</strong> <span>Estágio de T.I</span>
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col right-col">
+            <article class="card">
+              <h2>Idiomas</h2>
+              <ul class="info-list">
+                <li><strong>Português:</strong> <span>Nativo</span></li>
+                <li><strong>Inglês:</strong> <span>Avançado</span></li>
+                <li><strong>Espanhol:</strong> <span>Básico</span></li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h2>Habilidades</h2>
+              <ul class="info-list">
+                <li><strong>Java:</strong> <span>Avançado</span></li>
+                <li><strong>Suporte Técnico:</strong> <span>Avançado</span></li>
+                <li><strong>Figma:</strong> <span>Intermediário</span></li>
+                <li><strong>Excel:</strong> <span>Básico</span></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- FIM DO <main> -->
+
+    <!-- 
+      SEÇÃO DE COMPETÊNCIAS (MOVIDA PARA FORA DO <main>)
+      Agora esta seção é "full-width" (largura total)
+    -->
+    <section class="competencias-area">
+      <!-- .competencias-wrap agora centraliza o conteúdo -->
+      <div class="competencias-wrap">
+        <!-- Coluna Esquerda: Barras de Progresso -->
+        <div class="competencias-left">
+          <h2>Níveis de Competências</h2>
+
+          <div class="competencia-grid">
+            <!-- Item 1 -->
+            <div class="competencia">
+              <span class="label">Gestão de Projetos <i>(PRMG)</i></span>
+              <div class="bar">
+                <div class="bar-fill" style="width: 100%"></div>
+              </div>
+              <span class="level">Nível 7/7</span>
+            </div>
+            <!-- Item 2 -->
+            <div class="competencia">
+              <span class="label"
+                >Programação/Desenvolvimento de Software <i>(ITSP)</i></span
+              >
+              <div class="bar">
+                <div class="bar-fill" style="width: 83.3%"></div>
+              </div>
+              <span class="level">Nível 5/6</span>
+            </div>
+            <!-- Item 3 -->
+            <div class="competencia">
+              <span class="label">Testes Funcionais <i>(TEST)</i></span>
+              <div class="bar">
+                <div class="bar-fill" style="width: 100%"></div>
+              </div>
+              <span class="level">Nível 6/6</span>
+            </div>
+            <!-- Item 4 -->
+            <div class="competencia">
+              <span class="label">Configuração de Software <i>(PORT)</i></span>
+              <div class="bar">
+                <div class="bar-fill" style="width: 66.6%"></div>
+              </div>
+              <span class="level">Nível 4/6</span>
+            </div>
+            <!-- Item 5 -->
+            <div class="competencia">
+              <span class="label">Pesquisa de Usuário <i>(URCH)</i></span>
+              <div class="bar">
+                <div class="bar-fill" style="width: 66.6%"></div>
+              </div>
+              <span class="level">Nível 4/6</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Gráfico de Rosca -->
+        <div class="competencias-right">
+          <h2>Nível Total</h2>
+
+          <!-- 
+                Gráfico de Rosca (Donut Chart) feito com CSS
+                A variável --percentage controla o preenchimento.
+            -->
+          <div class="donut-chart" style="--percentage: 80">
+            <span class="chart-text">80%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
