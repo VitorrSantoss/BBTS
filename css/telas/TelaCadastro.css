@@ -1,0 +1,49 @@
+body {
+  font-family: 'Inter', 'Calibri', sans-serif;
+}
+
+/* Custom styles for input fields to match the image */
+.form-input {
+  background-color: rgba(48, 77, 109, 0.3);
+  border: 1px solid #3333bd;
+  color: #333;
+  /* Darker text for better readability */
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+.form-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  /* Darker placeholder text */
+}
+
+.form-input:focus {
+  outline: 2px solid #fcfc30;
+  outline-offset: 2px;
+}
+
+/* Custom styles for select dropdown arrow */
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%233333bd' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+}
+
+.form-textarea {
+  background-color: rgba(48, 77, 109, 0.3);
+  border: 1px solid #3333bd;
+  color: #333;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  resize: none;
+}
+
+.form-textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
