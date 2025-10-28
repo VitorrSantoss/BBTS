@@ -1,0 +1,197 @@
+/* --- Cores Principais --- */
+:root {
+  --azul-principal: #3333bd;
+  --amarelo-principal: #fcfc30;
+  --cinza-claro: #f5f5f5;
+  --cinza-input: #e0e0e0;
+  /* Um cinza sólido para os inputs */
+  --branco: #ffffff;
+}
+
+/* --- Reset Básico e Estilos Globais --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+
+  font-family: "Inter", sans-serif;
+  background-color: #f5f5f5;
+  /* Cor de fundo do painel direito */
+}
+
+/* --- Layout Principal (Container) --- */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  /* Ocupa 100% da altura da tela */
+}
+
+/* --- Estilos dos Painéis (Esquerdo e Direito) --- */
+.panel {
+  /* Centraliza o conteúdo de cada painel */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Painel da Esquerda (Login) */
+.panel-login {
+  flex-basis: 40%;
+  /* Ocupa 40% da largura */
+  background-color: var(--azul-principal);
+  color: var(--branco);
+}
+
+/* CONTAINER DA LOGO: Centraliza a imagem dentro dele */
+.panel-login .logo {
+  display: flex;
+  justify-content: center; /* Centraliza a imagem horizontalmente */
+  align-items: center; /* Centraliza a imagem verticalmente (se necessário) */
+  margin-bottom: 30px;
+  height: 150px; /* Define uma altura para o container, se o logo não preencher */
+}
+
+/* IMAGEM DA LOGO: Garante que a imagem se ajuste ao tamanho */
+.panel-login .logo-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain; /* Garante que a imagem seja exibida corretamente sem distorção */
+}
+
+.panel-login h2 {
+  font-size: 2.5rem;
+  /* 40px */
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Painel da Direita (Criar Conta) */
+.panel-signup {
+  flex-basis: 60%;
+  /* Ocupa 60% da largura */
+  background-color: var(--cinza-claro);
+  color: var(--azul-principal);
+}
+
+/* Conteúdo dentro dos painéis */
+.panel-content {
+  max-width: 380px;
+  /* Limita a largura do formulário e do texto */
+  width: 100%;
+}
+
+/* --- Elementos do Painel de Login (Esquerda) --- */
+.panel-login .logo {
+  font-size: 140px;
+  /* Tamanho do ícone do logo */
+  color: var(--amarelo-principal);
+  /* Cor amarela do logo */
+  margin-bottom: 30px;
+}
+
+.panel-login h2 {
+  font-size: 2.5rem;
+  /* 40px */
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.panel-login p {
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+/* --- Elementos do Painel de Criar Conta (Direita) --- */
+.panel-signup h2 {
+  font-size: 2.5rem;
+  /* 40px */
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Espaço entre os inputs */
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: var(--cinza-input);
+  /* Fundo cinza do input */
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.input-group i {
+  color: var(--azul-principal);
+  margin-right: 15px;
+  width: 20px;
+  /* Largura fixa para o ícone */
+  text-align: center;
+}
+
+.input-group input {
+  flex-grow: 1;
+  /* O input ocupa o espaço restante */
+  border: none;
+  background: transparent;
+  /* Fundo transparente para o input */
+  padding: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.input-group input:focus {
+  outline: none;
+  /* Remove a borda azul ao focar */
+}
+
+.input-group input::placeholder {
+  color: #888;
+  /* Cor do texto "Nome", "Email", "Senha" */
+  font-weight: 400;
+}
+
+/* --- Botões (Estilo unificado) --- */
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  /* Arredondamento dos botões */
+  font-size: 1.1rem;
+  /* 18px */
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+  /* Leve aumento ao passar o mouse */
+}
+
+.btn-primary {
+  background-color: var(--amarelo-principal);
+  color: var(--azul-principal);
+}
+
+/* Adiciona uma margem no botão do formulário */
+.panel-signup .btn {
+  margin-top: 10px;
+  width: 100%;
+  /* Botão "Criar" ocupa 100% da largura */
+}
