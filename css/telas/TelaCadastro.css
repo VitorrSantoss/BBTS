@@ -1,49 +1,81 @@
-body {
-  font-family: 'Inter', 'Calibri', sans-serif;
+/* Cores e fontes para replicar o design */
+:root {
+  --cor-principal: #3333bd;
+  /* Azul Escuro */
+  --cor-secundaria: #fcfc30;
+  /* Amarelo */
+  --cor-fundo: #f5f5f5;
+  /* Cinza claro do fundo */
+  --cor-texto-link: #3333bd;
 }
 
-/* Custom styles for input fields to match the image */
-.form-input {
-  background-color: rgba(48, 77, 109, 0.3);
-  border: 1px solid #3333bd;
-  color: #333;
-  /* Darker text for better readability */
-  border-radius: 5px;
-  padding: 0.75rem 1rem;
-  width: 100%;
-}
-
-.form-input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
-  /* Darker placeholder text */
-}
-
-.form-input:focus {
-  outline: 2px solid #fcfc30;
-  outline-offset: 2px;
-}
-
-/* Custom styles for select dropdown arrow */
+/* Estilização dos inputs para ficar IDÊNTICO à imagem */
+.form-input,
+.form-textarea,
 .custom-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%233333bd' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1em;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #e5e5e5;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  color: #555;
 }
 
 .form-textarea {
-  background-color: rgba(48, 77, 109, 0.3);
-  border: 1px solid #3333bd;
-  color: #333;
-  border-radius: 5px;
-  padding: 0.75rem 1rem;
-  width: 100%;
   resize: none;
+  height: 100%;
 }
 
-.form-textarea::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%236B7280' d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Classes utilitárias do Tailwind adaptadas para o design */
+.text-principal {
+  color: var(--cor-principal);
+}
+
+.bg-principal {
+  background-color: var(--cor-principal);
+}
+
+.text-secundaria {
+  color: var(--cor-secundaria);
+}
+
+.bg-secundaria {
+  background-color: var(--cor-secundaria);
+}
+
+.bg-fundo {
+  background-color: var(--cor-fundo);
+}
+
+.text-link {
+  color: var(--cor-texto-link);
+}
+
+.font-calibri {
+  font-family: "Calibri", "Inter", sans-serif;
+}
+
+.h-textarea {
+  min-height: 100px;
+}
+
+/* Ajuste para rolagem suave na coluna principal (formulário) em telas maiores */
+@media (min-width: 1024px) {
+  .form-col {
+    overflow-y: auto;
+    height: calc(100vh - 1.5rem);
+  }
 }
