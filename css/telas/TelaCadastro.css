@@ -1,3 +1,42 @@
+/* --- 1. VARIÁVEIS E GERAL --- */
+/* Cores e fontes para replicar o design */
+:root {
+  --cor-principal: #3333bd; /* Azul Escuro */
+  --cor-secundaria: #fcfc30; /* Amarelo */
+  --cor-fundo: #f5f5f5; /* Cinza claro do fundo */
+  --cor-texto-link: #3333bd;
+}
+
+/* Classes utilitárias do Tailwind adaptadas para o design */
+.text-principal {
+  color: var(--cor-principal);
+}
+.bg-principal {
+  background-color: var(--cor-principal);
+}
+.text-secundaria {
+  color: var(--cor-secundaria);
+}
+.bg-secundaria {
+  background-color: var(--cor-secundaria);
+}
+.bg-fundo {
+  background-color: var(--cor-fundo);
+}
+.text-link {
+  color: var(--cor-texto-link);
+}
+
+.font-calibri {
+  font-family: "Calibri", "Inter", sans-serif;
+}
+
+.h-textarea {
+  min-height: 100px;
+}
+
+/* --- 2. ESTILIZAÇÃO DOS INPUTS --- */
+
 /* Cores e fontes para replicar o design */
 :root {
   --cor-principal: #3333bd;
@@ -32,12 +71,17 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+
+  /* Ícone de seta customizado */
+
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%236B7280' d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
 }
+
+/* --- 3. LAYOUT E RESPONSIVIDADE --- */
 
 /* Classes utilitárias do Tailwind adaptadas para o design */
 .text-principal {
