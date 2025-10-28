@@ -21,13 +21,21 @@
         <div class="logo">
           <!-- O seu HTML com a tag <img> para o logo -->
           <img
-            src="/assets/Logo_BBTS-removebg-preview.png"
+            src="/assets/images/LogoBBTS.png"
             alt="Logo BB Tecnologia e Serviços"
           />
         </div>
 
         <nav class="main-nav" aria-label="menu principal">
-          <a class="nav-link" href="#">Início</a>
+          <a
+          <button
+            class="nav-link"
+            href="#"
+            onclick="location.href='/pages/TelaColaborador.html'"
+          >
+            Início
+          </button>
+        </a>
 
           <div class="nav-services">
             <!-- Botão atualizado com ícone SVG para ser fiel ao protótipo -->
@@ -54,7 +62,7 @@
 
           <!-- Placeholder com o tamanho e cor EXATOS do protótipo (57x57) -->
           <img
-            src="/assets/Persona.png"
+            src="/assets/images/Persona.png"
             alt="Foto do usuário"
             class="nav-avatar"
           />
@@ -66,14 +74,23 @@
     <!-- A tag <main> agora FECHA antes da seção de competências -->
     <main class="page">
       <div class="content-wrap">
+        <button
+          class="btn btn-secondary"
+          onclick="location.href='TelaCadastro.html'"
+        >
+          VOLTAR
+        </button>
+
         <!-- PERFIL CARD -->
         <div class="perfil-card">
           <!-- Placeholder com o tamanho EXATO do protótipo (105x105) -->
           <img
             class="perfil-photo"
-            src="/assets/Persona.png"
+            src="/assets/images/Persona.png"
             alt="Foto Pedro Henrique"
           />
+
+          <!-- BOTÃO ATUALIZADO: Substituí classes do Tailwind por .btn-secondary -->
           <div class="perfil-info">
             <h1 class="nome">Carla Souza</h1>
             <div class="perfil-tags">
@@ -228,7 +245,9 @@
         </div>
       </div>
     </section>
-    <button onclick="location.href='../index.html'">Voltar</button>
-    <button onclick="location.href='TelaEquipeGestor.html'">Avançar</button>
+    <button onclick="location.href='/pages/Inicio.html'">Voltar</button>
+    <button onclick="location.href='/pages/TelaEquipeGestor.html'">
+      Avançar
+    </button>
   </body>
 </html>
