@@ -1,13 +1,13 @@
 /* --- GERAL E VARIÁVEIS --- */
 :root {
-  --azul-principal: #3333BD;
-  --amarelo-principal: #FCFC30;
-  --azul-progresso: #465EFF;
-  --cinza-fundo-progresso: #E0E0E0;
+  --azul-principal: #3333bd;
+  --amarelo-principal: #fcfc30;
+  --azul-progresso: #465eff;
+  --cinza-fundo-progresso: #e0e0e0;
   /* Cor mais clara para o fundo da barra */
-  --cinza-fundo: #F5F5F5;
+  --cinza-fundo: #f5f5f5;
   --texto-escuro: #333;
-  --branco: #FFFFFF;
+  --branco: #ffffff;
 }
 
 * {
@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: 'Inter', 'Calibri', sans-serif;
+  font-family: "Inter", "Calibri", sans-serif;
   background-color: var(--cinza-fundo);
   color: var(--texto-escuro);
 }
@@ -42,7 +42,6 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  
 }
 
 .logo-icon {
@@ -104,7 +103,6 @@ body {
   border: 2px solid var(--amarelo-principal);
 }
 
-
 /* --- CONTEÚDO PRINCIPAL --- */
 .dashboard-container {
   max-width: 1300px;
@@ -163,7 +161,10 @@ body {
   display: grid;
   place-items: center;
   /* Gradiente cônico com fundo F5F5F5 para o corte */
-  background: conic-gradient(var(--azul-principal) calc(var(--progress-value) * 1%), var(--cinza-fundo) 0);
+  background: conic-gradient(
+    var(--azul-principal) calc(var(--progress-value) * 1%),
+    var(--cinza-fundo) 0
+  );
 }
 
 .progress-inner-circle {
@@ -238,7 +239,6 @@ body {
   white-space: nowrap;
 }
 
-
 /* --- CARD DE PERFIL --- */
 .profile-card {
   display: flex;
@@ -281,7 +281,6 @@ body {
   font-size: 1.25rem;
 }
 
-
 /* --- OUTROS CARDS --- */
 .knowledge-gaps-card .card-content {
   display: flex;
@@ -304,7 +303,7 @@ body {
 }
 
 .gaps-list {
-  list-style-type: '•  ';
+  list-style-type: "•  ";
   /* Adiciona a bolinha com espaço */
   padding-left: 1rem;
 }
@@ -337,7 +336,6 @@ body {
   color: var(--branco);
 }
 
-
 /* --- BOTÃO DE AÇÃO --- */
 .action-area {
   display: flex;
@@ -364,5 +362,3 @@ body {
   background-color: var(--amarelo-principal);
   color: var(--azul-principal);
 }
-
-
