@@ -154,6 +154,12 @@ form {
     text-transform: uppercase;
     cursor: pointer;
     transition: transform 0.2s ease;
+    
+}
+
+.link{
+    text-decoration: none;
+    color: #3333BD;
 }
 
 .btn:hover {
