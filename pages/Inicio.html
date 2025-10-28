@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Split Screen</title>
+
+    <link rel="stylesheet" href="/css/telas/Inicio.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calibri:wght@300;400;700&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="panel panel-login">
+        <div class="panel-content">
+          <div class="logo">
+            <img src="/assets/images/Logo.png" alt="Logo BB" class="logo-img" />
+          </div>
+
+          <h2>Bem-vindo!</h2>
+          <p>Faça login na sua conta para continuar.</p>
+
+          <form>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Senha" required />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="location.href='TelaColaborador.html'"
+            >
+              ENTRAR
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-signup">
+        <div class="panel-content">
+          <h2>CRIAR CONTA</h2>
+          <form>
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Nome" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Senha" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Confirmar Senha" required />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="location.href='/pages/TelaCadastro.html'"
+            >
+              CRIAR
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
