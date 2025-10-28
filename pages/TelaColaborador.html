@@ -1,149 +1,205 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard do Colaborador</title>
-    <link rel="stylesheet" href="/css/telas/TelaColaborador.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
+    <link rel="stylesheet" href="/css/telas/TelaColaborador.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header class="main-header">
-        <div class="header-container">
-            <div class="logo-area">
-                <!-- Usei um placeholder para a imagem do logo -->
-                <img src="/assets/images/LogoBBTS.png" width="555" height="48" alt="Logo BB" class="logo-icon">
-                <div class="logo-text">
-                    <span><strong>|</strong></span>
-                    <span class="logo-page">Home</span>
-                </div>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#" class="active">Início</a></li>
-                    <li><a href="#">Serviços <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-                </ul>
-                <img src="https://placehold.co/48x48/ffffff/3333BD?text=P" alt="Foto de Carla" class="user-avatar">
-            </nav>
+      <div class="header-container">
+        <div class="logo-area">
+          <!-- Usei um placeholder para a imagem do logo -->
+          <img
+            src="/assets/images/LogoBBTS.png"
+            width="555"
+            height="48"
+            alt="Logo BB"
+            class="logo-icon"
+          />
+          <div class="logo-text">
+            <span><strong>|</strong></span>
+            <span class="logo-page">Início</span>
+          </div>
         </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#" class="active">Início</a></li>
+            <li>
+              <a href="#"
+                >Serviços
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+          <img
+            src="/assets/images/Persona.png"
+            alt="Foto de Carla"
+            class="user-avatar"
+          />
+        </nav>
+      </div>
     </header>
 
     <main class="dashboard-container">
-        <h1 class="welcome-title">Olá, Carla!</h1>
+      <h1 class="welcome-title">Olá, Carla!</h1>
 
-        <!-- Primeiro Grid (Competências e Perfil) -->
-        <div class="main-grid">
-            <section class="card competencies-card">
-                <div class="progress-chart-area">
-                    <!-- O valor de 80% é pego da variável inline --progress-value -->
-                    <div class="radial-progress" style="--progress-value: 80;">
-                        <div class="progress-inner-circle">
-                            <span>80%</span>
-                        </div>
-                    </div>
+      <!-- Primeiro Grid (Competências e Perfil) -->
+      <div class="main-grid">
+        <section class="card competencies-card">
+          <div class="progress-chart-area">
+            <!-- O valor de 80% é pego da variável inline --progress-value -->
+            <div class="radial-progress" style="--progress-value: 80">
+              <div class="progress-inner-circle">
+                <span>80%</span>
+              </div>
+            </div>
+          </div>
+          <div class="competencies-list">
+            <h2>Níveis de Competências</h2>
+            <ul>
+              <li>
+                <div class="skill-info">
+                  <p>
+                    Gestão de Projetos <span class="skill-code">(PRMG)</span>
+                  </p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%"></div>
+                  </div>
                 </div>
-                <div class="competencies-list">
-                    <h2>Níveis de Competências</h2>
-                    <ul>
-                        <li>
-                            <div class="skill-info">
-                                <p>Gestão de Projetos <span class="skill-code">(PRMG)</span></p>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 100%;"></div>
-                                </div>
-                            </div>
-                            <span class="skill-level">Nível 7/7</span>
-                        </li>
-                        <li>
-                            <div class="skill-info">
-                                <p>Programação/Desenvolvimento de Software <span class="skill-code">(ITSP)</span></p>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 83.3%;"></div>
-                                </div>
-                            </div>
-                            <span class="skill-level">Nível 5/6</span>
-                        </li>
-                        <li>
-                            <div class="skill-info">
-                                <p>Testes Funcionais <span class="skill-code">(TEST)</span></p>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 100%;"></div>
-                                </div>
-                            </div>
-                            <span class="skill-level">Nível 6/6</span>
-                        </li>
-                         <li>
-                            <div class="skill-info">
-                                <p>Configuração de Software <span class="skill-code">(PORT)</span></p>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 66.6%;"></div>
-                                </div>
-                            </div>
-                            <span class="skill-level">Nível 4/6</span>
-                        </li>
-                         <li>
-                            <div class="skill-info">
-                                <p>Pesquisa de Usuário <span class="skill-code">(URCH)</span></p>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 66.6%;"></div>
-                                </div>
-                            </div>
-                            <span class="skill-level">Nível 4/6</span>
-                        </li>
-                    </ul>
+                <span class="skill-level">Nível 7/7</span>
+              </li>
+              <li>
+                <div class="skill-info">
+                  <p>
+                    Programação/Desenvolvimento de Software
+                    <span class="skill-code">(ITSP)</span>
+                  </p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 83.3%"></div>
+                  </div>
                 </div>
-            </section>
+                <span class="skill-level">Nível 5/6</span>
+              </li>
+              <li>
+                <div class="skill-info">
+                  <p>
+                    Testes Funcionais <span class="skill-code">(TEST)</span>
+                  </p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%"></div>
+                  </div>
+                </div>
+                <span class="skill-level">Nível 6/6</span>
+              </li>
+              <li>
+                <div class="skill-info">
+                  <p>
+                    Configuração de Software
+                    <span class="skill-code">(PORT)</span>
+                  </p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 66.6%"></div>
+                  </div>
+                </div>
+                <span class="skill-level">Nível 4/6</span>
+              </li>
+              <li>
+                <div class="skill-info">
+                  <p>
+                    Pesquisa de Usuário <span class="skill-code">(URCH)</span>
+                  </p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 66.6%"></div>
+                  </div>
+                </div>
+                <span class="skill-level">Nível 4/6</span>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-            <section class="card profile-card">
-                <!-- Usei um placeholder para a foto de perfil -->
-                <img src="https://placehold.co/100x100/EEEEEE/3333BD?text=Foto" alt="Foto de Carla Souza" class="profile-picture">
-                <h3>Carla Souza</h3>
-                <p>Análise de Sistemas</p>
-                <div class="profile-banner">COLABORADOR</div>
-            </section>
-        </div>
+        <section class="card profile-card">
+          <!-- Usei um placeholder para a foto de perfil -->
+          <img
+            src="/assets/images/Persona.png"
+            alt="Foto de Carla Souza"
+            class="profile-picture"
+          />
+          <h3>Carla Souza</h3>
+          <p>Análise de Sistemas</p>
+          <div class="profile-banner">COLABORADOR</div>
+        </section>
+      </div>
 
-        <!-- Segundo Grid (Lacunas e Jornada) -->
-        <div class="main-grid">
-            <section class="card knowledge-gaps-card">
-                <h2>Lacunas de Conhecimento</h2>
-                <div class="card-content">
-                    <div class="info-box">
-                        <p>Descubra as <strong>áreas mais importantes</strong> para você no momento!</p>
-                    </div>
-                    <ul class="gaps-list">
-                        <li>Gestão de projetos</li>
-                        <li>Data Science</li>
-                        <li>Design Thinking</li>
-                        <li>Comunicação</li>
-                        <li>Espírito de equipe</li>
-                    </ul>
-                </div>
-            </section>
+      <!-- Segundo Grid (Lacunas e Jornada) -->
+      <div class="main-grid">
+        <section class="card knowledge-gaps-card">
+          <h2>Lacunas de Conhecimento</h2>
+          <div class="card-content">
+            <div class="info-box">
+              <p>
+                Descubra as <strong>áreas mais importantes</strong> para você no
+                momento!
+              </p>
+            </div>
+            <ul class="gaps-list">
+              <li>Gestão de projetos</li>
+              <li>Data Science</li>
+              <li>Design Thinking</li>
+              <li>Comunicação</li>
+              <li>Espírito de equipe</li>
+            </ul>
+          </div>
+        </section>
 
-            <section class="card training-journey-card">
-                <h2>Jornada de Capacitação</h2>
-                <div class="card-content">
-                   <a href="#" class="journey-link">Cursos de Projetos Ágeis</a>
-                   <a href="#" class="journey-link">Introdução a Ciência de Dados</a>
-                   <a href="#" class="journey-link">Design Thinking</a>
-                </div>
-            </section>
-        </div>
-        
-        <!-- Área de Botões -->
-        <div class="action-area">
-             <button class="btn btn-primary">EDITAR COMPETÊNCIAS</button>
-             
-             <!-- BOTÃO ATUALIZADO: Substituí classes do Tailwind por .btn-secondary -->
-             <button type="button" class="btn btn-secondary">VOLTAR</button>
-        </div>
+        <section class="card training-journey-card">
+          <h2>Jornada de Capacitação</h2>
+          <div class="card-content">
+            <a href="#" class="journey-link">Cursos de Projetos Ágeis</a>
+            <a href="#" class="journey-link">Introdução a Ciência de Dados</a>
+            <a href="#" class="journey-link">Design Thinking</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Área de Botões -->
+      <div class="action-area">
+        <button
+          class="btn btn-primary"
+          onclick="location.href='TelaPerfilColaborador.html'"
+        >
+          VER PERFIL
+        </button>
+
+        <!-- BOTÃO ATUALIZADO: Substituí classes do Tailwind por .btn-secondary -->
+        <button
+          class="btn btn-secondary"
+          onclick="location.href='TelaCadastro.html'"
+        >
+          VOLTAR
+        </button>
+      </div>
     </main>
-    
-    <button onclick="location.href='TelaEquipeGestor.html'">Voltar</button>
-    <button onclick="location.href='TelaEquipeGestor.html'">Avançar</button>
-</body>
+  </body>
 </html>
