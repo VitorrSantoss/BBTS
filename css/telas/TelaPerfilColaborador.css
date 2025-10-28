@@ -14,7 +14,7 @@ body {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: #F5F5F5;
+  background: #f5f5f5;
   color: #333;
   /* Cor de texto padrão ligeiramente mais escura */
   -webkit-font-smoothing: antialiased;
@@ -25,17 +25,17 @@ body {
 
 /* Cores base do protótipo */
 :root {
-  --blue: #3333BD;
-  --yellow: #FCFC30;
-  --lavender: #F0F0F8;
+  --blue: #3333bd;
+  --yellow: #fcfc30;
+  --lavender: #f0f0f8;
   /* Fundo da área de competências (cor do protótipo) */
   --text-muted: #6b6b8a;
   /* Texto secundário (cinza-azulado) */
-  --bar-bg: #DAD8F8;
+  --bar-bg: #dad8f8;
   /* Fundo da barra de progresso */
   --tag-bg: rgba(252, 252, 48, 0.35);
   /* Fundo da tag (amarelo claro) */
-  --tag-border: #FCFC30;
+  --tag-border: #fcfc30;
   /* Borda da tag (amarelo vivo) */
 }
 
@@ -305,7 +305,6 @@ body {
   font-weight: 300;
 }
 
-
 /* ------------------------
    COMPETÊNCIAS AREA (MODIFICADO)
    ------------------------ */
@@ -322,7 +321,7 @@ body {
   padding: 30px 28px;
   /* Espaçamento vertical + padding lateral (igual ao .page) */
   /* Adiciona a linha divisória vertical do protótipo */
-  border-bottom: 4px solid #E0DFF9;
+  border-bottom: 4px solid #e0dff9;
 }
 
 /* .competencias-wrap é agora o container *interno* que centraliza o conteúdo
@@ -403,7 +402,7 @@ body {
   border-radius: 8px;
   width: 0;
   /* Setado via style="" inline */
-  transition: width .8s ease;
+  transition: width 0.8s ease;
 }
 
 .competencia .level {
@@ -423,7 +422,7 @@ body {
   align-items: center;
   padding-left: 40px;
   /* Espaço para a linha */
-  border-left: 1px solid #C9C8F0;
+  border-left: 1px solid #c9c8f0;
   /* Linha divisória do protótipo */
 }
 
@@ -433,8 +432,10 @@ body {
   border-radius: 50%;
   margin: 20px auto;
   position: relative;
-  background: conic-gradient(var(--blue) 0% calc(1% * var(--percentage)),
-      var(--bar-bg) calc(1% * var(--percentage)) 100%);
+  background: conic-gradient(
+    var(--blue) 0% calc(1% * var(--percentage)),
+    var(--bar-bg) calc(1% * var(--percentage)) 100%
+  );
 
   /* Centraliza o texto */
   display: flex;
@@ -467,7 +468,6 @@ body {
   z-index: 10;
   /* Garante que o texto fique acima do "buraco" */
 }
-
 
 @media (max-width: 980px) {
   .header-inner {
@@ -504,7 +504,7 @@ body {
     /* Remove linha vertical */
     padding-left: 0;
     padding-top: 20px;
-    border-top: 1px solid #C9C8F0;
+    border-top: 1px solid #c9c8f0;
     /* Adiciona linha horizontal */
   }
 
@@ -588,4 +588,58 @@ body {
     width: 250px;
     /* Diminui ainda mais o logo */
   }
+
+  /* --- BOTÃO DE AÇÃO --- */
+  .action-area {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha o botão à direita */
+    margin-top: 1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 22px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-primary {
+    background-color: var(--amarelo-principal);
+    color: var(--azul-principal);
+  }
+}
+
+/* --- BOTÃO DE AÇÃO --- */
+.action-area {
+  display: flex;
+  justify-content: flex-end;
+  /* Alinha o botão à direita */
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 22px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background-color: var(--amarelo-principal);
+  color: var(--azul-principal);
 }
