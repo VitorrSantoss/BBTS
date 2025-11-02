@@ -164,7 +164,7 @@ O sistema foi desenvolvido com design responsivo, adaptando-se a diferentes tama
 - Vitor Santos
 - Renan Souza
 - Maria Vitória
-- Priscila Santos
+- Priscila Barboza
 
 ---
 
