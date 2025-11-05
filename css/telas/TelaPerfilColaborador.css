@@ -1,6 +1,3 @@
-/* ------------------------
-   Estilos gerais e reset
-   ------------------------ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,10 +20,11 @@ body {
   /* Espaçamento de linha aumentado para legibilidade */
 }
 
-/* Cores base do protótipo */
+/* Cores base do protótipo (CORRIGIDO) */
 :root {
   --blue: #3333bd;
   --yellow: #fcfc30;
+  --branco: #FFFFFF; /* ADICIONADO */
   --lavender: #f0f0f8;
   /* Fundo da área de competências (cor do protótipo) */
   --text-muted: #6b6b8a;
@@ -39,91 +37,90 @@ body {
   /* Borda da tag (amarelo vivo) */
 }
 
-/* ------------------------
-   HEADER
-   ------------------------ */
-.site-header {
-  background: var(--blue);
-  color: #fff;
-  padding: 20px 0;
-  /* Aumentado padding para 20px */
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+.main-header {
+  background-color: var(--blue); /* CORRIGIDO de --azul-principal */
+  color: var(--branco);
+  padding: 1.25rem 2.5rem;
+  /* Ajuste no padding */
 }
 
-.header-inner {
-  max-width: 1200px;
+.header-container {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 28px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-
-/* Logo (MODIFICADO) */
-.logo {
-  /* Mantemos flex para alinhamento vertical */
-  display: flex;
   align-items: center;
 }
 
-/* Nova regra para a imagem do logo com as dimensões solicitadas */
-.logo img {
-  width: 555px;
-  height: 48px;
-  object-fit: contain;
-  /* 'contain' evita que a imagem do logo distorça */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Nav */
+.logo-icon {
+  border-radius: 4px;
+}
+
+.logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  /* Aumentado para corresponder à imagem */
+}
+
+.logo-text span {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.logo-text .logo-page {
+  font-weight: 300;
+  color: white;
+  color: var(--yellow); /* CORRIGIDO de --amarelo-principal */
+}
+
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 30px;
-  /* Aumentado gap para 30px */
+  gap: 2rem;
 }
 
-.main-nav a.nav-link,
-.nav-services .services-btn {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  /* Aumentado para 700 (protótipo) */
-  font-size: 20px;
-  /* Aumentado para 20px (protótipo) */
+.main-nav ul {
+  list-style: none;
   display: flex;
-  /* Alinha ícone e texto */
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
-.nav-services .services-btn {
-  background: transparent;
-  border: none;
-  cursor: default;
-  font-family: "Montserrat", sans-serif;
-  /* Garante a mesma fonte */
+.main-nav a:hover,
+.main-nav a.active {
+  opacity: 1;
+  font-weight: 700;
 }
 
-/* Seta do dropdown */
-.nav-arrow {
-  width: 16px;
-  height: 16px;
-  fill: white;
-}
-
-/* Avatar no header (tamanho do protótipo) */
-.nav-avatar {
-  width: 57px;
-  height: 57px;
+.user-avatar {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--yellow);
-  /* Borda amarela, como no protótipo */
+  border: 2px solid var(--yellow); /* CORRIGIDO de --amarelo-principal */
 }
+
 
 /* ------------------------
-   PAGE CONTENT WRAP
-   ------------------------ */
+   PAGE CONTENT WRAP
+   ------------------------ */
 .page {
   max-width: 1200px;
   margin: 30px auto;
@@ -200,8 +197,8 @@ body {
 }
 
 /* ------------------------
-   TWO COLUMNS (conteúdo principal)
-   ------------------------*/
+   TWO COLUMNS (conteúdo principal)
+   ------------------------*/
 .two-columns {
   display: flex;
   gap: 60px;
@@ -306,11 +303,11 @@ body {
 }
 
 /* ------------------------
-   COMPETÊNCIAS AREA (MODIFICADO)
-   ------------------------ */
+   COMPETÊNCIAS AREA (MODIFICADO)
+   ------------------------ */
 
 /* .competencias-area é agora o container full-width (largura total)
-  que aplica o fundo e o espaçamento vertical.
+  que aplica o fundo e o espaçamento vertical.
 */
 .competencias-area {
   margin-top: 0;
@@ -328,7 +325,7 @@ body {
 */
 .competencias-wrap {
   /* Removeido o fundo e padding (passou para .competencias-area) */
-  /* border-radius: 8px;  (removido) */
+  /* border-radius: 8px;  (removido) */
   /* padding: 30px 40px; (removido) */
   /* border-bottom: ... (removido) */
 
@@ -470,7 +467,7 @@ body {
 }
 
 @media (max-width: 980px) {
-  .header-inner {
+  .header-container { /* CORRIGIDO de .header-inner */
     padding: 0 18px;
   }
 
@@ -513,7 +510,7 @@ body {
   }
 
   /* Ajuste responsivo para o logo grande */
-  .logo img {
+  .logo-icon { /* CORRIGIDO de .logo img */
     width: 300px;
     /* Diminui o logo em telas menores */
     height: auto;
@@ -522,7 +519,7 @@ body {
 }
 
 @media (max-width: 520px) {
-  .logo {
+  .logo-text { /* CORRIGIDO de .logo */
     font-size: 18px;
   }
 
@@ -530,12 +527,11 @@ body {
     gap: 15px;
   }
 
-  .nav-link,
-  .services-btn {
+  .main-nav a { /* CORRIGIDO de .nav-link, .services-btn */
     font-size: 16px;
   }
 
-  .nav-avatar {
+  .user-avatar { /* CORRIGIDO de .nav-avatar */
     display: none;
   }
 
@@ -584,7 +580,7 @@ body {
   }
 
   /* Ajuste responsivo para o logo grande */
-  .logo img {
+  .logo-icon { /* CORRIGIDO de .logo img */
     width: 250px;
     /* Diminui ainda mais o logo */
   }

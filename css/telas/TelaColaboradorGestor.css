@@ -1,7 +1,7 @@
 /* --- CONFIGURAÇÕES GLOBAIS --- */
 :root {
-  --blue: #3333bd;
-  --yellow: #fcfc30;
+  --azul-principal: #3333bd;
+  --amarelo-principal: #fcfc30;
   --bg-gray: #f5f5f5;
   --bg-light-purple: #f0f0f8; /* Fundo da seção "Competências" */
   --border-color: #3333bd;
@@ -72,62 +72,85 @@ textarea::placeholder {
 }
 
 /* --- 1. CABEÇALHO --- */
-.site-header {
-  background-color: var(--blue);
-  color: white;
-  padding: 20px 0;
+.main-header {
+  background-color: #3333bd; /* ALTERADO PARA ROSA CHOQUE */
+  color: white; /* Mantive a cor do texto branca para legibilidade */
+  padding: 1.25rem 2.5rem;
+  /* Ajuste no padding */
 }
 
 .header-container {
-  max-width: 1512px;
-  padding: 0 40px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* CSS ATUALIZADO:
-  Estilos de logo agora para a imagem grande (555x48)
-*/
-.logo-container {
+.logo-area {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
-.logo-image {
-  width: 555px;
-  height: 48px;
-  object-fit: contain;
+
+.logo-icon {
+  border-radius: 4px;
+}
+
+.logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  /* Aumentado para corresponder à imagem */
+}
+
+.logo-text span {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.logo-text .logo-page {
+  font-weight: 300;
+  color: white;
+  color: var(--amarelo-principal);
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 25px;
+  gap: 2rem;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: white; /* Mantido como branco */
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  opacity: 1;
   font-weight: 700;
 }
 
-.nav-services {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.nav-services svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
-
-.nav-profile-icon {
-  width: 57px;
-  height: 60px;
+.user-avatar {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 1px solid var(--yellow);
-  object-fit: cover;
+  border: 2px solid var(--amarelo-principal);
 }
-
 /* --- 2. CONTEÚDO DA PÁGINA --- */
 .page-wrapper {
   max-width: 1512px;
@@ -229,15 +252,15 @@ textarea::placeholder {
   border: 1.1px solid var(--border-color);
   border-radius: 4px;
   padding: 8px 15px;
-  color: var(--blue);
+  color: var(--azul-principal);
   font-size: 21px;
   font-weight: 700;
   text-align: center;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.4s, color 0s;
   background-color: white; /* Fundo branco (imagem) */
 }
 .profile-button:hover {
-  background-color: var(--blue);
+  background-color: var(--azul-principal);
   color: white;
 }
 
@@ -255,7 +278,7 @@ textarea::placeholder {
 .competencies-list-wrapper h2,
 .total-level-wrapper h2 {
   font-size: 23px;
-  color: var(--blue);
+  color: var(--azul-principal);
   margin-bottom: 20px;
   text-align: left;
 }
@@ -316,7 +339,7 @@ textarea::placeholder {
   border-radius: 50%;
   position: relative;
   background: conic-gradient(
-    var(--blue) 0% calc(1% * var(--percentage)),
+    var(--azul-principal) 0% calc(1% * var(--percentage)),
     #e2e2ef calc(1% * var(--percentage)) 100%
   );
   display: flex;
