@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="/css/telas/TelaColaboradorGestor.css" />
   </head>
   <body>
-    <!-- 1. CABEÇALHO (Barra Azul) -->
-    <header class="site-header">
+    <header class="main-header">
       <div class="header-container">
-        <!-- Logo (usando o ícone + texto da foto) -->
-        <div class.="logo-container">
+        <div class="logo-area">
+          <!-- Usei um placeholder para a imagem do logo -->
           <img
             src="/assets/images/LogoBBTS.png"
             width="555"
@@ -20,31 +19,21 @@
             alt="Logo BB"
             class="logo-icon"
           />
+          <div class="logo-text">
+            <span><strong>|</strong></span>
+            <span class="logo-page">Início</span>
+          </div>
         </div>
-
-        <!-- Navegação -->
         <nav class="main-nav">
-          <a href="#">Início</a>
-          <a href="#" class="nav-services">
-            Serviços
-            <!-- Ícone de seta para baixo -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-          <!-- Ícone de Perfil -->
+          <ul>
+            <!-- Navegação entre páginas adicionada -->
+            <li><a href="/pages/TelaPerfilColaborador.html">Perfil</a></li>
+            <li><a href="#">Editar competências</a></li>
+          </ul>
           <img
-            src="/assets/images/personas/PersonaGestoraCarla.png"
-            alt="Foto do Usuário"
-            class="nav-profile-icon"
+            src="/assets/images/personas/PersonaColabPedro.png"
+            alt="Foto de Usuário"
+            class="user-avatar"
           />
         </nav>
       </div>

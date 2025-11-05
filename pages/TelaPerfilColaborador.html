@@ -15,56 +15,32 @@
     <link rel="stylesheet" href="/css/telas/TelaPerfilColaborador.css" />
   </head>
   <body>
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="header-inner">
-        <div class="logo">
-          <!-- O seu HTML com a tag <img> para o logo -->
+    <header class="main-header">
+      <div class="header-container">
+        <div class="logo-area">
+          <!-- Usei um placeholder para a imagem do logo -->
           <img
             src="/assets/images/LogoBBTS.png"
-            alt="Logo BB Tecnologia e Serviços"
+            width="555"
+            height="48"
+            alt="Logo BB"
+            class="logo-icon"
           />
-        </div>
-
-        <nav class="main-nav" aria-label="menu principal">
-          <a
-          <button
-            class="nav-link"
-            href="#"
-            onclick="location.href='/pages/TelaColaborador.html'"
-          >
-            Início
-          </button>
-        </a>
-
-          <div class="nav-services">
-            <!-- Botão atualizado com ícone SVG para ser fiel ao protótipo -->
-            <button
-              class="services-btn"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Serviços
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="nav-arrow"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
+          <div class="logo-text">
+            <span><strong>|</strong></span>
+            <span class="logo-page">Perfil</span>
           </div>
-
-          <!-- Placeholder com o tamanho e cor EXATOS do protótipo (57x57) -->
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <!-- Navegação entre páginas adicionada -->
+            <li><a href="/pages/TelaColaborador.html">Início</a></li>
+            <li><a href="/pages/TelaCadastro.html">Editar competências</a></li>
+          </ul>
           <img
             src="/assets/images/personas/PersonaColabPedro.png"
-            alt="Foto do usuário"
-            class="nav-avatar"
+            alt="Foto de Usuário"
+            class="user-avatar"
           />
         </nav>
       </div>
