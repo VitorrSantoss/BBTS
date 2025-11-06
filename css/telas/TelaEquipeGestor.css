@@ -1,17 +1,18 @@
 /* --- CONFIGURAÇÕES GLOBAIS --- */
 :root {
-  --blue: #3333bd;
-  --yellow: #fcfc30;
+  --azul-principal: #3333bd;
+  --amarelo-principal: #fcfc30;
   --bg-gray: #f5f5f5;
   --bg-light-purple: #f0f0f8;
-  /* Fundo da seção "Competências" */
   --border-color: #3333bd;
   --text-color: #3333bd;
   --text-muted: #828282;
   --text-description: #6d6d8b;
-  /* Cor do texto da descrição */
   --bar-bg: #aeaee0;
   --bar-fill: #465eff;
+  --branco: #FFFFFF;
+  --blue: var(--azul-principal);
+  --yellow: var(--amarelo-principal);
 }
 
 * {
@@ -48,61 +49,84 @@ h6 {
 }
 
 /* --- 1. CABEÇALHO --- */
-.site-header {
-  background-color: var(--blue);
-  color: white;
-  padding: 20px 0;
+.main-header {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  padding: 1.25rem 2.5rem;
+  /* Ajuste no padding */
 }
 
 .header-container {
-  max-width: 1512px;
-  padding: 0 40px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Novo container do Logo */
-.logo-container {
+.logo-area {
   display: flex;
   align-items: center;
-  gap: 15px;
-  font-weight: 700;
-  font-size: 24px;
+  gap: 1rem;
 }
 
 .logo-icon {
-  width: 40px;
-  height: 40px;
+  border-radius: 4px;
+}
+
+.logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  /* Aumentado para corresponder à imagem */
+}
+
+.logo-text span {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.logo-text .logo-page {
+  font-weight: 300;
+  color: white;
+  color: var(--amarelo-principal);
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 25px;
+  gap: 2rem;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  opacity: 1;
   font-weight: 700;
 }
 
-.nav-services {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.nav-services svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
-
-.nav-profile-icon {
-  width: 57px;
-  height: 60px;
+.user-avatar {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 1px solid var(--yellow);
-  object-fit: cover;
+  border: 2px solid var(--amarelo-principal);
 }
 
 /* --- 2. CONTEÚDO DA PÁGINA --- */
@@ -442,6 +466,47 @@ h6 {
 .send-feedback-btn svg {
   width: 15px;
   height: 15px;
+}
+
+/* O container que posiciona os botões */
+.botoes-fixos-canto {
+  position: fixed; /* Fica fixo na tela */
+  bottom: 30px;    /* 30px de distância de baixo */
+  right: 40px;     /* 40px de distância da direita */
+  z-index: 1000;   /* Garante que fique acima de outros elementos */
+  /* Alinha os botões lado a lado */
+  display: flex;
+  gap: 20px;       /* Espaço entre os botões */
+}
+
+.btn-acao-fixo {
+  /* --- Estilo (Cores e Forma) --- */
+  background-color: var(--amarelo-principal); /* Usa a variável do seu :root */
+  color: var(--azul-principal);            /* Usa a variável do seu :root */
+  border: none;
+  border-radius: 50px;      /* Cantos MUITO arredondados */
+  padding: 15px 40px;       /* Espaçamento interno */
+  /* --- Tipografia --- */
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* --- Efeitos --- */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-acao-fixo:hover {
+  background-color: #f0dc00; /* Amarelo um pouco mais escuro */
+  transform: translateY(-2px); /* Efeito sutil de "levantar" o botão */
+}
+
+/* Efeito ao clicar */
+.btn-acao-fixo:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* --- 5. RESPONSIVIDADE --- */

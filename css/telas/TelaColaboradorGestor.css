@@ -404,10 +404,10 @@ textarea::placeholder {
 .submit-button {
   width: 46px;
   height: 46px;
-  background: var(--blue);
+  background: var(--azul-principal);
   border: none;
   border-radius: 50%;
-  color: var(--yellow);
+  color: var(--amarelo-principal);
   cursor: pointer;
   align-self: center;
   margin-top: 10px;
@@ -418,7 +418,7 @@ textarea::placeholder {
 .submit-button svg {
   width: 24px;
   height: 24px;
-  fill: var(--yellow);
+  fill: var(--amarelo-principal);
 }
 /* Inputs "Adicionar Comp." são diferentes (sem label) */
 .add-competency-form input {
@@ -471,6 +471,39 @@ textarea::placeholder {
 .send-feedback-btn svg {
   width: 16px;
   height: 16px;
+}
+
+.btn-voltar-fixo {
+  /* --- 1. Posicionamento (Mantenho os valores para a área rosa, ajuste se necessário) --- */
+  position: fixed;
+  bottom: 70px;     /* Distância da parte inferior, ajuste conforme a imagem anterior */
+  right: 90px;      /* Distância da direita, ajuste conforme a imagem anterior */
+  z-index: 1000;    /* Garante que ele fique acima de outros elementos */
+
+  /* --- 2. Estilo (Cores e Forma da Imagem) --- */
+  background-color: var(--amarelo-principal); /* Amarelo da imagem */
+  color: var(--azul-principal);            /* Azul da letra na imagem */
+  border: none;                     /* Remove a borda padrão do botão */
+  border-radius: 50px;              /* Cantos MUITO arredondados para um formato oval/pílula */
+  padding: 15px 40px;               /* Aumentei o padding para dar mais "ar" e alongar o botão */
+  font-weight: bold;                /* Texto em negrito */
+  font-size: 18px;                  /* Aumentei um pouco a fonte para ser mais parecido com a imagem */
+  cursor: pointer;                  /* Mostra a "mãozinha" ao passar o mouse */
+  text-transform: uppercase;        /* As letras estão em maiúsculas na imagem */
+  letter-spacing: 0.5px;            /* Espaçamento sutil entre as letras para um visual mais clean */
+  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição para o hover */
+}
+
+.btn-voltar-fixo:hover {
+  background-color: #f0dc00; /* Escurece levemente o amarelo */
+  transform: translateY(-2px); /* Efeito sutil de "levantar" o botão */
+}
+
+.btn-voltar-fixo:active {
+  transform: translateY(0); /* Retorna à posição original */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra um pouco mais suave */
 }
 
 /* --- 4. RESPONSIVIDADE --- */

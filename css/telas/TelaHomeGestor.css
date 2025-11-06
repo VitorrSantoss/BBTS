@@ -1,8 +1,8 @@
 /* --- CONFIGURAÇÕES GLOBAIS --- */
 :root {
-    --blue: #3333BD;
-    --yellow: #FCFC30;
-    --bg-gray: #F5F5F5;
+    --azul-principal: #3333BD;
+    --amarelo-principal: #FCFC30;
+    --branco: #F5F5F5;
     --border-color: #3333BD;
     --text-color: #333;
     --text-light: #555;
@@ -33,77 +33,84 @@ a {
 }
 
 /* --- 1. CABEÇALHO --- */
-.site-header {
-    background-color: var(--blue);
-    color: white;
-    padding: 20px 0;
+.main-header {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  padding: 1.25rem 2.5rem;
+  /* Ajuste no padding */
 }
 
 .header-container {
-    max-width: 1512px;
-    padding: 0 40px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-weight: 700;
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .logo-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 .logo-text {
-    font-size: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  /* Aumentado para corresponder à imagem */
 }
 
-.logo-divider {
-    width: 1px;
-    height: 40px;
-    background-color: white;
-    opacity: 0.8;
+.logo-text span {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
 }
 
-.logo-page-title {
-    font-size: 30px;
-    font-weight: 300;
-    color: var(--yellow);
+.logo-text .logo-page {
+  font-weight: 300;
+  color: white;
+  color: var(--amarelo-principal);
 }
 
 .main-nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    font-size: 20px;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-.nav-services {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
 
-.nav-services svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
+.main-nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
-.nav-profile-icon {
-    width: 57px;
-    height: 57px;
-    border-radius: 50%;
-    border: 2px solid var(--yellow);
-    object-fit: cover;
+.main-nav a:hover,
+.main-nav a.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--amarelo-principal);
 }
 
 /* --- 2. CONTEÚDO DA PÁGINA --- */
@@ -114,7 +121,7 @@ a {
 }
 
 .greeting {
-    color: var(--blue);
+    color: var(--azul-principal);
     font-size: 45px;
     font-weight: 700;
     margin-bottom: 25px;
@@ -181,7 +188,7 @@ a {
 }
 
 .team-label {
-    background-color: var(--yellow);
+    background-color: var(--amarelo-principal);
     color: var(--blue);
     font-size: 20px;
     font-weight: 700;
@@ -206,7 +213,7 @@ a {
 }
 
 .chat-label {
-    background-color: var(--yellow);
+    background-color: var(--amarelo-principal);
     color: var(--blue);
     font-size: 16px;
     font-weight: 700;
@@ -243,7 +250,7 @@ a {
 
 /* Card "Membros" */
 .members-title {
-    color: var(--blue);
+    color: var(--azul-principal);
     font-size: 28px;
     font-weight: 700;
     text-align: center;
@@ -289,10 +296,10 @@ a {
 .submit-email-btn {
     width: 35px;
     height: 24px;
-    background: var(--blue);
+    background: var(--azul-principal);
     border: none;
     border-radius: 12px;
-    color: var(--yellow);
+    color: var(--amarelo-principal);
     cursor: pointer;
     
     /* Alinha o botão dentro do input */
@@ -308,16 +315,16 @@ a {
 .submit-email-btn svg {
     width: 20px;
     height: 20px;
-    fill: var(--yellow);
+    fill: var(--amarelo-principal);
 }
 
 .add-member-btn {
     width: 54px;
     height: 54px;
-    background: var(--blue);
+    background: var(--azul-principal);
     border: none;
     border-radius: 50%;
-    color: var(--yellow);
+    color: var(--amarelo-principal);
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
@@ -329,7 +336,7 @@ a {
 .add-member-btn svg {
     width: 30px;
     height: 30px;
-    fill: var(--yellow);
+    fill: var(--amarelo-principal);
 }
 
 /* Classe de Acessibilidade: Esconde visualmente mas mantém para leitores de tela */
@@ -343,6 +350,49 @@ a {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+/* O container que posiciona os botões */
+.botoes-fixos-canto {
+  position: fixed; /* Fica fixo na tela */
+  bottom: 30px;    /* 30px de distância de baixo */
+  right: 40px;     /* 40px de distância da direita */
+  z-index: 1000;   /* Garante que fique acima de outros elementos */
+  display: flex;
+  gap: 20px;       /* Espaço entre os botões */
+}
+
+/* O estilo "pílula" amarela que você gostou */
+.btn-acao-fixo {
+  /* --- Estilo (Cores e Forma) --- */
+  background-color: #FFEC00; /* Amarelo */
+  color: #0033A0;            /* Azul */
+  border: none;
+  border-radius: 50px;      /* Cantos MUITO arredondados */
+  padding: 15px 40px;       /* Espaçamento interno */
+  
+  /* --- Tipografia --- */
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  /* --- Efeitos --- */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-acao-fixo:hover {
+  background-color: #f0dc00; /* Escurece levemente o amarelo */
+  transform: translateY(-2px); /* Efeito sutil de "levantar" o botão */
+}
+
+/* Efeito ao clicar */
+.btn-acao-fixo:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 
