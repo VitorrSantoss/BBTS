@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupAddButton(buttonSelector, containerSelector, createFields) {
     const addButton = document.querySelector(buttonSelector);
     const container = document.querySelector(containerSelector);
-    
+
     if (addButton && container) {
       addButton.addEventListener("click", (e) => {
         e.preventDefault(); // Impede que o link '#' navegue
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Funcionalidade de Upload de Foto de Perfil ---
   const profilePicContainer = document.querySelector(".lg\\:w-1\\/4 .bg-white");
-  
+
   if (profilePicContainer) {
     // 1. Cria um input de arquivo escondido
     const fileInput = document.createElement("input");
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
-        
+
         // Quando o arquivo for lido
         reader.onload = (e) => {
           // Cria uma tag de imagem
@@ -104,15 +104,30 @@ document.addEventListener("DOMContentLoaded", () => {
           img.src = e.target.result;
           // Adiciona classes para a imagem preencher o círculo
           img.className = "w-full h-full object-cover";
-          
+
           // Limpa o container (remove o SVG) e adiciona a imagem
-          profilePicContainer.innerHTML = ""; 
+          profilePicContainer.innerHTML = "";
           profilePicContainer.appendChild(img);
         };
-        
+
         // Lê o arquivo como um URL de dados
         reader.readAsDataURL(file);
       }
     });
   }
+  // Preview da imagem de perfil
+  const fotoInput = document.getElementById('fotoInput');
+  const fotoIcon = document.getElementById('fotoIcon');
+  const fotoContainer = document.querySelector('.foto');
+
+  fotoInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        fotoContainer.innerHTML = `<img src="${e.target.result}" alt="Foto de perfil">`;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 });
