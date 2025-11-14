@@ -1,125 +1,210 @@
-/* --- 1. VARIÁVEIS E GERAL --- */
-/* Cores e fontes para replicar o design */
-:root {
-  --cor-principal: #3333bd; /* Azul Escuro */
-  --cor-secundaria: #fcfc30; /* Amarelo */
-  --cor-fundo: #f5f5f5; /* Cinza claro do fundo */
-  --cor-texto-link: #3333bd;
+* {
+  box-sizing: border-box;
 }
 
-/* Classes utilitárias do Tailwind adaptadas para o design */
-.text-principal {
-  color: var(--cor-principal);
-}
-.bg-principal {
-  background-color: var(--cor-principal);
-}
-.text-secundaria {
-  color: var(--cor-secundaria);
-}
-.bg-secundaria {
-  background-color: var(--cor-secundaria);
-}
-.bg-fundo {
-  background-color: var(--cor-fundo);
-}
-.text-link {
-  color: var(--cor-texto-link);
+body {
+  margin: 0;
+  font-family: "PT Sans Caption", sans-serif;
+  background-color: #f5f5f5;
+  color: #3333bd;
 }
 
-.font-calibri {
-  font-family: "Calibri", "Inter", sans-serif;
+.container {
+  display: flex;
+  min-height: 100vh;
 }
 
-.h-textarea {
-  min-height: 100px;
+.left {
+  flex: 1;
+  padding: 50px 80px;
+  background-color: #f5f5f5;
+  position: relative;
 }
 
-/* --- 2. ESTILIZAÇÃO DOS INPUTS --- */
-
-/* Cores e fontes para replicar o design */
-:root {
-  --cor-principal: #3333bd;
-  /* Azul Escuro */
-  --cor-secundaria: #fcfc30;
-  /* Amarelo */
-  --cor-fundo: #f5f5f5;
-  /* Cinza claro do fundo */
-  --cor-texto-link: #3333bd;
-}
-
-/* Estilização dos inputs para ficar IDÊNTICO à imagem */
-.form-input,
-.form-textarea,
-.custom-select {
+.top-bar {
+  background-color: #fcfc30;
+  height: 45px;
   width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  background-color: #e5e5e5;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  color: #555;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.form-textarea {
-  resize: none;
-  height: 100%;
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 60px;
+  color: #3333bd;
 }
 
-.custom-select {
+h1::before {
+  content: "🗒️";
+  display: inline-block;
+  background-color: #3333bd;
+  color: #fcfc30;
+  border-radius: 6px;
+  font-size: 28px;
+  padding: 4px 10px;
+  margin-right: 15px;
+}
+
+label {
+  font-weight: 700;
+  color: #3333bd;
+  display: block;
+  margin-top: 15px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #3333bd;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 15px;
+  color: #3333bd;
+  background: rgba(48, 77, 109, 0.1);
+  outline: none;
+  text-align: left;
+}
+
+::placeholder {
+  color: #3333bd;
+  opacity: 0.6;
+  text-align: left;
+}
+
+/* ======== CALENDÁRIOS MODERNOS ======== */
+input[type="date"] {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  /* Ícone de seta customizado */
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%236B7280' d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1.5em 1.5em;
-  padding-right: 2.5rem;
+  background-color: rgba(48, 77, 109, 0.1);
+  padding-left: 10px;
+  font-family: "PT Sans Caption", sans-serif;
+  cursor: pointer;
+  position: relative;
 }
 
-/* --- 3. LAYOUT E RESPONSIVIDADE --- */
-
-/* Classes utilitárias do Tailwind adaptadas para o design */
-.text-principal {
-  color: var(--cor-principal);
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url('https://cdn-icons-png.flaticon.com/512/747/747310.png') no-repeat center;
+  background-size: 18px;
+  filter: invert(18%) sepia(89%) saturate(2345%) hue-rotate(220deg);
+  opacity: 0.8;
+  cursor: pointer;
 }
 
-.bg-principal {
-  background-color: var(--cor-principal);
+input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
 }
 
-.text-secundaria {
-  color: var(--cor-secundaria);
+.linha {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
 }
 
-.bg-secundaria {
-  background-color: var(--cor-secundaria);
+.linha>div {
+  flex: 1;
 }
 
-.bg-fundo {
-  background-color: var(--cor-fundo);
+h2 {
+  margin-top: 30px;
+  color: #3333bd;
+  font-size: 28px;
 }
 
-.text-link {
-  color: var(--cor-texto-link);
+.add {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #3333bd;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.font-calibri {
-  font-family: "Calibri", "Inter", sans-serif;
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
 }
 
-.h-textarea {
-  min-height: 100px;
+.checkbox input {
+  width: 20px;
+  height: 20px;
 }
 
-/* Ajuste para rolagem suave na coluna principal (formulário) em telas maiores */
-@media (min-width: 1024px) {
-  .form-col {
-    overflow-y: auto;
-    height: calc(100vh - 1.5rem);
-  }
+/* ======== LADO DIREITO ======== */
+.right {
+  width: 360px;
+  background-color: #3333bd;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 80px;
+  position: relative;
+}
+
+.foto {
+  width: 170px;
+  height: 170px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3333bd;
+  font-size: 80px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.foto-texto {
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  width: 200px;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.right button {
+  background-color: #fcfc30;
+  color: #3333bd;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.right button:hover {
+  filter: brightness(0.9);
 }
