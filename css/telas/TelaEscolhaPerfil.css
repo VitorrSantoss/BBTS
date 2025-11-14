@@ -1,0 +1,21 @@
+/* /css/telas/TelaEscolhaPerfil.css */
+
+.bg-principal {
+  background-color: #3333bd; /* Azul do layout */
+}
+
+.bg-secundaria {
+  background-color: #fcfc30; /* Amarelo */
+}
+
+.text-secundaria {
+  color: #fcfc30; /* Amarelo */
+}
+
+.text-principal {
+  color: #3333bd; /* Azul principal */
+}
+
+.font-calibri {
+  font-family: Calibri, sans-serif;
+}
