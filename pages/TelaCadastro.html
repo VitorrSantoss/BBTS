@@ -1,128 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dados de Colaborador</title>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/telas/TelaCadastro.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dados de Colaborador</title>
 
+    <link rel="stylesheet" href="/css/telas/TelaCadastro.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-<body>
-  <div class="container">
-    <!-- LADO ESQUERDO -->
-    <div class="left">
-      <div class="top-bar"></div>
-      <h1>Dados de Colaborador</h1>
+  <body>
+    <div class="container">
+      <!-- LADO ESQUERDO -->
+      <div class="left">
+        <div class="top-bar"></div>
+        <h1>Dados de Colaborador</h1>
 
-      <div class="linha">
-        <div>
-          <label>Nome Completo</label>
-          <input type="text" placeholder="Digite seu nome completo">
+        <div class="linha">
+          <div>
+            <label>Nome Completo</label>
+            <input type="text" placeholder="Digite seu nome completo" />
+          </div>
+          <div>
+            <label>CPF</label>
+            <input type="text" placeholder="Ex: 000.000.000-00" />
+          </div>
+          <div>
+            <label>Área de Atuação</label>
+            <input type="text" placeholder="Ex: Desenvolvedor BackEnd" />
+          </div>
         </div>
-        <div>
-          <label>CPF</label>
-          <input type="text" placeholder="Ex: 000.000.000-00">
+
+        <div class="linha">
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="seuEmail@gmail.com" />
+          </div>
+          <div>
+            <label>Telefone</label>
+            <input type="text" placeholder="(00) 00000-0000" />
+          </div>
+          <div>
+            <label>Data de Nascimento</label>
+            <input type="date" />
+          </div>
         </div>
-        <div>
-          <label>Área de Atuação</label>
-          <input type="text" placeholder="Ex: Desenvolvedor BackEnd">
+
+        <h2>Habilidades</h2>
+        <div class="linha">
+          <div>
+            <label>Idiomas</label>
+            <input type="text" placeholder="Ex: Inglês" />
+          </div>
+          <div>
+            <label>Nível</label>
+            <select>
+              <option>Iniciante</option>
+              <option selected>Intermediário</option>
+              <option>Avançado</option>
+            </select>
+          </div>
         </div>
+        <div class="add">+ Adicionar idioma</div>
+
+        <div class="linha" style="margin-top: 15px">
+          <div>
+            <label>Tecnologias</label>
+            <input type="text" placeholder="JavaScript" />
+          </div>
+          <div>
+            <label>Nível</label>
+            <select>
+              <option>Júnior</option>
+              <option selected>Pleno</option>
+              <option>Sênior</option>
+            </select>
+          </div>
+        </div>
+        <div class="add">+ Adicionar tecnologia</div>
+
+        <h2>Experiência Profissional</h2>
+        <div class="linha">
+          <div>
+            <label>Empresa</label>
+            <input type="text" placeholder="Digite o nome da empresa" />
+          </div>
+          <div>
+            <label>Cargo</label>
+            <input type="text" placeholder="Cargo (Ex: Estágio de T.I)" />
+          </div>
+        </div>
+
+        <label style="margin-top: 20px">Vigência do Contrato</label>
+        <div class="linha">
+          <input type="date" placeholder="Início" />
+          <input type="date" placeholder="Fim" />
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" id="empregoAtual" />
+          <label for="empregoAtual" style="font-size: 16px"
+            >Emprego Atual</label
+          >
+        </div>
+
+        <h2>Certificados e Certificações</h2>
+        <div id="certificadosContainer">
+          <div class="linha campo-cert">
+            <input type="file" />
+          </div>
+        </div>
+
+        <div id="addCertificadoBtn" class="add">+ Adicionar arquivo</div>
       </div>
 
-      <div class="linha">
-        <div>
-          <label>Email</label>
-          <input type="email" placeholder="seuEmail@gmail.com">
+      <!-- LADO DIREITO -->
+      <div class="right">
+        <div class="foto">
+          <input type="file" id="fotoInput" accept="image/*" />
+          <span id="fotoIcon">👤</span>
         </div>
-        <div>
-          <label>Telefone</label>
-          <input type="text" placeholder="(00) 00000-0000">
-        </div>
-        <div>
-          <label>Data de Nascimento</label>
-          <input type="date">
-        </div>
-      </div>
 
-      <h2>Habilidades</h2>
-      <div class="linha">
-        <div>
-          <label>Idiomas</label>
-          <input type="text" placeholder="Ex: Inglês">
-        </div>
-        <div>
-          <label>Nível</label>
-          <select>
-            <option>Iniciante</option>
-            <option selected>Intermediário</option>
-            <option>Avançado</option>
-          </select>
-        </div>
-      </div>
-      <div class="add">+ Adicionar idioma</div>
+        <div class="foto-texto">Adicione uma<br />foto de perfil</div>
 
-      <div class="linha" style="margin-top: 15px;">
-        <div>
-          <label>Tecnologias</label>
-          <input type="text" placeholder="JavaScript">
-        </div>
-        <div>
-          <label>Nível</label>
-          <select>
-            <option>Júnior</option>
-            <option selected>Pleno</option>
-            <option>Sênior</option>
-          </select>
+        <div class="button-group">
+          <button type="button" onclick="location.href='SelecaoPerfil.html'">
+            VOLTAR
+          </button>
+
+          <button id="btnSalvar" type="button" class="btn btn-primary">
+            SALVAR
+          </button>
         </div>
       </div>
-      <div class="add">+ Adicionar tecnologia</div>
-
-      <h2>Experiência Profissional</h2>
-      <div class="linha">
-        <div>
-          <label>Empresa</label>
-          <input type="text" placeholder="Digite o nome da empresa">
-        </div>
-        <div>
-          <label>Cargo</label>
-          <input type="text" placeholder="Cargo (Ex: Estágio de T.I)">
-        </div>
-      </div>
-
-      <label style="margin-top:20px;">Vigência do Contrato</label>
-      <div class="linha">
-        <input type="date" placeholder="Início">
-        <input type="date" placeholder="Fim">
-      </div>
-
-      <div class="checkbox">
-        <input type="checkbox" id="empregoAtual">
-        <label for="empregoAtual" style="font-size:16px;">Emprego Atual</label>
-      </div>
-
-      <h2>Certificados e Certificações</h2>
-      <div class="linha">
-        <input type="file">
-      </div>
-      <div class="add">+ Adicionar arquivo</div>
     </div>
 
-    <!-- LADO DIREITO -->
-    <div class="right">
-      <div class="foto">
-        <input type="file" id="fotoInput" accept="image/*">
-        <span id="fotoIcon">👤</span>
-      </div>
-      <div class="foto-texto">Adicione uma<br>foto de perfil</div>
-
-      <div class="button-group">
-        <button type="button" onclick="window.history.back()">VOLTAR</button>
-        <button type="submit">SALVAR</button>
-      </div>
+    <!-- === TELA SALVANDO === -->
+    <div id="loadingScreen" class="loading-screen">
+      <div class="loading-text">SALVANDO...</div>
     </div>
-  </div>
 
-</body>
+    <script src="/js/TelaCadastro.js" defer></script>
+  </body>
 </html>
