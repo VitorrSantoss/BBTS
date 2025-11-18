@@ -19,30 +19,36 @@
         <div class="top-bar"></div>
         <h1>Dados de Colaborador</h1>
 
+        <!-- LINHA 1 - Nome / CPF / Área -->
         <div class="linha">
           <div>
             <label>Nome Completo</label>
             <input type="text" placeholder="Digite seu nome completo" />
           </div>
+
           <div>
             <label>CPF</label>
             <input type="text" placeholder="Ex: 000.000.000-00" />
           </div>
+
           <div>
             <label>Área de Atuação</label>
             <input type="text" placeholder="Ex: Desenvolvedor BackEnd" />
           </div>
         </div>
 
+        <!-- LINHA 2 - Email / Telefone / Nascimento -->
         <div class="linha">
           <div>
             <label>Email</label>
             <input type="email" placeholder="seuEmail@gmail.com" />
           </div>
+
           <div>
             <label>Telefone</label>
             <input type="text" placeholder="(00) 00000-0000" />
           </div>
+
           <div>
             <label>Data de Nascimento</label>
             <input type="date" />
@@ -51,7 +57,6 @@
 
         <h2>Habilidades</h2>
 
-        <!-- IDIOMAS -->
         <div id="idiomasContainer">
           <div class="linha">
             <div>
@@ -61,9 +66,12 @@
             <div>
               <label>Nível</label>
               <select>
-                <option>Iniciante</option>
-                <option selected>Intermediário</option>
-                <option>Avançado</option>
+                <option value="INICIANTE">Iniciante</option>
+                <option value="BASICO">Básico</option>
+                <option value="INTERMEDIARIO" selected>Intermediário</option>
+                <option value="AVANCADO">Avançado</option>
+                <option value="FLUENTE">Fluente</option>
+                <option value="NATIVO">Nativo</option>
               </select>
             </div>
           </div>
@@ -71,7 +79,7 @@
 
         <div id="addIdiomaBtn" class="add">+ Adicionar idioma</div>
 
-        <!-- TECNOLOGIAS -->
+        <!-- === TECNOLOGIAS (ATUALIZADO COM VALUES CORRETOS) === -->
         <div id="techContainer" style="margin-top: 15px">
           <div class="linha">
             <div>
@@ -81,9 +89,9 @@
             <div>
               <label>Nível</label>
               <select>
-                <option>Júnior</option>
-                <option selected>Pleno</option>
-                <option>Sênior</option>
+                <option value="JUNIOR">Júnior</option>
+                <option value="PLENO" selected>Pleno</option>
+                <option value="SENIOR">Sênior</option>
               </select>
             </div>
           </div>
@@ -91,6 +99,7 @@
 
         <div id="addTechBtn" class="add">+ Adicionar tecnologia</div>
 
+        <!-- === EXPERIÊNCIA PROFISSIONAL === -->
         <h2>Experiência Profissional</h2>
         <div class="linha">
           <div>
@@ -115,7 +124,8 @@
             >Emprego Atual</label
           >
         </div>
-
+        
+        <!-- CERTIFICADOS -->
         <h2>Certificados e Certificações</h2>
 
         <div id="certificadosContainer">
@@ -134,7 +144,10 @@
           <span id="fotoIcon">👤</span>
         </div>
 
-        <div class="foto-texto">Adicione uma<br />foto de perfil</div>
+        <div class="foto-texto">
+          Adicione uma<br />
+          foto de perfil
+        </div>
 
         <div class="button-group">
           <button type="button" onclick="location.href='SelecaoPerfil.html'">
@@ -148,10 +161,12 @@
       </div>
     </div>
 
+    <!-- TELA DE SALVAMENTO -->
     <div id="loadingScreen" class="loading-screen">
       <div class="loading-text">SALVANDO...</div>
     </div>
 
+    <script src="/js/apiService.js"></script>
     <script src="/js/TelaCadastro.js" defer></script>
   </body>
 </html>
