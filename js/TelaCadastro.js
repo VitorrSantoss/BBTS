@@ -277,4 +277,125 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
+  // ============================================================
+  // =====   NOVA FUNCIONALIDADE: GERAR PDF DO CURRÍCULO    =====
+  // ============================================================
+  const btnGerarPDF = document.getElementById("btnGerarPDF");
+
+  if (btnGerarPDF) {
+    btnGerarPDF.addEventListener("click", () => {
+      // Verifica se a lib foi carregada
+      if (!window.jspdf) {
+        alert("Erro: Biblioteca jsPDF não encontrada. Verifique o HTML.");
+        return;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      
+      // --- Configurações de Layout ---
+      let yPos = 20; // Cursor vertical (Eixo Y)
+      const margemEsq = 20;
+      const alturaLinha = 8;
+
+      // Função auxiliar para escrever texto e controlar quebra de página
+      const escrever = (texto, isTitulo = false) => {
+        if (yPos > 280) { // Se chegar no fim da A4
+          doc.addPage();
+          yPos = 20;
+        }
+
+        if (isTitulo) {
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(14);
+          yPos += 5;
+          doc.text(texto, margemEsq, yPos);
+          doc.setLineWidth(0.5);
+          doc.line(margemEsq, yPos + 2, 190, yPos + 2); // Linha sublinhada
+          yPos += 10;
+        } else {
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(12);
+          doc.text(texto, margemEsq, yPos);
+          yPos += alturaLinha;
+        }
+      };
+
+      // --- TÍTULO ---
+      doc.setFontSize(22);
+      doc.setFont("helvetica", "bold");
+      doc.text("Ficha de Colaborador", 105, yPos, null, null, "center");
+      yPos += 20;
+
+      // --- 1. DADOS PESSOAIS ---
+      escrever("Dados Pessoais", true);
+      
+      // Usando os IDs do HTML original (mais seguros que placeholders)
+      const nome = document.getElementById("inputNome")?.value || document.querySelector('input[placeholder="Digite seu nome completo"]')?.value || "N/A";
+      const cpf = document.getElementById("inputCPF")?.value || document.querySelector('input[placeholder="Ex: 000.000.000-00"]')?.value || "N/A";
+      const email = document.getElementById("inputEmail")?.value || document.querySelector('input[placeholder="seuEmail@gmail.com"]')?.value || "N/A";
+      const area = document.getElementById("inputAreaAtuacao")?.value || "N/A";
+      const tel = document.getElementById("inputTelefone")?.value || "N/A";
+      
+      escrever(`Nome: ${nome}`);
+      escrever(`CPF: ${cpf}`);
+      escrever(`Email: ${email}`);
+      escrever(`Área de Atuação: ${area}`);
+      escrever(`Telefone: ${tel}`);
+
+      // --- 2. IDIOMAS ---
+      escrever("Idiomas", true);
+      const linhasIdiomas = document.querySelectorAll('#idiomasContainer .linha');
+      let temIdioma = false;
+      
+      linhasIdiomas.forEach(linha => {
+        const input = linha.querySelector('input[type="text"]');
+        const select = linha.querySelector('select');
+        if (input && input.value) {
+           escrever(`• ${input.value} - Nível: ${select.value}`);
+           temIdioma = true;
+        }
+      });
+      if (!temIdioma) escrever("Nenhum idioma adicionado.");
+
+      // --- 3. TECNOLOGIAS ---
+      escrever("Tecnologias", true);
+      const linhasTech = document.querySelectorAll('#techContainer .linha');
+      let temTech = false;
+
+      linhasTech.forEach(linha => {
+        const input = linha.querySelector('input[type="text"]');
+        const select = linha.querySelector('select');
+        if (input && input.value) {
+           escrever(`• ${input.value} - Nível: ${select.value}`);
+           temTech = true;
+        }
+      });
+      if (!temTech) escrever("Nenhuma tecnologia adicionada.");
+
+      // --- 4. EXPERIÊNCIA ---
+      escrever("Experiência Profissional", true);
+      const empInput = document.getElementById("inputEmpresa0") || document.querySelector('input[placeholder="Digite o nome da empresa"]');
+      const cargoInput = document.getElementById("inputCargo0") || document.querySelector('input[placeholder="Cargo (Ex: Estágio de T.I)"]');
+      
+      if (empInput && empInput.value) {
+         escrever(`Empresa: ${empInput.value}`);
+         escrever(`Cargo: ${cargoInput?.value || "N/A"}`);
+         
+         // Datas
+         const dataInicio = document.getElementById("vigenciaInicio0")?.value || "Início não inf.";
+         const dataFim = document.getElementById("vigenciaFim0")?.value;
+         const isAtual = document.getElementById("empregoAtual0")?.checked || document.getElementById("empregoAtual")?.checked;
+         
+         const periodo = isAtual ? `${dataInicio} até Atualmente` : `${dataInicio} até ${dataFim || "?"}`;
+         escrever(`Período: ${periodo}`);
+      } else {
+         escrever("Não informada.");
+      }
+
+      // Salva o PDF
+      doc.save(`Ficha_${nome.split(" ")[0] || "Cadastro"}.pdf`);
+    });
+  }
 });
