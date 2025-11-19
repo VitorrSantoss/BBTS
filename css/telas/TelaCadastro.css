@@ -88,7 +88,8 @@ input[type="date"] {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  background: url('https://cdn-icons-png.flaticon.com/512/747/747310.png') no-repeat center;
+  background: url("https://cdn-icons-png.flaticon.com/512/747/747310.png")
+    no-repeat center;
   background-size: 18px;
   filter: invert(18%) sepia(89%) saturate(2345%) hue-rotate(220deg);
   opacity: 0.8;
@@ -105,7 +106,7 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
   margin-top: 10px;
 }
 
-.linha>div {
+.linha > div {
   flex: 1;
 }
 
@@ -186,6 +187,26 @@ h2 {
   width: 200px;
 }
 
+/* Estilos para o botão azul (GERAR PDF) */
+#btnGerarPDF.btn-primary {
+  margin-top: 15px;
+  background-color: #3333bd;
+  color: white;
+  font-weight: 550;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Estilos de HOVER para o botão GERAR PDF */
+#btnGerarPDF.btn-primary:hover {
+  background-color: #335fbd; /* Um tom de azul mais claro para o hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para efeito 3D */
+}
+
 .button-group {
   position: absolute;
   bottom: 40px;
@@ -208,7 +229,6 @@ h2 {
 .right button:hover {
   filter: brightness(0.9);
 }
-
 
 /* ======== TELA SALVANDO / OVERLAY ======== */
 .loading-screen {
@@ -233,6 +253,11 @@ h2 {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
