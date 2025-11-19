@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
+
   let usuarioIdCadastrado = null; // Armazena o ID do usuário após cadastro
 
   // === SALVAR CADASTRO COMPLETO COM API ===
@@ -9,27 +9,29 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnSalvar && loadingScreen) {
     btnSalvar.addEventListener("click", async () => {
       try {
+        // Mostra tela de carregamento
         loadingScreen.style.display = "flex";
+
+        // 1. Validação dos Campos Obrigatórios do Usuário
+        const nome = document.querySelector('input[placeholder="Digite seu nome completo"]').value;
+        const cpf = document.querySelector('input[placeholder="Ex: 000.000.000-00"]').value;
+        const email = document.querySelector('input[placeholder="seuEmail@gmail.com"]').value;
+
+        if (!nome || !email || !cpf) {
+          throw new Error("Campos obrigatórios (Nome, Email, CPF) não preenchidos.");
+        }
 
         // ===== PASSO 1: CADASTRAR USUÁRIO =====
         const usuario = {
-          nome: document.querySelector('input[placeholder="Digite seu nome completo"]').value,
-          cpf: document.querySelector('input[placeholder="Ex: 000.000.000-00"]').value,
-          email: document.querySelector('input[placeholder="seuEmail@gmail.com"]').value,
-          senha: "senha123", // Em produção, adicionar campo de senha
+          nome: nome,
+          cpf: cpf,
+          email: email,
+          senha: "senha123", // Senha padrão ou campo de senha se houver
           telefone: document.querySelector('input[placeholder="(00) 00000-0000"]').value,
           dataNascimento: document.querySelector('input[type="date"]').value
         };
 
-        // Validação básica
-        if (!usuario.nome || !usuario.email || !usuario.cpf) {
-          alert("Por favor, preencha os campos obrigatórios (Nome, Email, CPF)!");
-          loadingScreen.style.display = "none";
-          return;
-        }
-
-        console.log('Cadastrando usuário:', usuario);
-
+        console.log('📤 Cadastrando usuário...');
         const responseUsuario = await fetch('http://localhost:8080/usuarios', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -37,37 +39,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!responseUsuario.ok) {
-          throw new Error('Erro ao cadastrar usuário');
+          const erroMsg = await responseUsuario.text();
+          throw new Error(`Falha ao cadastrar usuário: ${erroMsg}`);
         }
 
         const usuarioCadastrado = await responseUsuario.json();
         usuarioIdCadastrado = usuarioCadastrado.id;
         console.log('✅ Usuário cadastrado com ID:', usuarioIdCadastrado);
 
-        // Salva o ID no localStorage
+        // Salva o ID no localStorage para uso na próxima tela
         localStorage.setItem('usuarioId', usuarioIdCadastrado);
 
-        // ===== PASSO 2: CADASTRAR IDIOMAS =====
+        // ===== EXECUTAR CADASTROS DEPENDENTES =====
+        // Usamos await para garantir que o usuário exista antes de vincular os dados
         await cadastrarIdiomas(usuarioIdCadastrado);
-
-        // ===== PASSO 3: CADASTRAR TECNOLOGIAS =====
         await cadastrarTecnologias(usuarioIdCadastrado);
-
-        // ===== PASSO 4: CADASTRAR EXPERIÊNCIA PROFISSIONAL =====
         await cadastrarExperiencia(usuarioIdCadastrado);
+        await cadastrarCertificacoes(usuarioIdCadastrado); // <--- AQUI ESTAVA O ERRO, AGORA CORRIGIDO
 
-        // ===== PASSO 5: CADASTRAR CERTIFICAÇÕES =====
-        await cadastrarCertificacoes(usuarioIdCadastrado);
+        // ===== SUCESSO =====
+        console.log('🎉 Cadastro completo realizado com sucesso!');
 
-        // Sucesso - redireciona
+        // Redireciona após 1 segundo
         setTimeout(() => {
           window.location.href = "TelaColaborador.html";
-        }, 2000);
+        }, 1000);
 
       } catch (erro) {
-        console.error('❌ Erro:', erro);
-        alert('Erro ao cadastrar. Verifique o console e se o backend está rodando.');
-        loadingScreen.style.display = "none";
+        console.error('❌ Erro no processo de cadastro:', erro);
+        alert(erro.message); // Mostra a mensagem de erro real para o usuário
+        loadingScreen.style.display = "none"; // Esconde tela de carregamento para tentar de novo
       }
     });
   }
@@ -75,11 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== FUNÇÃO: CADASTRAR IDIOMAS =====
   async function cadastrarIdiomas(usuarioId) {
     const idiomasLinhas = document.querySelectorAll('#idiomasContainer .linha');
-    
+
     for (const linha of idiomasLinhas) {
       const nomeInput = linha.querySelector('input[type="text"]');
       const nivelSelect = linha.querySelector('select');
-      
+
       if (nomeInput && nivelSelect && nomeInput.value.trim()) {
         const idioma = {
           nome: nomeInput.value.trim(),
@@ -87,19 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
           usuario: { id: usuarioId }
         };
 
-        console.log('Cadastrando idioma:', idioma);
-
-        const response = await fetch('http://localhost:8080/idiomas', {
+        await fetch('http://localhost:8080/idiomas', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(idioma)
         });
-
-        if (response.ok) {
-          console.log('✅ Idioma cadastrado:', idioma.nome);
-        } else {
-          console.error('❌ Erro ao cadastrar idioma:', idioma.nome);
-        }
       }
     }
   }
@@ -107,11 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== FUNÇÃO: CADASTRAR TECNOLOGIAS =====
   async function cadastrarTecnologias(usuarioId) {
     const techLinhas = document.querySelectorAll('#techContainer .linha');
-    
+
     for (const linha of techLinhas) {
       const nomeInput = linha.querySelector('input[type="text"]');
       const nivelSelect = linha.querySelector('select');
-      
+
       if (nomeInput && nivelSelect && nomeInput.value.trim()) {
         const tecnologia = {
           nome: nomeInput.value.trim(),
@@ -119,19 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
           usuario: { id: usuarioId }
         };
 
-        console.log('Cadastrando tecnologia:', tecnologia);
-
-        const response = await fetch('http://localhost:8080/tecnologias', {
+        await fetch('http://localhost:8080/tecnologias', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(tecnologia)
         });
-
-        if (response.ok) {
-          console.log('✅ Tecnologia cadastrada:', tecnologia.nome);
-        } else {
-          console.error('❌ Erro ao cadastrar tecnologia:', tecnologia.nome);
-        }
       }
     }
   }
@@ -140,149 +125,153 @@ document.addEventListener("DOMContentLoaded", () => {
   async function cadastrarExperiencia(usuarioId) {
     const empresaInput = document.querySelector('input[placeholder="Digite o nome da empresa"]');
     const cargoInput = document.querySelector('input[placeholder="Cargo (Ex: Estágio de T.I)"]');
-    const dataInicioInput = document.querySelectorAll('input[type="date"]')[1]; // Segunda data
-    const dataFimInput = document.querySelectorAll('input[type="date"]')[2]; // Terceira data
+    const datasInputs = document.querySelectorAll('input[type="date"]');
+
+    // Ajuste conforme a ordem dos inputs no HTML
+    // Assumindo: 0=Nascimento, 1=Inicio Exp, 2=Fim Exp
+    const dataInicioInput = datasInputs[1];
+    const dataFimInput = datasInputs[2];
     const empregoAtualCheck = document.getElementById('empregoAtual');
 
     if (empresaInput && cargoInput && empresaInput.value.trim() && cargoInput.value.trim()) {
       const experiencia = {
         empresa: empresaInput.value.trim(),
         cargo: cargoInput.value.trim(),
-        dataInicio: dataInicioInput.value,
-        dataFim: empregoAtualCheck.checked ? null : dataFimInput.value,
-        empregoAtual: empregoAtualCheck.checked,
-        descricao: null,
+        dataInicio: dataInicioInput ? dataInicioInput.value : null,
+        dataFim: (empregoAtualCheck && empregoAtualCheck.checked) ? null : (dataFimInput ? dataFimInput.value : null),
+        empregoAtual: empregoAtualCheck ? empregoAtualCheck.checked : false,
         usuario: { id: usuarioId }
       };
 
-      console.log('Cadastrando experiência:', experiencia);
-
-      const response = await fetch('http://localhost:8080/experienciaProfissional', {
+      await fetch('http://localhost:8080/experienciaProfissional', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(experiencia)
       });
-
-      if (response.ok) {
-        console.log('✅ Experiência cadastrada');
-      } else {
-        console.error('❌ Erro ao cadastrar experiência');
-      }
     }
   }
 
-  // ===== FUNÇÃO: CADASTRAR CERTIFICAÇÕES =====
+  // ===== FUNÇÃO: CADASTRAR CERTIFICAÇÕES (CORRIGIDA PARA PDF/MULTIPART) =====
   async function cadastrarCertificacoes(usuarioId) {
-    // Nota: Para certificações com arquivo, seria necessário upload de arquivo
-    // Por enquanto, vamos cadastrar apenas com nome simulado
     const certificadosInputs = document.querySelectorAll('#certificadosContainer input[type="file"]');
-    
+
     for (const fileInput of certificadosInputs) {
+      // Verifica se o usuário selecionou um arquivo
       if (fileInput.files && fileInput.files[0]) {
-        const certificacao = {
-          nomeCurso: fileInput.files[0].name.split('.')[0], // Nome do arquivo sem extensão
-          dataConclusao: new Date().toISOString().split('T')[0], // Data atual
-          arquivoCertificado: fileInput.files[0].name,
+        const arquivo = fileInput.files[0];
+        const nomeArquivo = arquivo.name.split('.')[0]; // Nome sem extensão
+
+        // 1. Cria o FormData para enviar arquivo + dados
+        const formData = new FormData();
+
+        // 2. Objeto JSON com os dados da certificação (Nome, Data, ID Usuário)
+        const dadosCertificacao = {
+          nomeCurso: nomeArquivo,
+          dataConclusao: new Date().toISOString().split('T')[0], // Data de hoje
           usuario: { id: usuarioId }
         };
 
-        console.log('Cadastrando certificação:', certificacao);
+        // 3. Adiciona o JSON como "Blob" com tipo application/json
+        // Isso satisfaz o @RequestPart("dados") do Spring Boot
+        formData.append("dados", new Blob([JSON.stringify(dadosCertificacao)], {
+          type: "application/json"
+        }));
 
-        const response = await fetch('http://localhost:8080/certificacoes', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(certificacao)
-        });
+        // 4. Adiciona o Arquivo PDF real
+        // Isso satisfaz o @RequestPart("arquivo")
+        formData.append("arquivo", arquivo);
 
-        if (response.ok) {
-          console.log('✅ Certificação cadastrada');
-        } else {
-          console.error('❌ Erro ao cadastrar certificação');
+        console.log(`📤 Enviando certificação: ${nomeArquivo}`);
+
+        try {
+          // 5. Envia SEM header Content-Type (o navegador define automaticamente o boundary)
+          const response = await fetch('http://localhost:8080/certificacoes', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (response.ok) {
+            console.log('✅ Certificação salva com sucesso!');
+          } else {
+            console.error('❌ Falha ao salvar certificação:', await response.text());
+          }
+        } catch (error) {
+          console.error('❌ Erro de rede na certificação:', error);
         }
       }
     }
   }
 
-  // ===== ADICIONAR IDIOMAS DINAMICAMENTE =====
+  // ===== LÓGICA DE UI (Adicionar campos dinâmicos) =====
   const addIdiomaBtn = document.getElementById("addIdiomaBtn");
   const idiomasContainer = document.getElementById("idiomasContainer");
 
-  addIdiomaBtn.addEventListener("click", () => {
-    const div = document.createElement("div");
-    div.classList.add("linha");
-    div.style.marginTop = "10px";
+  if (addIdiomaBtn) {
+    addIdiomaBtn.addEventListener("click", () => {
+      const div = document.createElement("div");
+      div.classList.add("linha");
+      div.style.marginTop = "10px";
+      div.innerHTML = `
+        <div><label>Idiomas</label><input type="text" placeholder="Ex: Inglês" /></div>
+        <div><label>Nível</label>
+          <select>
+            <option value="INICIANTE">Iniciante</option>
+            <option value="BASICO">Básico</option>
+            <option value="INTERMEDIARIO" selected>Intermediário</option>
+            <option value="AVANCADO">Avançado</option>
+            <option value="FLUENTE">Fluente</option>
+            <option value="NATIVO">Nativo</option>
+          </select>
+        </div>`;
+      idiomasContainer.appendChild(div);
+    });
+  }
 
-    div.innerHTML = `
-      <div>
-        <label>Idiomas</label>
-        <input type="text" placeholder="Ex: Inglês" />
-      </div>
-      <div>
-        <label>Nível</label>
-        <select>
-          <option value="INICIANTE">Iniciante</option>
-          <option value="BASICO">Básico</option>
-          <option value="INTERMEDIARIO" selected>Intermediário</option>
-          <option value="AVANCADO">Avançado</option>
-          <option value="FLUENTE">Fluente</option>
-          <option value="NATIVO">Nativo</option>
-        </select>
-      </div>
-    `;
-
-    idiomasContainer.appendChild(div);
-  });
-
-  // ===== ADICIONAR TECNOLOGIAS DINAMICAMENTE =====
   const addTechBtn = document.getElementById("addTechBtn");
   const techContainer = document.getElementById("techContainer");
 
-  addTechBtn.addEventListener("click", () => {
-    const div = document.createElement("div");
-    div.classList.add("linha");
-    div.style.marginTop = "10px";
+  if (addTechBtn) {
+    addTechBtn.addEventListener("click", () => {
+      const div = document.createElement("div");
+      div.classList.add("linha");
+      div.style.marginTop = "10px";
+      div.innerHTML = `
+        <div><label>Tecnologias</label><input type="text" placeholder="Ex: JavaScript" /></div>
+        <div><label>Nível</label>
+          <select>
+            <option value="JUNIOR">Júnior</option>
+            <option value="PLENO" selected>Pleno</option>
+            <option value="SENIOR">Sênior</option>
+          </select>
+        </div>`;
+      techContainer.appendChild(div);
+    });
+  }
 
-    div.innerHTML = `
-      <div>
-        <label>Tecnologias</label>
-        <input type="text" placeholder="Ex: JavaScript, React, Python" />
-      </div>
-      <div>
-        <label>Nível</label>
-        <select>
-          <option value="JUNIOR">Júnior</option>
-          <option value="PLENO" selected>Pleno</option>
-          <option value="SENIOR">Sênior</option>
-        </select>
-      </div>
-    `;
-
-    techContainer.appendChild(div);
-  });
-
-  // ===== ADICIONAR CERTIFICADOS DINAMICAMENTE =====
   const addCertificadoBtn = document.getElementById("addCertificadoBtn");
   const certificadosContainer = document.getElementById("certificadosContainer");
 
-  addCertificadoBtn.addEventListener("click", () => {
-    const div = document.createElement("div");
-    div.classList.add("linha", "campo-cert");
-    div.style.marginTop = "10px";
-    div.innerHTML = `<input type="file" accept=".pdf,.jpg,.jpeg,.png" />`;
-    certificadosContainer.appendChild(div);
-  });
+  if (addCertificadoBtn) {
+    addCertificadoBtn.addEventListener("click", () => {
+      const div = document.createElement("div");
+      div.classList.add("linha", "campo-cert");
+      div.style.marginTop = "10px";
+      // Restringindo para PDF
+      div.innerHTML = `<input type="file" accept="application/pdf" />`;
+      certificadosContainer.appendChild(div);
+    });
+  }
 
-  // ===== PREVIEW DA FOTO =====
+  // Preview da Foto
   const fotoInput = document.getElementById("fotoInput");
   const fotoContainer = document.querySelector(".foto");
-
   if (fotoInput) {
     fotoInput.addEventListener("change", function () {
       const file = this.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
-          fotoContainer.innerHTML = `<img src="${e.target.result}" alt="Foto de perfil">`;
+          fotoContainer.innerHTML = `<img src="${e.target.result}" alt="Foto de perfil" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
         };
         reader.readAsDataURL(file);
       }
