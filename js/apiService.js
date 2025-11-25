@@ -1,7 +1,7 @@
 // js/apiService.js
 // Serviço centralizado para comunicação com a API
 
-const API_BASE_URL = 'bbts-api-production.up.railway.app';
+const API_BASE_URL = 'https://bbts-api.onrender.com/';
 
 // Configuração padrão do fetch
 const defaultHeaders = {
