@@ -7,10 +7,11 @@ export function useValorAnimado(alvo, duracao = 900) {
   const [valor, setValor] = useState(() => (prefereMenosMovimento() ? alvo : 0));
 
   useEffect(() => {
-    const inicio = performance.now();
     const tempoTotal = prefereMenosMovimento() ? 0 : duracao;
+    let inicio;
 
     let quadro = requestAnimationFrame(function passo(agora) {
+      inicio ??= agora;
       const progresso = tempoTotal === 0 ? 1 : Math.min((agora - inicio) / tempoTotal, 1);
       const suavizado = 1 - (1 - progresso) ** 3;
       setValor(Math.round(alvo * suavizado));
