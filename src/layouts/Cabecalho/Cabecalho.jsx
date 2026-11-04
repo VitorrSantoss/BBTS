@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logoBbts from '@/assets/images/LogoBBTS.png';
 import { Avatar, Button } from '@/components/ui';
@@ -13,13 +13,19 @@ export default function Cabecalho({ titulo, links, usuario }) {
   const [menuAberto, setMenuAberto] = useState(false);
   const navId = useId();
 
-  const aoTeclar = (evento) => {
-    if (evento.key === 'Escape') setMenuAberto(false);
-  };
+  useEffect(() => {
+    if (!menuAberto) return undefined;
+
+    const aoTeclar = (evento) => {
+      if (evento.key === 'Escape') setMenuAberto(false);
+    };
+
+    document.addEventListener('keydown', aoTeclar);
+    return () => document.removeEventListener('keydown', aoTeclar);
+  }, [menuAberto]);
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- Esc só fecha o menu
-    <header className={styles.cabecalho} data-surface="primary" onKeyDown={aoTeclar}>
+    <header className={styles.cabecalho} data-surface="primary">
       <div className={styles.barra}>
         <div className={styles.marca}>
           <Link to="/" className={styles.logo}>

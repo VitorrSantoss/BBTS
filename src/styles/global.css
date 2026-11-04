@@ -87,6 +87,12 @@ fieldset {
   --focus-color: var(--color-accent);
 }
 
+[data-surface='primary'] h1,
+[data-surface='primary'] h2,
+[data-surface='primary'] h3 {
+  color: var(--color-text-inverse);
+}
+
 /* main recebe foco por código ao trocar de rota. O anel só serve para elementos interativos */
 main:focus {
   outline: none;

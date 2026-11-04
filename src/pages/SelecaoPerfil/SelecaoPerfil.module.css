@@ -1,0 +1,96 @@
+.pagina {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding-block: var(--space-8);
+}
+
+.faixa {
+  width: 100%;
+  padding: var(--space-10) var(--layout-gutter);
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: var(--layout-max);
+  margin-inline: auto;
+}
+
+.logo {
+  width: min(100%, 584px);
+  height: auto;
+}
+
+.escolha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* A imagem tem muita margem transparente: o recorte deixa só o ícone */
+.icone {
+  width: 136px;
+  height: 136px;
+  overflow: hidden;
+}
+
+.icone img {
+  max-width: none;
+  width: 200%;
+  height: 200%;
+  margin: -50%;
+  object-fit: contain;
+}
+
+.titulo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+}
+
+.botoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.botao {
+  min-height: 52px;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+@media (min-width: 960px) {
+  .faixa {
+    padding-block: var(--space-16);
+  }
+
+  .conteudo {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-12);
+  }
+
+  .logo {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .escolha {
+    flex-shrink: 0;
+  }
+
+  .titulo {
+    font-size: var(--font-size-3xl);
+  }
+}

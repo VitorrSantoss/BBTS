@@ -1,0 +1,64 @@
+.pagina {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.painel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 430px;
+  padding: var(--space-10) var(--space-8);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-lg);
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.titulo {
+  font-size: var(--font-size-xl);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.botaoEntrar {
+  align-self: center;
+  min-width: 160px;
+  margin-top: var(--space-4);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.cadastro {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--space-2);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
