@@ -25,7 +25,7 @@ export default defineConfig([
     },
     rules: {
       // Sem JSX transform clássico nem PropTypes: o nome em maiúscula marca componentes.
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^[A-Z_]' }],
       // Todo aviso ao usuário passa pelo toast.
       'no-alert': 'error',
       'no-console': 'error',

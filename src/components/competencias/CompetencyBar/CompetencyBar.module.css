@@ -1,0 +1,74 @@
+.competencia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--space-4);
+}
+
+.nome {
+  min-width: 0;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.sigla {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-regular);
+}
+
+.nivel {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+.barra {
+  position: relative;
+  padding-block: var(--space-1);
+}
+
+.trilha {
+  height: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-track);
+}
+
+.preenchimento {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-progress);
+  transform-origin: left center;
+  animation: crescer var(--duration-slow) var(--easing-out) both;
+}
+
+/* Fica fora da trilha para não ser cortada pelo overflow dela */
+.marca {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-deep);
+  transform: translateX(-50%);
+}
+
+.minimo {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+@keyframes crescer {
+  from {
+    transform: scaleX(0);
+  }
+}

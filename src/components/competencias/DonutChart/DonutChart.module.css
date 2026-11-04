@@ -1,0 +1,28 @@
+.rosca {
+  position: relative;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.trilha,
+.valor {
+  fill: none;
+}
+
+.trilha {
+  stroke: var(--color-track);
+}
+
+.valor {
+  stroke: var(--color-primary);
+}
+
+.texto {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
