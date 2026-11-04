@@ -31,6 +31,7 @@ function EsqueletoDaEquipe() {
 
 export default function GestorEquipe() {
   const { id } = useParams();
+  const tituloDescricaoId = useId();
   const tituloCompetenciasId = useId();
   const { dados, erro, carregando, recarregar } = useEquipe(id);
 
@@ -98,7 +99,10 @@ export default function GestorEquipe() {
           )}
         </Card>
 
-        <Card aria-label="Descrição da equipe">
+        <Card aria-labelledby={tituloDescricaoId}>
+          <h2 id={tituloDescricaoId} className="sr-only">
+            Sobre a equipe
+          </h2>
           <p className={styles.descricao}>{equipe.descricao}</p>
         </Card>
 

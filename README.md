@@ -103,7 +103,7 @@ O `usuarioId` é gravado ao concluir um cadastro.
 ## Design tokens
 
 `src/styles/tokens.css` é o único arquivo com cores, espaçamento, raios e sombras. Os breakpoints
-são sempre 640, 960 e 1200px, com media queries `min-width`.
+são sempre 640 e 960px, com media queries `min-width`.
 
 Regra de contraste: amarelo nunca é texto ou ícone sobre branco ou cinza claro. Use amarelo sobre
 azul, ou como fundo com texto azul.

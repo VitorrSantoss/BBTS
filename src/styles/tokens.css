@@ -9,7 +9,7 @@
  *
  * Breakpoints (mobile first). CSS não aceita variável em @media, então estes são os únicos
  * valores permitidos nas media queries do projeto:
- *   sm: 640px    md: 960px    lg: 1200px
+ *   sm: 640px    md: 960px
  */
 
 :root {

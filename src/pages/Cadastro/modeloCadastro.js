@@ -64,6 +64,7 @@ export const formularioDoColaborador = (colaborador) => ({
   experiencias: colaborador.experiencias.map((experiencia) => ({
     ...comChave(experiencia),
     dataFim: experiencia.dataFim ?? '',
+    empregoAtual: Boolean(experiencia.empregoAtual),
   })),
   certificados: colaborador.certificacoes.map((certificado) => ({
     ...comChave(certificado),
