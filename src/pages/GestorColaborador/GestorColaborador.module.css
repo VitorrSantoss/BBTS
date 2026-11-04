@@ -1,0 +1,73 @@
+.colunas {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.principal,
+.lateral {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.linhaDupla {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.subtitulo {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-lg);
+  text-align: center;
+}
+
+.dica {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.linhaEmail {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.campoEmail {
+  flex: 1;
+}
+
+/* Alinha o botão com o input, descontando a altura do rótulo */
+.removerEmail {
+  flex-shrink: 0;
+  margin-top: var(--space-6);
+}
+
+.adicionar {
+  align-self: flex-start;
+}
+
+.enviar {
+  align-self: center;
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .linhaDupla {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .colunas {
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  }
+}

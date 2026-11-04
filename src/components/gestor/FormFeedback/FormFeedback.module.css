@@ -1,0 +1,9 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.enviar {
+  align-self: flex-end;
+}
