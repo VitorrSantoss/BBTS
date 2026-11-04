@@ -77,8 +77,12 @@ fieldset {
   border: 0;
 }
 
-/* Foco visível em tudo: azul nas superfícies claras e amarelo sobre azul */
-:focus-visible {
+/*
+ * Foco visível em tudo: azul nas superfícies claras e amarelo sobre azul.
+ * No campo de data, o ícone do calendário recebe o foco por dentro e só :focus-within o enxerga.
+ */
+:focus-visible,
+input[type='date']:focus-within {
   outline: 3px solid var(--focus-color);
   outline-offset: 2px;
 }
@@ -131,10 +135,8 @@ main:focus {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-delay: 0ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
   }
 }

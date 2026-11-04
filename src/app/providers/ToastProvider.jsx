@@ -5,7 +5,7 @@ import { ToastContext } from './contextos';
 const DURACAO_MS = { sucesso: 5000, info: 6000, erro: 9000 };
 const MAXIMO_VISIVEL = 3;
 
-/** Substitui todos os alert() da versão antiga. */
+/** Substitui os alertas nativos do navegador usados na versão antiga. */
 export default function ToastProvider({ children }) {
   const [toasts, setToasts] = useState([]);
   const proximoId = useRef(0);

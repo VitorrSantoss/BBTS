@@ -22,7 +22,7 @@
 
 .erro {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-1);
   color: var(--color-feedback-error);
   font-size: var(--font-size-sm);
@@ -31,7 +31,6 @@
 
 .iconeErro {
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 /* Base visual compartilhada por Input, Select e Textarea */

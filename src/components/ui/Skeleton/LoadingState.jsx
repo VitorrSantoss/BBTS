@@ -9,6 +9,7 @@ const AVISO_API = 'A API no Render pode levar até 1 minuto para acordar no prim
 export default function LoadingState({ consultaApi = false, children }) {
   return (
     <div className={styles.estado} aria-busy="true">
+      <h1 className="sr-only">Carregando</h1>
       <p className={consultaApi ? styles.aviso : 'sr-only'} role="status">
         Carregando seus dados. {consultaApi && AVISO_API}
       </p>
