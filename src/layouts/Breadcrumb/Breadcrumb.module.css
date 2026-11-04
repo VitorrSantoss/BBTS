@@ -1,15 +1,16 @@
 .trilha {
+  position: relative;
   width: 100%;
   max-width: var(--layout-max);
   margin-inline: auto;
-  padding: var(--space-4) var(--layout-gutter) 0;
+  padding: var(--space-3) var(--layout-gutter) 0;
 }
 
 .lista {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1) var(--space-2);
-  color: var(--color-text-muted);
+  color: var(--color-text-inverse);
   font-size: var(--font-size-sm);
 }
 
@@ -20,13 +21,19 @@
 }
 
 .separador {
-  color: var(--color-primary);
+  color: var(--color-accent);
   font-weight: var(--font-weight-bold);
 }
 
 .link {
   display: inline-block;
   padding-block: var(--space-1);
-  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-inverse);
   font-weight: var(--font-weight-semibold);
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  color: var(--color-accent);
 }

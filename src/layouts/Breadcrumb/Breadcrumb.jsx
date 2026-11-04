@@ -10,7 +10,7 @@ export default function Breadcrumb() {
   if (itens.length === 0) return null;
 
   return (
-    <nav className={styles.trilha} aria-label="Trilha de navegação">
+    <nav className={styles.trilha} aria-label="Trilha de navegação" data-surface="primary">
       <ol className={styles.lista}>
         {itens.map(({ rotulo, para }, indice) => {
           const atual = indice === itens.length - 1;
@@ -24,7 +24,7 @@ export default function Breadcrumb() {
               {atual ? (
                 <span aria-current="page">{rotulo}</span>
               ) : (
-                <Link to={para} className={styles.link}>
+                <Link to={para} className={styles.link} viewTransition>
                   {rotulo}
                 </Link>
               )}

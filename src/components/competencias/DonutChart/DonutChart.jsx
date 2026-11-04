@@ -7,7 +7,7 @@ export default function DonutChart({ valor, tamanho = 150, rotulo = 'Nível tota
   const alvo = Math.min(100, Math.max(0, Math.round(valor)));
   const exibido = useValorAnimado(alvo);
 
-  const espessura = Math.round(tamanho * 0.14);
+  const espessura = Math.round(tamanho * 0.11);
   const raio = (tamanho - espessura) / 2;
   const circunferencia = 2 * Math.PI * raio;
   const centro = tamanho / 2;

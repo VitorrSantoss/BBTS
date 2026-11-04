@@ -15,3 +15,9 @@
 .centralizado {
   text-align: center;
 }
+
+@media (min-width: 960px) {
+  .card {
+    padding: var(--space-8);
+  }
+}

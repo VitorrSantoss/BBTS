@@ -1,17 +1,19 @@
 import { useId } from 'react';
+import { cx } from '@/utils/classes';
 import styles from './CompetencyBar.module.css';
-
-const limitarPercentual = (valor, maximo) =>
-  maximo > 0 ? Math.min(100, Math.max(0, (valor / maximo) * 100)) : 0;
 
 /**
  * Competência no modelo SFIA: sigla de 4 letras e nível atual sobre o nível máximo.
+ * A barra tem um segmento por nível, o que mostra a escala de cada competência.
  * `nivelMinimo` é opcional e desenha a marca do mínimo esperado nas telas do gestor.
  */
 export default function CompetencyBar({ nome, sigla, nivel, nivelMax, nivelMinimo }) {
   const rotuloId = useId();
   const temMinimo = nivelMinimo !== undefined && nivelMinimo !== null;
-  const textoMinimo = temMinimo ? `Mínimo esperado: nível ${nivelMinimo}/${nivelMax}` : '';
+  const abaixoDoMinimo = temMinimo && nivel < nivelMinimo;
+  const textoMinimo = temMinimo
+    ? `Mínimo esperado: nível ${nivelMinimo}/${nivelMax}${abaixoDoMinimo ? ', abaixo do esperado' : ''}`
+    : '';
 
   return (
     <div className={styles.competencia}>
@@ -33,21 +35,24 @@ export default function CompetencyBar({ nome, sigla, nivel, nivelMax, nivelMinim
           aria-valuemax={nivelMax}
           aria-valuetext={`Nível ${nivel} de ${nivelMax}. ${textoMinimo}`.trim()}
         >
-          <div
-            className={styles.preenchimento}
-            style={{ width: `${limitarPercentual(nivel, nivelMax)}%` }}
-          />
+          {Array.from({ length: nivelMax }, (_, indice) => (
+            <span
+              key={indice}
+              className={cx(styles.segmento, indice < nivel && styles.preenchido)}
+              style={{ '--ordem': indice }}
+            />
+          ))}
         </div>
         {temMinimo && (
           <span
             className={styles.marca}
-            style={{ left: `${limitarPercentual(nivelMinimo, nivelMax)}%` }}
+            style={{ left: `${(Math.min(nivelMinimo, nivelMax) / nivelMax) * 100}%` }}
             aria-hidden="true"
           />
         )}
       </div>
       {temMinimo && (
-        <p className={styles.minimo} aria-hidden="true">
+        <p className={cx(styles.minimo, abaixoDoMinimo && styles.abaixo)} aria-hidden="true">
           {textoMinimo}
         </p>
       )}

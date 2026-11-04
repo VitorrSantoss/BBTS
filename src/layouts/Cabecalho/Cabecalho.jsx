@@ -67,6 +67,7 @@ export default function Cabecalho({ titulo, links, usuario }) {
                     <NavLink
                       to={para}
                       end={exato}
+                      viewTransition
                       className={({ isActive }) => cx(styles.link, isActive && styles.linkAtivo)}
                       onClick={() => setMenuAberto(false)}
                     >

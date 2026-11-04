@@ -1,7 +1,7 @@
 .competencia {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
   min-width: 0;
 }
 
@@ -15,19 +15,20 @@
 
 .nome {
   min-width: 0;
-  color: var(--color-primary);
+  color: var(--color-text);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
 }
 
 .sigla {
   color: var(--color-text-muted);
-  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-xs);
 }
 
 .nivel {
-  color: var(--color-text-muted);
+  color: var(--color-primary);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   white-space: nowrap;
 }
 
@@ -37,21 +38,24 @@
 }
 
 .trilha {
+  display: flex;
+  gap: var(--space-1);
   height: 10px;
-  overflow: hidden;
+}
+
+.segmento {
+  flex: 1;
   border-radius: var(--radius-pill);
   background-color: var(--color-track);
 }
 
-.preenchimento {
-  height: 100%;
-  border-radius: var(--radius-pill);
+.preenchido {
   background-color: var(--color-progress);
-  transform-origin: left center;
-  animation: crescer var(--duration-slow) var(--easing-out) both;
+  animation: acender var(--duration-base) var(--easing-out) backwards;
+  animation-delay: calc(var(--ordem) * 60ms);
 }
 
-/* Fica fora da trilha para não ser cortada pelo overflow dela */
+/* Fica fora da trilha e marca o fim do nível mínimo */
 .marca {
   position: absolute;
   top: 0;
@@ -59,7 +63,7 @@
   width: 3px;
   border-radius: var(--radius-pill);
   background-color: var(--color-primary-deep);
-  transform: translateX(-50%);
+  transform: translateX(-2px);
 }
 
 .minimo {
@@ -67,8 +71,14 @@
   font-size: var(--font-size-xs);
 }
 
-@keyframes crescer {
+.abaixo {
+  color: var(--color-feedback-error);
+  font-weight: var(--font-weight-semibold);
+}
+
+@keyframes acender {
   from {
-    transform: scaleX(0);
+    opacity: 0;
+    transform: scaleX(0.4);
   }
 }

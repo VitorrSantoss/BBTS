@@ -3,7 +3,6 @@
   z-index: var(--z-header);
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
-  box-shadow: var(--shadow-md);
 }
 
 .barra {
@@ -28,7 +27,7 @@
 .logo {
   display: block;
   flex-shrink: 0;
-  width: clamp(168px, 26vw, 400px);
+  width: clamp(168px, 20vw, 280px);
   border-radius: var(--radius-sm);
 }
 
@@ -39,7 +38,8 @@
 
 .pagina {
   color: var(--color-accent);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   white-space: nowrap;
 }
 
@@ -62,41 +62,38 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--color-text-inverse-muted);
+  padding-block: var(--space-2);
 }
 
 .link {
   display: flex;
   align-items: center;
   min-height: 44px;
-  padding-inline: var(--space-2);
-  border-radius: var(--radius-sm);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-pill);
   color: var(--color-text-inverse);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
   text-decoration: none;
+  transition:
+    background-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
 }
 
 .link:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  background-color: var(--color-on-primary-soft);
 }
 
-.linkAtivo {
-  color: var(--color-accent);
-  font-weight: var(--font-weight-bold);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
+/* O item atual vira um pill amarelo, com texto azul para manter o contraste */
+.linkAtivo,
+.linkAtivo:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 @media (min-width: 960px) {
   .barra {
     flex-wrap: nowrap;
-  }
-
-  .pagina {
-    font-size: var(--font-size-xl);
   }
 
   .nav {
@@ -111,12 +108,14 @@
 
   .links {
     flex-direction: row;
-    gap: var(--space-4);
-    padding-top: 0;
-    border-top: 0;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-on-primary-soft);
   }
 
   .link {
+    min-height: 40px;
     white-space: nowrap;
   }
 

@@ -7,6 +7,7 @@ export { default as ErrorState } from './ErrorState/ErrorState';
 export { default as Icon } from './Icon/Icon';
 export { default as Input } from './Input/Input';
 export { default as LoadingState } from './Skeleton/LoadingState';
+export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as Select } from './Select/Select';
 export { default as Skeleton } from './Skeleton/Skeleton';
 export { default as Tag } from './Tag/Tag';

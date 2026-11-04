@@ -36,6 +36,7 @@ h4 {
   color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-title);
 }
 
 p,
@@ -131,7 +132,35 @@ main:focus {
   transform: translateY(0);
 }
 
+/* Troca de tela: o conteúdo entra subindo de leve, e cabeçalho e faixa ficam parados */
+::view-transition-old(root) {
+  animation: 120ms ease both sair;
+}
+
+::view-transition-new(root) {
+  animation: var(--duration-base) var(--easing-out) both entrar;
+}
+
+@keyframes sair {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
   *,
   *::before,
   *::after {

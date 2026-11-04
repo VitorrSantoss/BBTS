@@ -7,6 +7,7 @@ import { CARLA, PEDRO } from '@/mocks/personas';
 import { lerUsuarioId } from '@/services/sessao';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import Cabecalho from '../Cabecalho/Cabecalho';
+import Palco from '../Palco/Palco';
 import styles from './AppLayout.module.css';
 
 const LINKS_COLABORADOR = [
@@ -61,10 +62,12 @@ export default function AppLayout({ perfil }) {
         links={gestor ? linksGestor : LINKS_COLABORADOR}
         usuario={usuarioDoCabecalho(perfil)}
       />
-      {gestor && <Breadcrumb />}
-      <main id="conteudo" ref={refConteudo} tabIndex={-1} className={styles.conteudo}>
-        <Outlet />
-      </main>
+      <Palco>
+        {gestor && <Breadcrumb />}
+        <main id="conteudo" ref={refConteudo} tabIndex={-1} className={styles.conteudo}>
+          <Outlet />
+        </main>
+      </Palco>
     </>
   );
 }

@@ -36,12 +36,23 @@
 /* Base visual compartilhada por Input, Select e Textarea */
 .controle {
   width: 100%;
-  min-height: 44px;
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-strong);
+  min-height: 48px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-control);
   border-radius: var(--radius-sm);
-  background-color: var(--color-surface);
+  background-color: var(--color-primary-50);
   color: var(--color-text);
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.controle:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.controle:focus {
+  background-color: var(--color-surface);
 }
 
 .controle::placeholder {
@@ -73,8 +84,8 @@
 }
 
 [data-surface='primary'] .controle {
-  border-color: var(--color-text-inverse);
-  background-color: transparent;
+  border-color: var(--color-text-inverse-muted);
+  background-color: var(--color-on-primary-soft);
   color: var(--color-text-inverse);
 }
 
