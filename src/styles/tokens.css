@@ -1,0 +1,115 @@
+/*
+ * Fonte única dos design tokens do BBTS.
+ *
+ * Marca: azul #3333BD, amarelo #FCFC30, azul de progresso #465EFF, fundo #F5F5F5, cards brancos.
+ * Tons de apoio são sempre derivados dessas cores. O comentário ao lado de cada um diz como.
+ *
+ * Regra de contraste: amarelo nunca é texto ou ícone sobre branco ou cinza claro.
+ * Use amarelo sobre azul, ou como fundo com texto azul.
+ *
+ * Breakpoints (mobile first). CSS não aceita variável em @media, então estes são os únicos
+ * valores permitidos nas media queries do projeto:
+ *   sm: 640px    md: 960px    lg: 1200px
+ */
+
+:root {
+  /* Marca */
+  --color-primary: #3333bd;
+  --color-accent: #fcfc30;
+  --color-progress: #465eff;
+  --color-bg: #f5f5f5;
+  --color-surface: #ffffff;
+
+  /* Azul: tons de apoio */
+  --color-primary-50: #f3f3fb; /* 6% do azul sobre branco */
+  --color-primary-100: #e7e7f7; /* 12% */
+  --color-primary-200: #d6d6f2; /* 20% */
+  --color-primary-300: #b8b8e8; /* 35% */
+  --color-primary-strong: #242484; /* azul com 30% de preto */
+  --color-primary-deep: #121242; /* azul com 65% de preto */
+
+  /* Amarelo: tag translúcida */
+  --color-accent-soft: rgb(252 252 48 / 35%);
+
+  /* Texto */
+  --color-text: var(--color-primary-deep);
+  --color-text-muted: #525274; /* 72% do texto sobre o fundo. AA em todas as superfícies claras */
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: rgb(255 255 255 / 80%);
+
+  /* Bordas e foco */
+  --color-border: var(--color-primary-300);
+  --color-border-strong: var(--color-primary);
+  --color-track: var(--color-primary-200);
+  --focus-color: var(--color-primary);
+
+  /*
+   * Estados. A paleta não tem vermelho nem verde, então erro e sucesso se distinguem pelo
+   * azul escuro, pelo ícone e pelo texto. Para um vermelho funcional, troque só estes tokens.
+   */
+  --color-feedback-error: var(--color-primary-deep);
+  --color-feedback-success: var(--color-primary);
+
+  /* Tipografia: só Inter, pesos 400, 600 e 700 */
+  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2.25rem;
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+
+  /* Espaçamento: escala de 4/8px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Raios: pequeno (input e tag), médio (card) e pill (botão, chip e foto circular) */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 999px;
+
+  /* Sombras: derivadas do azul profundo */
+  --shadow-sm: 0 1px 2px rgb(18 18 66 / 8%);
+  --shadow-md: 0 2px 8px rgb(18 18 66 / 12%);
+  --shadow-lg: 0 8px 24px rgb(18 18 66 / 20%);
+
+  /* Layout */
+  --layout-max: 1280px;
+  --layout-gutter: var(--space-4);
+
+  /* Movimento */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 900ms;
+  --easing-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Camadas */
+  --z-header: 10;
+  --z-skip-link: 20;
+  --z-toast: 30;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --layout-gutter: var(--space-6);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --layout-gutter: var(--space-8);
+  }
+}
