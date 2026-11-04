@@ -16,11 +16,29 @@
   min-width: 0;
 }
 
+/* Linha do tempo: cada item é um ponto azul sobre um fio contínuo */
 .blocos {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  padding-left: var(--space-6);
+  border-left: 2px solid var(--color-primary-100);
   color: var(--color-text-muted);
+}
+
+.blocos li {
+  position: relative;
+}
+
+.blocos li::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -31px;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
 }
 
 .blocos strong {
@@ -31,7 +49,7 @@
 .periodo {
   margin-bottom: var(--space-1);
   color: var(--color-primary);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
 }
 
@@ -45,23 +63,30 @@
 .niveis {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
 }
 
 .nivel {
   display: flex;
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-primary-100);
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0 var(--space-4);
 }
 
+.nivel:last-child {
+  border-bottom: 0;
+}
+
 .nivel dt {
-  color: var(--color-primary);
+  color: var(--color-text);
   font-weight: var(--font-weight-semibold);
 }
 
 .nivel dd {
-  color: var(--color-text-muted);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
 }
 
 @media (min-width: 960px) {

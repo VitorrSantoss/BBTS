@@ -77,7 +77,7 @@ export default function FormCompetencia() {
   };
 
   return (
-    <Card titulo="Adicionar Nova Competência" tituloCentralizado>
+    <Card titulo="Adicionar Nova Competência">
       <form className={styles.formulario} onSubmit={enviar} noValidate>
         <Input {...campo('nome')} label="Nome" required />
         <div className={styles.linhaDupla}>

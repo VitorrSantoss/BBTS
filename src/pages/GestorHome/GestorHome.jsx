@@ -8,6 +8,7 @@ import {
   ErrorState,
   Icon,
   LoadingState,
+  PageHeader,
   Skeleton,
   Tag,
 } from '@/components/ui';
@@ -17,6 +18,11 @@ import { tituloEquipe } from '@/mocks/consultas';
 import { CARLA } from '@/mocks/personas';
 import { primeiroNome } from '@/utils/formatadores';
 import styles from './GestorHome.module.css';
+
+function rotuloDeMembros({ membros }) {
+  if (membros.length === 0) return 'Sem membros';
+  return membros.length === 1 ? '1 membro' : `${membros.length} membros`;
+}
 
 function EsqueletoDoPainel() {
   return (
@@ -58,20 +64,30 @@ export default function GestorHome() {
 
   return (
     <div className={styles.pagina}>
-      <h1 className={styles.saudacao}>Olá, {primeiroNome(CARLA.nome)}!</h1>
+      <PageHeader
+        titulo={`Olá, ${primeiroNome(CARLA.nome)}!`}
+        descricao="Acompanhe suas equipes e retome as conversas recentes."
+      />
 
       <div className={styles.colunas}>
         <div className={styles.principal}>
-          <Card titulo="Suas Equipes" tituloCentralizado>
+          <Card titulo="Suas Equipes">
             {equipes.length === 0 ? (
               <EmptyState titulo="Nenhuma equipe por aqui ainda" />
             ) : (
               <ul className={styles.gradeEquipes}>
                 {equipes.map((equipe) => (
                   <li key={equipe.id}>
-                    <Link to={`/gestor/equipes/${equipe.id}`} className={styles.equipe}>
-                      <img src={equipe.foto} alt="" width="320" height="240" />
-                      <span className={styles.rotuloEquipe}>{tituloEquipe(equipe)}</span>
+                    <Link
+                      to={`/gestor/equipes/${equipe.id}`}
+                      className={styles.equipe}
+                      viewTransition
+                    >
+                      <span className={styles.fotoEquipe}>
+                        <img src={equipe.foto} alt="" width="320" height="240" />
+                      </span>
+                      <span className={styles.nomeEquipe}>{tituloEquipe(equipe)}</span>
+                      <span className={styles.membrosEquipe}>{rotuloDeMembros(equipe)}</span>
                     </Link>
                   </li>
                 ))}
@@ -79,16 +95,24 @@ export default function GestorHome() {
             )}
           </Card>
 
-          <Card titulo="Conversas Recentes" tituloCentralizado>
+          <Card titulo="Conversas Recentes">
             {conversas.length === 0 ? (
               <EmptyState titulo="Nenhuma conversa recente" />
             ) : (
               <ul className={styles.gradeConversas}>
-                {conversas.map(({ id, nome, foto }) => (
+                {conversas.map(({ id, nome, foto, area }) => (
                   <li key={id}>
-                    <Link to={`/gestor/colaboradores/${id}`} className={styles.conversa}>
-                      <Avatar src={foto} alt="" tamanho={120} borda="azul" />
-                      <Tag variante="chip">Chat de {primeiroNome(nome)}</Tag>
+                    <Link
+                      to={`/gestor/colaboradores/${id}`}
+                      className={styles.conversa}
+                      viewTransition
+                    >
+                      <Avatar src={foto} alt="" tamanho={56} />
+                      <span className={styles.textoConversa}>
+                        <span className={styles.nomeConversa}>Chat de {primeiroNome(nome)}</span>
+                        <span className={styles.areaConversa}>{area}</span>
+                      </span>
+                      <Icon nome="seta" className={styles.setaConversa} />
                     </Link>
                   </li>
                 ))}
@@ -98,12 +122,12 @@ export default function GestorHome() {
         </div>
 
         <aside>
-          <Card titulo="Criar Nova Equipe" tituloCentralizado>
+          <Card titulo="Criar Nova Equipe">
             <div className={styles.novaEquipe}>
               <div className={styles.imagemVazia}>
-                <Icon nome="imagem" tamanho={64} />
+                <Icon nome="imagem" tamanho={40} />
               </div>
-              <p className={styles.rotuloEquipe}>Equipe 05</p>
+              <Tag variante="chip">Equipe 05</Tag>
             </div>
 
             <h3 className={styles.subtitulo}>Membros</h3>

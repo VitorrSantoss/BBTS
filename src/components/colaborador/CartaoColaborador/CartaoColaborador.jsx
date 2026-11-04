@@ -11,7 +11,7 @@ export default function CartaoColaborador({ colaborador, equipe }) {
 
   return (
     <section className={styles.cartao} aria-labelledby={tituloId}>
-      <Avatar src={foto} alt={`Foto de ${nome}`} tamanho={104} borda="azul" />
+      <Avatar src={foto} alt={`Foto de ${nome}`} tamanho={112} borda="azul" />
       <div className={styles.dados}>
         <h1 id={tituloId} className={styles.nome}>
           {nome}

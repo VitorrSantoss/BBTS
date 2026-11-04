@@ -4,10 +4,6 @@
   gap: var(--space-6);
 }
 
-.saudacao {
-  font-size: var(--font-size-3xl);
-}
-
 .colunas {
   display: grid;
   gap: var(--space-6);
@@ -21,88 +17,138 @@
   min-width: 0;
 }
 
-.gradeEquipes,
-.gradeConversas {
+.gradeEquipes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-5) var(--space-4);
 }
 
 .equipe {
-  display: block;
-  overflow: hidden;
-  border: 1px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
   border-radius: var(--radius-md);
   text-decoration: none;
-  transition: box-shadow var(--duration-fast) ease;
 }
 
-.equipe:hover {
-  box-shadow: var(--shadow-md);
+.fotoEquipe {
+  display: block;
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+  border-radius: var(--radius-md);
 }
 
-.equipe img {
+.fotoEquipe img {
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform var(--duration-slow) var(--easing-out);
 }
 
-.rotuloEquipe {
-  display: block;
-  padding: var(--space-2);
+.equipe:hover img {
+  transform: scale(1.05);
+}
+
+.nomeEquipe {
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
   background-color: var(--color-accent);
   color: var(--color-primary);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
-  text-align: center;
+}
+
+.membrosEquipe {
+  padding-inline: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.gradeConversas {
+  display: grid;
+  gap: var(--space-2);
 }
 
 .conversa {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: var(--space-3);
+  padding: var(--space-3);
   border-radius: var(--radius-md);
-  text-align: center;
   text-decoration: none;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.conversa:hover {
+  background-color: var(--color-primary-50);
+}
+
+.textoConversa {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nomeConversa {
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.areaConversa {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.setaConversa {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  transition: transform var(--duration-base) var(--easing-out);
+}
+
+.conversa:hover .setaConversa {
+  transform: translateX(4px);
 }
 
 .novaEquipe {
-  max-width: 200px;
-  margin-inline: auto;
-  overflow: hidden;
-  border: 1px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 2px dashed var(--color-border-control);
   border-radius: var(--radius-md);
+  background-color: var(--color-primary-50);
 }
 
 .imagemVazia {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 3;
-  background-color: var(--color-primary-100);
   color: var(--color-primary);
 }
 
 .subtitulo {
-  margin-block: var(--space-6) var(--space-4);
+  margin-block: var(--space-6) var(--space-3);
   font-size: var(--font-size-lg);
-  text-align: center;
 }
 
 .adicionarMembro {
   display: flex;
-  margin: var(--space-4) auto 0;
+  margin: var(--space-4) 0 0 auto;
 }
 
 @media (min-width: 640px) {
-  .gradeEquipes,
-  .gradeConversas {
+  .gradeEquipes {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gradeConversas {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 960px) {
   .colunas {
-    grid-template-columns: minmax(0, 2.5fr) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 2.4fr) minmax(300px, 1fr);
   }
 }

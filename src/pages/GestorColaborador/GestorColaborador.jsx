@@ -62,10 +62,10 @@ export default function GestorColaborador() {
       </div>
 
       <aside className={styles.lateral}>
-        <Button variante="secundario" para={`/gestor/colaboradores/${id}/perfil`}>
+        <Button variante="secundario" para={`/gestor/colaboradores/${id}/perfil`} viewTransition>
           Ver perfil completo
         </Button>
-        <Card titulo="Feedback" tituloCentralizado>
+        <Card titulo="Feedback">
           <FormFeedback />
         </Card>
       </aside>

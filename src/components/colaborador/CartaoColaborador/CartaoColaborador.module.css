@@ -17,7 +17,8 @@
 
 .nome {
   margin-bottom: var(--space-3);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
+  letter-spacing: var(--letter-spacing-display);
 }
 
 .tags {

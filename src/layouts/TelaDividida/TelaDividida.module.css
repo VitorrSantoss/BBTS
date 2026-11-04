@@ -1,0 +1,64 @@
+.tela {
+  display: grid;
+  flex: 1;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-6) var(--layout-gutter) var(--space-8);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.logo {
+  width: min(100%, 260px);
+  height: auto;
+}
+
+.frase {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-display);
+  line-height: var(--line-height-tight);
+}
+
+.apoio {
+  margin-top: var(--space-2);
+  max-width: 36ch;
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--layout-gutter) var(--space-12);
+}
+
+@media (min-width: 960px) {
+  .tela {
+    grid-template-columns: 5fr 6fr;
+  }
+
+  /* O símbolo amarelo cresce e sangra pelo canto do painel */
+  .marca {
+    padding: var(--space-10);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background-image: url('@/assets/images/Logo.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% + 120px) calc(50% - 40px);
+    background-size: 520px;
+  }
+
+  .logo {
+    width: min(100%, 340px);
+  }
+
+  .frase {
+    font-size: var(--font-size-4xl);
+    max-width: 10ch;
+  }
+}

@@ -26,13 +26,11 @@
 .subtitulo {
   margin-top: var(--space-4);
   font-size: var(--font-size-lg);
-  text-align: center;
 }
 
 .dica {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
-  text-align: center;
 }
 
 .linhaEmail {
@@ -56,7 +54,7 @@
 }
 
 .enviar {
-  align-self: center;
+  align-self: flex-start;
   margin-top: var(--space-2);
 }
 
@@ -69,5 +67,10 @@
 @media (min-width: 960px) {
   .colunas {
     grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  }
+
+  .lateral {
+    position: sticky;
+    top: var(--space-6);
   }
 }

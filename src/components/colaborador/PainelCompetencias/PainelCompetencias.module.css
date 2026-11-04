@@ -4,7 +4,8 @@
   padding: var(--space-6);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background-color: var(--color-primary-50);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .lista {
@@ -20,8 +21,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border);
+  justify-content: center;
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-50);
 }
 
 @media (min-width: 960px) {
@@ -30,9 +33,5 @@
   }
 
   .total {
-    padding-top: 0;
-    padding-left: var(--space-8);
-    border-top: 0;
-    border-left: 1px solid var(--color-border);
   }
 }

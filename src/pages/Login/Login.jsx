@@ -1,9 +1,9 @@
 import { Link, Navigate, useNavigate } from 'react-router';
-import logo from '@/assets/images/Logo.png';
 import { Button, Input } from '@/components/ui';
 import { useFormulario } from '@/hooks/useFormulario';
 import { usePerfil } from '@/hooks/usePerfil';
 import { useToast } from '@/hooks/useToast';
+import TelaDividida from '@/layouts/TelaDividida/TelaDividida';
 import { simularEnvio } from '@/mocks/simulacao';
 import { semErrosVazios, validarEmail, validarObrigatorio } from '@/utils/validacao';
 import styles from './Login.module.css';
@@ -26,7 +26,7 @@ export default function Login() {
     validar,
     aoEnviar: async () => {
       await simularEnvio();
-      navegar(`/${perfil}`, { replace: true });
+      navegar(`/${perfil}`, { replace: true, viewTransition: true });
     },
   });
 
@@ -34,10 +34,14 @@ export default function Login() {
   if (!perfil) return <Navigate to="/" replace />;
 
   return (
-    <div className={styles.pagina}>
-      <div className={styles.painel} data-surface="primary">
-        <img src={logo} alt="Banco do Brasil" width="560" height="556" className={styles.logo} />
-        <h1 className={styles.titulo}>Login</h1>
+    <TelaDividida>
+      <div className={styles.painel}>
+        <div>
+          <h1 className={styles.titulo}>Login</h1>
+          <p className={styles.perfil}>
+            Entrando como {perfil === 'gestor' ? 'gestor' : 'colaborador'}
+          </p>
+        </div>
 
         <form className={styles.formulario} onSubmit={enviar} noValidate>
           <Input
@@ -58,12 +62,7 @@ export default function Login() {
             placeholder="Sua senha"
             required
           />
-          <Button
-            type="submit"
-            variante="destaque"
-            carregando={enviando}
-            className={styles.botaoEntrar}
-          >
+          <Button type="submit" carregando={enviando} className={styles.botaoEntrar}>
             Entrar
           </Button>
         </form>
@@ -75,12 +74,14 @@ export default function Login() {
           >
             Esqueci a senha
           </Button>
-          <p>Não possui uma conta?</p>
-          <Link to="/cadastro" className={styles.cadastro}>
-            Cadastre-se
-          </Link>
+          <p>
+            Não possui uma conta?{' '}
+            <Link to="/cadastro" className={styles.cadastro} viewTransition>
+              Cadastre-se
+            </Link>
+          </p>
         </div>
       </div>
-    </div>
+    </TelaDividida>
   );
 }

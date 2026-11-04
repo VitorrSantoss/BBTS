@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Button, Checkbox, Icon, Input, Select } from '@/components/ui';
+import { Button, Checkbox, Icon, Input, PageHeader, Select } from '@/components/ui';
 import { useFormulario } from '@/hooks/useFormulario';
 import { usePerfil } from '@/hooks/usePerfil';
 import { useToast } from '@/hooks/useToast';
@@ -122,12 +122,10 @@ export default function FormularioCadastro({
   return (
     <form className={styles.formulario} onSubmit={enviar} noValidate>
       <div className={styles.dados}>
-        <h1 className={styles.titulo}>
-          <span className={styles.iconeTitulo} data-surface="primary">
-            <Icon nome="documento" tamanho={24} />
-          </span>
-          Dados de Colaborador
-        </h1>
+        <PageHeader
+          titulo="Dados de Colaborador"
+          descricao="Mantenha seus dados, idiomas, tecnologias e experiências em dia."
+        />
 
         <section className={styles.secao} aria-labelledby="secao-dados-pessoais">
           <h2 id="secao-dados-pessoais" className={styles.tituloSecao}>
@@ -312,14 +310,14 @@ export default function FormularioCadastro({
         </Button>
       </div>
 
-      <aside className={styles.painel} data-surface="primary" aria-label="Foto e ações">
+      <aside className={styles.painel} aria-label="Foto e ações">
         <div className={styles.painelInterno}>
           <FotoPerfil fotoAtual={fotoAtual} nome={valores.nome} />
           <div className={styles.acoes}>
-            <Button variante="inverso" para={edicao ? '/colaborador' : '/login'}>
+            <Button variante="secundario" para={edicao ? '/colaborador' : '/login'} viewTransition>
               Voltar
             </Button>
-            <Button type="submit" variante="destaque" carregando={enviando}>
+            <Button type="submit" carregando={enviando}>
               Salvar
             </Button>
           </div>

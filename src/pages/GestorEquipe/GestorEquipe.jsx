@@ -31,7 +31,6 @@ function EsqueletoDaEquipe() {
 
 export default function GestorEquipe() {
   const { id } = useParams();
-  const tituloDescricaoId = useId();
   const tituloCompetenciasId = useId();
   const { dados, erro, carregando, recarregar } = useEquipe(id);
 
@@ -72,14 +71,15 @@ export default function GestorEquipe() {
     <div className={styles.colunas}>
       <div className={styles.principal}>
         <section className={styles.cabecalho} aria-label="Dados da equipe">
-          <img src={equipe.foto} alt="" width="120" height="120" className={styles.foto} />
+          <img src={equipe.foto} alt="" width="160" height="160" className={styles.foto} />
           <div className={styles.identificacao}>
             <h1 className={styles.nome}>{tituloEquipe(equipe)}</h1>
             <Tag>{equipe.foco}</Tag>
+            <p className={styles.descricao}>{equipe.descricao}</p>
           </div>
         </section>
 
-        <Card titulo="Membros" tituloCentralizado>
+        <Card titulo="Membros">
           {membros.length === 0 ? (
             <EmptyState
               titulo="Esta equipe ainda não tem membros"
@@ -89,21 +89,18 @@ export default function GestorEquipe() {
             <ul className={styles.membros}>
               {membros.map(({ id: membroId, nome, foto }) => (
                 <li key={membroId}>
-                  <Link to={`/gestor/colaboradores/${membroId}`} className={styles.membro}>
-                    <Avatar src={foto} alt="" tamanho={112} borda="azul" />
+                  <Link
+                    to={`/gestor/colaboradores/${membroId}`}
+                    className={styles.membro}
+                    viewTransition
+                  >
+                    <Avatar src={foto} alt="" tamanho={96} />
                     <Tag variante="chip">{nome}</Tag>
                   </Link>
                 </li>
               ))}
             </ul>
           )}
-        </Card>
-
-        <Card aria-labelledby={tituloDescricaoId}>
-          <h2 id={tituloDescricaoId} className="sr-only">
-            Sobre a equipe
-          </h2>
-          <p className={styles.descricao}>{equipe.descricao}</p>
         </Card>
 
         <section className={styles.competencias} aria-labelledby={tituloCompetenciasId}>
@@ -118,10 +115,10 @@ export default function GestorEquipe() {
       </div>
 
       <aside className={styles.lateral}>
-        <Card titulo="Convidar para equipe" tituloCentralizado>
+        <Card titulo="Convidar para equipe">
           <FormConvite />
         </Card>
-        <Card titulo="Feedback" tituloCentralizado>
+        <Card titulo="Feedback">
           <FormFeedback />
         </Card>
       </aside>

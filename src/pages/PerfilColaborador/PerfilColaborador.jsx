@@ -71,6 +71,11 @@ export default function PerfilColaborador({ visaoDoGestor = false }) {
 
       <CartaoColaborador colaborador={colaborador} equipe={equipe} />
 
+      <PainelCompetencias
+        competencias={competencias}
+        minimos={visaoDoGestor ? minimosDaEquipe(equipe) : undefined}
+      />
+
       <div className={styles.colunas}>
         <div className={styles.coluna}>
           <Card titulo="Formação Acadêmica">
@@ -134,11 +139,6 @@ export default function PerfilColaborador({ visaoDoGestor = false }) {
           </Card>
         </div>
       </div>
-
-      <PainelCompetencias
-        competencias={competencias}
-        minimos={visaoDoGestor ? minimosDaEquipe(equipe) : undefined}
-      />
     </div>
   );
 }

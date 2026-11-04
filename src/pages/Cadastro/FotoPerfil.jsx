@@ -37,8 +37,8 @@ export default function FotoPerfil({ fotoAtual, nome }) {
         <Avatar
           src={preview ?? fotoAtual}
           alt={nome ? `Foto de ${nome}` : 'Prévia da foto de perfil'}
-          tamanho={168}
-          borda="amarelo"
+          tamanho={144}
+          borda="azul"
         />
         <span className={styles.textoFoto}>Adicione uma foto de perfil</span>
       </label>

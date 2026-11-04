@@ -1,64 +1,57 @@
-.pagina {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-}
-
 .painel {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: var(--space-6);
   width: 100%;
-  max-width: 430px;
-  padding: var(--space-10) var(--space-8);
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-  box-shadow: var(--shadow-lg);
-}
-
-.logo {
-  width: 120px;
-  height: auto;
+  max-width: 440px;
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-md);
 }
 
 .titulo {
-  font-size: var(--font-size-xl);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: var(--font-size-3xl);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.perfil {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
 }
 
 .formulario {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  width: 100%;
 }
 
 .botaoEntrar {
-  align-self: center;
-  min-width: 160px;
-  margin-top: var(--space-4);
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
+  width: 100%;
+  margin-top: var(--space-2);
 }
 
 .links {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   text-align: center;
 }
 
 .cadastro {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding-inline: var(--space-2);
-  color: var(--color-accent);
+  display: inline-block;
+  padding-block: var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .painel {
+    padding: var(--space-10);
+  }
 }

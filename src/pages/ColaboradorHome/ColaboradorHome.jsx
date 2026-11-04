@@ -1,6 +1,14 @@
 import { AvisoApi } from '@/components/colaborador';
 import { CompetencyList, DonutChart } from '@/components/competencias';
-import { Avatar, Button, Card, EmptyState, LoadingState, Skeleton } from '@/components/ui';
+import {
+  Avatar,
+  Button,
+  Card,
+  EmptyState,
+  LoadingState,
+  PageHeader,
+  Skeleton,
+} from '@/components/ui';
 import { useToast } from '@/hooks/useToast';
 import { useUsuario } from '@/hooks/useUsuario';
 import { calcularNivelTotal } from '@/utils/competencias';
@@ -10,7 +18,7 @@ import styles from './ColaboradorHome.module.css';
 function EsqueletoDoPainel() {
   return (
     <>
-      <Skeleton largura="240px" altura="2.5rem" />
+      <Skeleton largura="240px" altura="3.5rem" />
       <div className={styles.grade}>
         <Skeleton altura="320px" forma="bloco" />
         <Skeleton altura="320px" forma="bloco" />
@@ -39,13 +47,16 @@ export default function ColaboradorHome() {
 
   return (
     <div className={styles.pagina}>
-      {erro && <AvisoApi aoTentarDeNovo={recarregar} />}
+      <PageHeader
+        titulo={`Olá, ${primeiroNome(nome)}!`}
+        descricao="Veja onde você está e qual é o próximo passo da sua jornada."
+      />
 
-      <h1 className={styles.saudacao}>Olá, {primeiroNome(nome)}!</h1>
+      {erro && <AvisoApi aoTentarDeNovo={recarregar} />}
 
       <div className={styles.grade}>
         <Card className={styles.cardCompetencias} aria-label="Competências">
-          <DonutChart valor={calcularNivelTotal(competencias)} tamanho={148} />
+          <DonutChart valor={calcularNivelTotal(competencias)} tamanho={168} />
           <div className={styles.competencias}>
             <h2 className={styles.tituloCompetencias}>Níveis de Competências</h2>
             <CompetencyList competencias={competencias} />
@@ -89,6 +100,7 @@ export default function ColaboradorHome() {
                 <li key={curso}>
                   <Button
                     variante="secundario"
+                    icone="seta"
                     className={styles.curso}
                     onClick={() => toast.info(`A página de "${curso}" ainda não está disponível.`)}
                   >

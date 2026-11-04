@@ -1,13 +1,22 @@
 import { useNavigate } from 'react-router';
-import iconePerfil from '@/assets/images/foto_perfil.png';
-import logoBbts from '@/assets/images/LogoBBTS.png';
-import { Button } from '@/components/ui';
+import { Icon } from '@/components/ui';
 import { usePerfil } from '@/hooks/usePerfil';
+import TelaDividida from '@/layouts/TelaDividida/TelaDividida';
 import styles from './SelecaoPerfil.module.css';
 
 const PERFIS = [
-  { valor: 'colaborador', rotulo: 'Colaborador' },
-  { valor: 'gestor', rotulo: 'Gestor' },
+  {
+    valor: 'colaborador',
+    rotulo: 'Colaborador',
+    descricao: 'Veja seus níveis, lacunas e sua jornada de capacitação.',
+    icone: 'colaborador',
+  },
+  {
+    valor: 'gestor',
+    rotulo: 'Gestor',
+    descricao: 'Acompanhe equipes, competências mínimas e feedbacks.',
+    icone: 'equipe',
+  },
 ];
 
 export default function SelecaoPerfil() {
@@ -16,41 +25,33 @@ export default function SelecaoPerfil() {
 
   const escolher = (perfil) => {
     escolherPerfil(perfil);
-    navegar('/login');
+    navegar('/login', { viewTransition: true });
   };
 
   return (
-    <div className={styles.pagina}>
-      <div className={styles.faixa} data-surface="primary">
-        <div className={styles.conteudo}>
-          <img
-            src={logoBbts}
-            alt="BB Tecnologia e Serviços"
-            width="967"
-            height="84"
-            className={styles.logo}
-          />
-
-          <div className={styles.escolha}>
-            <div className={styles.icone}>
-              <img src={iconePerfil} alt="" width="486" height="513" />
-            </div>
-            <h1 className={styles.titulo}>Qual tipo de perfil deseja acessar?</h1>
-            <div className={styles.botoes}>
-              {PERFIS.map(({ valor, rotulo }) => (
-                <Button
-                  key={valor}
-                  variante="destaque"
-                  className={styles.botao}
-                  onClick={() => escolher(valor)}
-                >
-                  {rotulo}
-                </Button>
-              ))}
-            </div>
-          </div>
+    <TelaDividida>
+      <div className={styles.escolha}>
+        <h1 className={styles.titulo}>Qual tipo de perfil deseja acessar?</h1>
+        <div className={styles.opcoes}>
+          {PERFIS.map(({ valor, rotulo, descricao, icone }) => (
+            <button
+              key={valor}
+              type="button"
+              className={styles.opcao}
+              onClick={() => escolher(valor)}
+            >
+              <span className={styles.icone}>
+                <Icon nome={icone} tamanho={28} />
+              </span>
+              <span className={styles.texto}>
+                <span className={styles.rotulo}>{rotulo}</span>
+                <span className={styles.descricao}>{descricao}</span>
+              </span>
+              <Icon nome="seta" className={styles.seta} />
+            </button>
+          ))}
         </div>
       </div>
-    </div>
+    </TelaDividida>
   );
 }
