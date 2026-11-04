@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { buscarColaborador } from '@/mocks/consultas';
+import { buscarColaborador, equipeDoColaborador } from '@/mocks/consultas';
 import { colaboradorDaApi, PEDRO } from '@/mocks/personas';
 import {
   CertificacaoAPI,
@@ -77,9 +77,14 @@ export function useDadosColaborador({ colaboradorId } = {}) {
 
   const { dados, erro, carregando, recarregar } = useRecurso(carregar);
 
+  const colaborador = dados?.colaborador ?? null;
+  const origem = dados?.origem ?? null;
+
   return {
-    colaborador: dados?.colaborador ?? null,
-    origem: dados?.origem ?? null,
+    colaborador,
+    origem,
+    // Equipes só existem nos mocks. Id de usuário real não pode ser comparado com id de persona.
+    equipe: colaborador && origem === 'mock' ? (equipeDoColaborador(colaborador.id) ?? null) : null,
     erro: dados?.erro ?? erro,
     carregando,
     recarregar,

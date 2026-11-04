@@ -1,0 +1,126 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.saudacao {
+  font-size: var(--font-size-3xl);
+}
+
+.grade {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.cardCompetencias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.competencias {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.tituloCompetencias {
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-xl);
+}
+
+.cardPerfil {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.perfil {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-6);
+}
+
+.nome {
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+}
+
+.area {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* Faixa amarela com texto azul: a marca do perfil no card */
+.faixa {
+  padding: var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.lacunas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.chamada {
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  text-align: center;
+}
+
+.listaLacunas {
+  list-style: disc;
+  padding-left: var(--space-6);
+}
+
+.listaLacunas li + li {
+  margin-top: var(--space-1);
+}
+
+.jornada {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.curso {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .cardCompetencias {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .lacunas {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .chamada {
+    flex: 0 0 40%;
+  }
+}
+
+@media (min-width: 960px) {
+  .grade {
+    grid-template-columns: 2fr 1fr;
+  }
+}

@@ -1,0 +1,72 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.colunas {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.coluna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.blocos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  color: var(--color-text-muted);
+}
+
+.blocos strong {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.periodo {
+  margin-bottom: var(--space-1);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.status {
+  margin-left: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+}
+
+.niveis {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.nivel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 var(--space-4);
+}
+
+.nivel dt {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.nivel dd {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 960px) {
+  .colunas {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}

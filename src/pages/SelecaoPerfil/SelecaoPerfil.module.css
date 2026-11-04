@@ -35,19 +35,21 @@
   max-width: 420px;
 }
 
-/* A imagem tem muita margem transparente: o recorte deixa só o ícone */
+/* A imagem tem margem transparente e o círculo fica acima do centro: o recorte acompanha o círculo */
 .icone {
+  position: relative;
   width: 136px;
   height: 136px;
   overflow: hidden;
 }
 
 .icone img {
+  position: absolute;
+  top: -45%;
+  left: -45%;
+  width: 190%;
   max-width: none;
-  width: 200%;
-  height: 200%;
-  margin: -50%;
-  object-fit: contain;
+  height: auto;
 }
 
 .titulo {
