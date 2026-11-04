@@ -1,0 +1,113 @@
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: var(--space-2) var(--space-6);
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.botao:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.botao:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.primario {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.primario:hover:not(:disabled) {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.destaque {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.destaque:hover:not(:disabled) {
+  border-color: var(--color-surface);
+  background-color: var(--color-surface);
+}
+
+.secundario {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.secundario:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.inverso {
+  border-color: var(--color-text-inverse);
+  background-color: transparent;
+  color: var(--color-text-inverse);
+}
+
+.inverso:hover:not(:disabled) {
+  background-color: var(--color-text-inverse);
+  color: var(--color-primary);
+}
+
+.texto {
+  padding: var(--space-2) var(--space-1);
+  background-color: transparent;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.texto:hover:not(:disabled) {
+  color: var(--color-primary-strong);
+}
+
+[data-surface='primary'] .texto {
+  color: var(--color-text-inverse);
+}
+
+[data-surface='primary'] .texto:hover:not(:disabled) {
+  color: var(--color-accent);
+}
+
+.somenteIcone {
+  width: 48px;
+  padding: 0;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentcolor;
+  border-right-color: transparent;
+  border-radius: var(--radius-pill);
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,36 @@
+/*
+ * O atraso em `aparecer` evita um piscar quando os dados chegam em menos de um quadro,
+ * como acontece com os mocks.
+ */
+.skeleton {
+  display: block;
+  max-width: 100%;
+  background-color: var(--color-primary-100);
+  animation:
+    aparecer var(--duration-fast) ease 150ms backwards,
+    pulsar 1.6s ease-in-out 150ms infinite;
+}
+
+.linha {
+  border-radius: var(--radius-sm);
+}
+
+.bloco {
+  border-radius: var(--radius-md);
+}
+
+.circulo {
+  border-radius: var(--radius-pill);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pulsar {
+  50% {
+    background-color: var(--color-primary-200);
+  }
+}

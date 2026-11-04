@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=/pages/SelecaoPerfil.html" />
+    <title>BBTS - Sistema de Gestão de Competências</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
+          sans-serif;
+        background: linear-gradient(135deg, #3333bd 0%, #5555dd 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: white;
+      }
+
+      .loader-container {
+        text-align: center;
+      }
+
+      .logo {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 30px;
+        animation: fadeIn 0.8s ease-in;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        animation: fadeIn 1s ease-in 0.2s both;
+      }
+
+      p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 30px;
+        animation: fadeIn 1.2s ease-in 0.4s both;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        border: 4px solid rgba(252, 252, 48, 0.3);
+        border-top: 4px solid #fcfc30;
+        border-radius: 50%;
+        animation: spin 1s linear infinite, fadeIn 1.4s ease-in 0.6s both;
+      }
+
+      .fallback-link {
+        margin-top: 40px;
+        animation: fadeIn 1.6s ease-in 0.8s both;
+      }
+
+      .fallback-link a {
+        color: #fcfc30;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 12px 30px;
+        border: 2px solid #fcfc30;
+        border-radius: 25px;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .fallback-link a:hover {
+        background: #fcfc30;
+        color: #3333bd;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(252, 252, 48, 0.4);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .logo {
+          width: 140px;
+          height: 140px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader-container">
+      <div class="logo">
+        <img src="/assets/images/Logo.png" alt="Logo BBTS" />
+      </div>
+
+      <h1>BBTS</h1>
+      <p>Sistema de Gestão de Competências</p>
+
+      <div class="spinner"></div>
+
+      <div class="fallback-link">
+        <a href="/pages/Inicio.html"
+          >Clique aqui se não for redirecionado automaticamente</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // Redireciona após 2 segundos (backup caso o meta refresh não funcione)
+      setTimeout(() => {
+        window.location.href = "/pages/Inicio.html";
+      }, 2000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+# Blueprint do site estático no Render.
+# O rewrite faz qualquer rota cair no index.html, para o refresh não dar 404.
+# O Render só aplica o rewrite quando não existe arquivo no caminho, então os assets seguem normais.
+services:
+  - type: web
+    name: bbts
+    runtime: static
+    # --include=dev porque o Vite é dependência de desenvolvimento
+    buildCommand: npm ci --include=dev && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://bbts-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

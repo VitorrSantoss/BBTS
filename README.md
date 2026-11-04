@@ -1,171 +1,146 @@
-# BBTS - Sistema de Gestão de Competências
+# BBTS: Sistema de Gestão de Competências
 
-## 📋 Sobre o Projeto
+Sistema da BB Tecnologia e Serviços para acompanhar competências profissionais no modelo SFIA.
+Cada competência tem uma sigla de 4 letras e um nível atual sobre o nível máximo, como `ITSP 5/6`.
 
-O BBTS (BB Tecnologia e Serviços) é um sistema web de gestão de competências profissionais desenvolvido para facilitar o acompanhamento e desenvolvimento de habilidades de colaboradores e equipes. O sistema oferece funcionalidades diferenciadas para colaboradores e gestores, permitindo visualização de competências, criação de equipes, feedback e jornadas de capacitação.
+- **Colaborador:** vê seus níveis, o perfil, as lacunas de conhecimento e a jornada de capacitação.
+- **Gestor:** vê equipes e conversas, convida membros, acompanha as competências mínimas da equipe,
+  adiciona competências e envia feedback.
 
-## ✨ Funcionalidades
+## Stack
 
-### Para Colaboradores
-- **Dashboard Personalizado**: Visualização de competências e níveis de proficiência
-- **Perfil Completo**: Exibição de formação acadêmica, experiência profissional, idiomas e habilidades
-- **Gráficos Interativos**: Acompanhamento visual do progresso em competências
-- **Lacunas de Conhecimento**: Identificação de áreas para desenvolvimento
-- **Jornada de Capacitação**: Sugestões personalizadas de cursos e treinamentos
+- React 19 e Vite 8, em JavaScript (JSX)
+- React Router 8
+- CSS Modules com tokens globais em CSS variables
+- Gráficos próprios em SVG e CSS
+- jsPDF para a ficha do colaborador
+- ESLint 9 com jsx-a11y, e Prettier
 
-### Para Gestores
-- **Gestão de Equipes**: Criação e administração de equipes de trabalho
-- **Gestão de Membros**: Convite e gerenciamento de colaboradores
-- **Visualização de Competências**: Análise das competências mínimas da equipe
-- **Sistema de Feedback**: Envio de feedback direto para colaboradores
-- **Adicionar Competências**: Cadastro de novas competências para colaboradores
-- **Conversas Recentes**: Acesso rápido às comunicações com a equipe
+## Como rodar
 
-## 🚀 Tecnologias Utilizadas
+Requer Node 20.19 ou mais novo.
 
-- **HTML5**: Estruturação semântica das páginas
-- **CSS3**: Estilização e design responsivo
-  - CSS Grid e Flexbox para layouts
-  - Variáveis CSS para tematização
-  - Animações e transições
-- **JavaScript (ES6+)**: Interatividade e funcionalidades dinâmicas
-- **Tailwind CSS**: Framework CSS (utilizado na tela de cadastro)
-- **Font Awesome**: Biblioteca de ícones
-- **Google Fonts**: Tipografias customizadas (Inter, Calibri, Montserrat, Nunito Sans)
-
-## 🎨 Paleta de Cores
-
-```css
---azul-principal: #3333BD    /* Azul institucional */
---amarelo-principal: #FCFC30 /* Amarelo destaque */
---cinza-claro: #F5F5F5       /* Fundo claro */
---cinza-input: #E0E0E0       /* Campos de entrada */
---branco: #FFFFFF            /* Branco puro */
-```
-
-## 🖥️ Páginas do Sistema
-
-### 1. **Inicio.html** - Tela de Login e Cadastro
-- Layout dividido (40% login / 60% cadastro)
-- Formulários de autenticação e criação de conta
-
-### 2. **TelaCadastro.html** - Cadastro Detalhado
-- Formulário completo de dados pessoais
-- Seções: Habilidades, Idiomas, Experiência Profissional, Certificações
-- Upload de foto de perfil
-- Campos dinâmicos (adicionar múltiplos itens)
-
-### 3. **TelaColaborador.html** - Dashboard do Colaborador
-- Visão geral de competências com gráfico radial
-- Níveis de competências com barras de progresso
-- Card de perfil
-- Lacunas de conhecimento
-- Jornada de capacitação
-
-### 4. **TelaPerfilColaborador.html** - Perfil Completo
-- Informações detalhadas do colaborador
-- Formação acadêmica e experiência profissional
-- Idiomas e habilidades
-- Gráfico de competências em formato donut
-
-### 5. **TelaHomeGestor.html** - Home do Gestor
-- Visualização de todas as equipes
-- Conversas recentes
-- Criação de novas equipes
-- Convite de membros
-
-### 6. **TelaEquipeGestor.html** - Gestão de Equipe
-- Informações da equipe
-- Grid de membros
-- Competências mínimas esperadas
-- Formulários de convite e feedback
-
-### 7. **TelaColaboradorGestor.html** - Gestão de Colaborador
-- Perfil do colaborador (visão do gestor)
-- Adicionar novas competências
-- Enviar feedback personalizado
-
-## 🔧 Instalação e Uso
-
-### Pré-requisitos
-- Navegador web moderno (Chrome, Firefox, Safari, Edge)
-- Servidor web local (opcional, mas recomendado)
-
-### Instalação
-
-1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/bbts.git
+npm install
+npm run dev
 ```
 
-2. Navegue até o diretório do projeto:
+O app abre em <http://localhost:3000>. Sem cadastro feito, tudo funciona com os dados fixos.
+
+| Script                 | O que faz                               |
+| ---------------------- | --------------------------------------- |
+| `npm run dev`          | Servidor de desenvolvimento             |
+| `npm run build`        | Gera o site em `dist/`                  |
+| `npm run preview`      | Serve o build localmente                |
+| `npm run lint`         | ESLint, com as regras de acessibilidade |
+| `npm run format`       | Formata com Prettier                    |
+| `npm run format:check` | Confere a formatação                    |
+
+A porta 3000 é proposital: é a porta local liberada no CORS da API. Na 5173, padrão do Vite, o
+navegador bloquearia as chamadas.
+
+## Variáveis de ambiente
+
+| Variável       | Uso        | Padrão                          |
+| -------------- | ---------- | ------------------------------- |
+| `VITE_API_URL` | URL da API | `https://bbts-api.onrender.com` |
+
+O padrão está no `.env`, versionado porque não é segredo. Para outra API na sua máquina, crie um
+`.env.local` com o valor desejado.
+
+## Rotas
+
+| Rota                               | Tela                              | Perfil      |
+| ---------------------------------- | --------------------------------- | ----------- |
+| `/`                                | Seleção de perfil                 | Público     |
+| `/login`                           | Login                             | Público     |
+| `/cadastro`                        | Cadastro                          | Público     |
+| `/colaborador`                     | Dashboard                         | Colaborador |
+| `/colaborador/perfil`              | Perfil                            | Colaborador |
+| `/colaborador/editar`              | Edição do cadastro                | Colaborador |
+| `/gestor`                          | Home do gestor                    | Gestor      |
+| `/gestor/equipes/:id`              | Equipe                            | Gestor      |
+| `/gestor/colaboradores/:id`        | Colaborador visto pelo gestor     | Gestor      |
+| `/gestor/colaboradores/:id/perfil` | Perfil completo visto pelo gestor | Gestor      |
+
+O fluxo é `/`, depois `/login`, depois o dashboard do perfil escolhido. O perfil fica no
+localStorage, e `RequireProfile` manda de volta para `/` quem tenta abrir rotas do outro perfil.
+O logo do cabeçalho volta para a seleção de perfil.
+
+## Estrutura
+
+```text
+src/
+  app/          rotas, RequireProfile, trilhas do breadcrumb e providers (Toast e Perfil)
+  layouts/      AppLayout, PublicLayout, TelaDividida, Palco, Cabecalho e Breadcrumb
+  components/
+    ui/           Button, Input, Select, Textarea, Card, Tag, Avatar, Toast, Skeleton...
+    competencias/ CompetencyBar, DonutChart e CompetencyList
+    colaborador/  blocos das telas de colaborador
+    gestor/       formulários de convite e feedback
+  pages/        uma pasta por tela
+  services/     api.js (único ponto de rede), cadastro, PDF e sessão
+  hooks/        useUsuario, useDadosColaborador, useFormulario, useRecurso...
+  mocks/        personas, equipes e competências fixas
+  styles/       tokens.css e global.css
+  assets/       imagens
+legacy/         versão antiga em HTML, CSS e JS
+docs/           plano e relatório da migração
+```
+
+## De onde vêm os dados
+
+- **Sem `usuarioId` no localStorage:** as telas usam a persona Pedro, de `src/mocks`.
+- **Com `usuarioId`:** as telas usam a API. Se ela falhar, caem no mock e mostram um aviso com
+  "Tentar de novo".
+- **Sempre mock:** competências, lacunas, jornada, formação, equipes e conversas, porque a API não
+  tem endpoints para eles.
+- **Simulados:** login, convites, feedback e nova competência. Eles validam o formulário e mostram
+  um toast, sem enviar nada.
+
+O `usuarioId` é gravado ao concluir um cadastro.
+
+## Design tokens
+
+`src/styles/tokens.css` é o único arquivo com cores, espaçamento, raios e sombras. Os breakpoints
+são sempre 640 e 960px, com media queries `min-width`.
+
+Regra de contraste: amarelo nunca é texto ou ícone sobre branco ou cinza claro. Use amarelo sobre
+azul, ou como fundo com texto azul.
+
+## Deploy no Render
+
+O front roda como site estático no Render, na URL que a API libera no CORS:
+`https://bbts-fod5.onrender.com`.
+
+**Com Blueprint:** o `render.yaml` da raiz já define tudo.
+
+**Com o site criado pelo painel,** o `render.yaml` não é lido. Configure em Settings:
+
+| Campo                  | Valor                                           |
+| ---------------------- | ----------------------------------------------- |
+| Build Command          | `npm ci --include=dev && npm run build`         |
+| Publish Directory      | `dist`                                          |
+| Environment            | `VITE_API_URL=https://bbts-api.onrender.com`    |
+| Redirects and Rewrites | Source `/*`, Destination `/index.html`, Rewrite |
+
+Sem o rewrite, o refresh em qualquer rota interna dá 404. Em outra URL, adicione a nova origem ao
+`CorsConfig.java` do repositório BBTS-API.
+
+## Versão antiga
+
+A pasta `legacy/` guarda o site anterior até a validação. Para abrir:
+
 ```bash
-cd bbts
+npx serve legacy
 ```
 
-3. **Opção 1 - Abrir diretamente:**
-   - Abra o arquivo `pages/Inicio.html` no navegador
+Depois de validar, basta apagar a pasta.
 
-4. **Opção 2 - Usar um servidor local (recomendado):**
-   
-   Com Python 3:
-   ```bash
-   python -m http.server 8000
-   ```
-   
-   Com Node.js (usando `http-server`):
-   ```bash
-   npx http-server -p 8000
-   ```
-   
-   Depois acesse: `http://localhost:8000/pages/Inicio.html`
+## Autores
 
-## 📱 Responsividade
-
-O sistema foi desenvolvido com design responsivo, adaptando-se a diferentes tamanhos de tela:
-
-- **Desktop**: Layout completo com todas as funcionalidades
-- **Tablet** (max-width: 1200px): Ajuste de grids e espaçamentos
-- **Mobile** (max-width: 600px): Layout otimizado para dispositivos móveis
-
-## 🎭 Funcionalidades JavaScript
-
-### Animações
-- Barras de progresso animadas
-- Gráficos radiais com animação incremental
-- Transições suaves entre estados
-
-### Interatividade
-- Formulários com validação
-- Campos dinâmicos (adicionar/remover)
-- Upload de imagem com preview
-- Dropdown de serviços
-- Navegação entre páginas
-
-### Simulações
-- Sistema de login (simulado)
-- Envio de feedback (simulado)
-- Convite de membros (simulado)
-- Criação de competências (simulado)
-
-## 🔐 Observações de Segurança
-
-⚠️ **IMPORTANTE**: Este é um protótipo educacional/demonstrativo. Para uso em produção, seria necessário:
-
-- Implementar autenticação real (JWT, OAuth, etc.)
-- Backend com API REST/GraphQL
-- Banco de dados para persistência
-- Criptografia de senhas
-- Proteção contra XSS e CSRF
-- HTTPS obrigatório
-
-## 👥 Autores
-
-- Vitor Santos
-- Renan Souza
-- Maria Vitória
-- Priscila Barboza
+Vitor Santos, Renan Souza, Maria Vitória e Priscila Barboza.
 
 ---
 
-**BBTS** - Desenvolvendo competências, construindo futuro 🚀
+**BBTS:** desenvolvendo competências, construindo futuro.

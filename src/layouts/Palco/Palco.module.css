@@ -1,0 +1,15 @@
+.palco {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+
+.faixa {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--faixa-altura);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background-color: var(--color-primary);
+}

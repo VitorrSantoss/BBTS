@@ -1,0 +1,15 @@
+.avatar {
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-100);
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.azul {
+  border: 3px solid var(--color-primary);
+}
+
+.amarelo {
+  border: 2px solid var(--color-accent);
+}

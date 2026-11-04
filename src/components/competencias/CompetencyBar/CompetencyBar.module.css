@@ -1,0 +1,84 @@
+.competencia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--space-4);
+}
+
+.nome {
+  min-width: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.sigla {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.nivel {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.barra {
+  position: relative;
+  padding-block: var(--space-1);
+}
+
+.trilha {
+  display: flex;
+  gap: var(--space-1);
+  height: 10px;
+}
+
+.segmento {
+  flex: 1;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-track);
+}
+
+.preenchido {
+  background-color: var(--color-progress);
+  animation: acender var(--duration-base) var(--easing-out) backwards;
+  animation-delay: calc(var(--ordem) * 60ms);
+}
+
+/* Fica fora da trilha e marca o fim do nível mínimo */
+.marca {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-deep);
+  transform: translateX(-2px);
+}
+
+.minimo {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.abaixo {
+  color: var(--color-feedback-error);
+  font-weight: var(--font-weight-semibold);
+}
+
+@keyframes acender {
+  from {
+    opacity: 0;
+    transform: scaleX(0.4);
+  }
+}

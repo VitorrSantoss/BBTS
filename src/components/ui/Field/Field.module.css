@@ -1,0 +1,99 @@
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.rotulo {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.obrigatorio {
+  font-weight: var(--font-weight-bold);
+}
+
+.dica {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.erro {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-feedback-error);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.iconeErro {
+  flex-shrink: 0;
+}
+
+/* Base visual compartilhada por Input, Select e Textarea */
+.controle {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-50);
+  color: var(--color-text);
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.controle:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.controle:focus {
+  background-color: var(--color-surface);
+}
+
+.controle::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.controle[aria-invalid='true'] {
+  border-width: 2px;
+  border-color: var(--color-feedback-error);
+  background-color: var(--color-primary-50);
+}
+
+.controle:disabled {
+  border-color: var(--color-border);
+  background-color: var(--color-primary-50);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* Sobre superfícies azuis: rótulos e erros claros, e amarelo só sobre o azul */
+[data-surface='primary'] .rotulo,
+[data-surface='primary'] .dica {
+  color: var(--color-text-inverse);
+}
+
+[data-surface='primary'] .erro {
+  color: var(--color-accent);
+}
+
+[data-surface='primary'] .controle {
+  border-color: var(--color-text-inverse-muted);
+  background-color: var(--color-on-primary-soft);
+  color: var(--color-text-inverse);
+}
+
+[data-surface='primary'] .controle::placeholder {
+  color: var(--color-text-inverse-muted);
+}
+
+[data-surface='primary'] .controle[aria-invalid='true'] {
+  border-color: var(--color-accent);
+  background-color: transparent;
+}

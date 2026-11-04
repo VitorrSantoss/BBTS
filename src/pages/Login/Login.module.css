@@ -1,0 +1,57 @@
+.painel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 440px;
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.titulo {
+  font-size: var(--font-size-3xl);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.perfil {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.botaoEntrar {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.cadastro {
+  display: inline-block;
+  padding-block: var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .painel {
+    padding: var(--space-10);
+  }
+}

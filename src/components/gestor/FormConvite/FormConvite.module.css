@@ -1,0 +1,15 @@
+.formulario {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.campo {
+  flex: 1;
+}
+
+/* Alinha o botão com o input, descontando a altura do rótulo */
+.enviar {
+  flex-shrink: 0;
+  margin-top: var(--space-6);
+}
