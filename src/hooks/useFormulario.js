@@ -70,5 +70,5 @@ export function useFormulario({ inicial, validar, aoEnviar }) {
     }
   };
 
-  return { valores, erros, enviando, alterar, limparErro, campo, enviar, resetar };
+  return { valores, erros, enviando, alterar, limparErro, aoSair, campo, enviar, resetar };
 }
