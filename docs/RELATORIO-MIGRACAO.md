@@ -27,12 +27,28 @@ Branch `refatoracao-react`. O plano está em [PLANO-MIGRACAO.md](PLANO-MIGRACAO.
 Em todas as telas, cada `alert()` virou toast, as 4 fontes viraram Inter e os estados de loading,
 vazio e erro foram adicionados. O `index.html` de splash saiu.
 
+## Redesenho visual
+
+Depois da migração, todas as telas foram redesenhadas, mantendo as cores, os logos e as regras de
+contraste do BB.
+
+- **Estrutura:** faixa azul contínua ao cabeçalho, com os cards flutuando sobre ela.
+- **Navegação:** pills, com o item ativo em amarelo, e transição suave entre telas.
+- **Entrada:** seleção de perfil e login em tela dividida, com o símbolo amarelo em destaque.
+- **Competências:** barras com um segmento por nível SFIA, e aviso quando o nível está abaixo do mínimo.
+- **Perfil:** competências logo após o cartão, e formação e experiência em linha do tempo.
+- **Gestor:** equipes com foto grande e contagem de membros, e conversas em lista compacta.
+- **Formulários:** campos preenchidos e painel lateral que acompanha a rolagem.
+
+O logo `foto_perfil.png` saiu da seleção de perfil, substituído por ícones nos cartões de escolha.
+
 ## Decisões para você revisar
 
 - **Rosca calculada.** O nível total agora vem das barras, então Pedro passa de 80% fixo para 84%.
 - **Sem vermelho nem verde.** A paleta proíbe cores novas, então erro usa azul escuro, ícone e texto.
   Para um vermelho funcional, troque `--color-feedback-error` em `tokens.css`.
 - **Tag de equipe translúcida.** Antes era azul. Agora segue a sua lista de identidade.
+- **Fora do redesenho.** Glassmorphism, gradientes e dark mode continuam de fora, pela regra de identidade.
 - **Sem itálico.** Saiu porque só os pesos 400, 600 e 700 da Inter foram pedidos.
 - **Conteúdo fictício.** Equipes 2 a 4 e os colaboradores além do Pedro não existiam nas telas
   antigas. A Equipe 4 não tem membros e Carolina não tem experiências, de propósito, para mostrar o

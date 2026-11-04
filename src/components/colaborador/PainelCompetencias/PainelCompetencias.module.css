@@ -29,6 +29,7 @@
 
 @media (min-width: 960px) {
   .painel {
+    padding: var(--space-8);
     grid-template-columns: 2fr 1fr;
   }
 

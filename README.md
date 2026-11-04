@@ -72,7 +72,7 @@ O logo do cabeçalho volta para a seleção de perfil.
 ```text
 src/
   app/          rotas, RequireProfile, trilhas do breadcrumb e providers (Toast e Perfil)
-  layouts/      AppLayout, PublicLayout, Cabecalho e Breadcrumb
+  layouts/      AppLayout, PublicLayout, TelaDividida, Palco, Cabecalho e Breadcrumb
   components/
     ui/           Button, Input, Select, Textarea, Card, Tag, Avatar, Toast, Skeleton...
     competencias/ CompetencyBar, DonutChart e CompetencyList

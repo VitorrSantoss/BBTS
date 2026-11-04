@@ -43,14 +43,14 @@
     grid-template-columns: 5fr 6fr;
   }
 
-  /* O símbolo amarelo cresce e sangra pelo canto do painel */
+  /* O símbolo amarelo sangra pela borda. A altura relativa o mantém longe do texto em janelas baixas */
   .marca {
     padding: var(--space-10);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     background-image: url('@/assets/images/Logo.png');
     background-repeat: no-repeat;
-    background-position: calc(100% + 120px) calc(50% - 40px);
-    background-size: 520px;
+    background-position: calc(100% + 72px) 16%;
+    background-size: auto 42%;
   }
 
   .logo {
