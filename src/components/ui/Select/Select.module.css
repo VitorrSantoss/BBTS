@@ -1,0 +1,18 @@
+.caixa {
+  position: relative;
+}
+
+.select {
+  padding-right: var(--space-10);
+  appearance: none;
+  cursor: pointer;
+}
+
+.icone {
+  position: absolute;
+  top: 50%;
+  right: var(--space-3);
+  color: var(--color-primary);
+  pointer-events: none;
+  transform: translateY(-50%);
+}

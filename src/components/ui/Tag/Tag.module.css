@@ -1,0 +1,22 @@
+.tag {
+  display: inline-block;
+  max-width: 100%;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+  overflow-wrap: anywhere;
+}
+
+.padrao {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-soft);
+}
+
+.chip {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}

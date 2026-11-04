@@ -1,0 +1,15 @@
+.estado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.aviso {
+  padding: var(--space-3) var(--space-4);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-100);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
