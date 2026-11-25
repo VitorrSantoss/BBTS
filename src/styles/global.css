@@ -1,152 +1,152 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import 'tailwindcss';
+@import './tokens.css';
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background-color: var(--bbts-fundo);
+    color: var(--texto);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  /*
+   * Foco visível em tudo: azul nas superfícies claras e amarelo sobre azul.
+   * No campo de data, o ícone do calendário recebe o foco por dentro e só :focus-within o enxerga.
+   */
+  :focus-visible,
+  input[type='date']:focus-within {
+    outline: 3px solid var(--bbts-azul);
+    outline-offset: 2px;
+  }
+
+  [data-surface='primary'] :focus-visible {
+    outline-color: var(--bbts-amarelo);
+  }
+
+  /* main recebe foco por código ao trocar de rota: o anel só serve para elementos interativos */
+  main:focus {
+    outline: none;
+  }
+
+  ::selection {
+    background: var(--bbts-amarelo);
+    color: var(--azul-profundo);
+  }
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+@utility tabular {
+  font-variant-numeric: tabular-nums;
 }
 
-body {
-  margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-family);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-base);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@utility skeleton {
+  background-color: var(--azul-100);
+  background-image: linear-gradient(90deg, transparent 0%, rgb(255 255 255 / 60%) 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: brilho 1.4s var(--ease-saida) infinite;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-height: 100dvh;
+@utility anim-overlay {
+  &[data-state='open'] {
+    animation: aparecer var(--dur-base) var(--ease-saida);
+  }
+  &[data-state='closed'] {
+    animation: sumir var(--dur-rapida) ease-in;
+  }
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-  color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-title);
+@utility anim-dialog {
+  &[data-state='open'] {
+    animation: dialogo-entrar var(--dur-base) var(--ease-saida);
+  }
+  &[data-state='closed'] {
+    animation: sumir var(--dur-rapida) ease-in;
+  }
 }
 
-p,
-figure,
-dl,
-dd {
-  margin: 0;
+@utility anim-menu {
+  &[data-state='open'] {
+    animation: menu-entrar var(--dur-rapida) var(--ease-saida);
+  }
 }
 
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+@utility anim-toast {
+  &[data-state='open'] {
+    animation: toast-entrar var(--dur-base) var(--ease-saida);
+  }
+  &[data-state='closed'] {
+    animation: sumir var(--dur-rapida) ease-in;
+  }
 }
 
-img,
-svg {
-  display: block;
-  max-width: 100%;
+@keyframes brilho {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
 }
-
-a {
-  color: inherit;
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
 }
-
-button,
-input,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-}
-
-fieldset {
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-/*
- * Foco visível em tudo: azul nas superfícies claras e amarelo sobre azul.
- * No campo de data, o ícone do calendário recebe o foco por dentro e só :focus-within o enxerga.
- */
-:focus-visible,
-input[type='date']:focus-within {
-  outline: 3px solid var(--focus-color);
-  outline-offset: 2px;
-}
-
-[data-surface='primary'] {
-  --focus-color: var(--color-accent);
-}
-
-[data-surface='primary'] h1,
-[data-surface='primary'] h2,
-[data-surface='primary'] h3 {
-  color: var(--color-text-inverse);
-}
-
-/* main recebe foco por código ao trocar de rota. O anel só serve para elementos interativos */
-main:focus {
-  outline: none;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  border: 0;
-  white-space: nowrap;
-}
-
-.skip-link {
-  position: absolute;
-  top: var(--space-2);
-  left: var(--space-2);
-  z-index: var(--z-skip-link);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-sm);
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
-  transform: translateY(-200%);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-/* Troca de tela: o conteúdo entra subindo de leve, e cabeçalho e faixa ficam parados */
-::view-transition-old(root) {
-  animation: 120ms ease both sair;
-}
-
-::view-transition-new(root) {
-  animation: var(--duration-base) var(--easing-out) both entrar;
-}
-
-@keyframes sair {
+@keyframes sumir {
   to {
     opacity: 0;
   }
 }
+@keyframes dialogo-entrar {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 8px)) scale(0.98);
+  }
+}
+@keyframes menu-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+@keyframes toast-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes preencher {
+  from {
+    transform: scaleX(0);
+  }
+}
 
+/* Troca de tela: o conteúdo entra subindo de leve; cabeçalho e faixa ficam parados */
+::view-transition-old(root) {
+  animation: 120ms ease both sumir;
+}
+::view-transition-new(root) {
+  animation: var(--dur-base) var(--ease-saida) both entrar;
+}
 @keyframes entrar {
   from {
     opacity: 0;
@@ -160,7 +160,6 @@ main:focus {
   ::view-transition-new(*) {
     animation: none !important;
   }
-
   *,
   *::before,
   *::after {
